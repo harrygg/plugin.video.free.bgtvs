@@ -119,6 +119,9 @@ channels.append(c)
 c = Channel('Канал 3', 'http://ios.cdn.bg:2017/fls/kanal3.stream/playlist.m3u8', 'http://kanal3.bg/assets/css/images/logo.png')
 channels.append(c)
 
+c = Channel('Евроком', 'rtmp://live.eurocom.bg:1935/live/ swfUrl=http://eurocom.bg/js/jwplayer/jwplayer.flash.swf pageUrl=http://eurocom.bg/live playpath=stream live=true')
+channels.append(c)
+
 c = Channel('City TV', 'http://nodeb.gocaster.net:1935/CGL/_definst_/mp4:TODAYFM_TEST2/playlist.m3u8', 'http://city.bg/themes/city/images/city-web.png')
 channels.append(c)
 
@@ -155,34 +158,14 @@ channels.append(c)
 c = Channel('Алфа', 'rtmp://ataka.tv/live app=live swfUrl=http://www.ataka.tv/flash/flowplayer.commercial-3.2.7.swf pageURL=http://www.ataka.tv/ playpath=live', 'http://www.ataka.tv/images/logo_alfa.jpg')
 channels.append(c)
 
-# channel = {}
-# channel['name'] = 'ТВ 1'
-# channel['icon'] = 'http://www.tv1channel.org/templates/rt_oculus/images/logo/light/logo.png'
-# channel['url'] = 'http://cdn.livestream.com/grid/LSPlayer.swf?channel=viktoria&clip=&time=&height=340&width=560&autoplay=true pageURL=http://www.tv1channel.org/index.php/livetv swfUrl=http://cdn.livestream.com/grid/LSPlayer.swf?channel=viktoria&clip=&time=&height=340&width=560&autoplay=true'
-# channels.append(channel)
+c = Channel('Национално-патриотична телевизия', 'mms://bnptv.tv:10801', 'http://www.bnptv.info/tv/templates/rhuk_milkyway/images/mw_joomla_logo.png')
+channels.append(c)
 
-# channel = {}
-# channel['name'] = 'EMTV'
-# channel['icon'] = ''
-# channel['url'] = 'mms://93.152.172.201/emtv pageUrl=http://emusictv.eu/'
-# channels.append(channel)
+#c = Channel('DSTV', 'rtmp://46.249.95.140:1935/live app=live playpath=livestream pageUrl=http://dstv-bg.com/ swfUrl=http://fpdownload.adobe.com/strobe/FlashMediaPlayback.swf/[[DYNAMIC]]/1', 'http://dstv-bg.com/wp-content/uploads/2013/08/dstv-malko-Logogg.png')
+#channels.append(c)
 
-# channel = {}
-# channel['name'] = 'DSTV'
-# channel['icon'] = 'http://dstv-bg.com/wp-content/uploads/2013/08/dstv-malko-Logogg.png'
-# channel['url'] = 'rtmp://46.249.95.140:1935/live app=live playpath=livestream pageUrl=http://dstv-bg.com/ swfUrl=http://fpdownload.adobe.com/strobe/FlashMediaPlayback.swf/[[DYNAMIC]]/1'
-# channels.append(channel)
+#c = Channel('Вест ТВ', 'rtmpe://31.13.223.103/vtv app=vtv playpath=vtv pageURL=player.neterra.net/vtv/player.php swfUrl=http://player.neterra.net/vtv/flowplayer/flowplayer.securestreaming-3.2.9.swf token=qqasw23evtv', 'http://vtv.bg/images/logo.gif')
+#channels.append(c)
 
-# channel = {}
-# channel['name'] = 'Вест ТВ'
-# channel['icon'] = 'http://vtv.bg/images/logo.gif'
-# channel['url'] = 'rtmpe://31.13.223.103/vtv app=vtv playpath=vtv pageURL=player.neterra.net/vtv/player.php swfUrl=http://player.neterra.net/vtv/flowplayer/flowplayer.securestreaming-3.2.9.swf token=qqasw23evtv'
-# channels.append(channel)
-
-# channel = {}
-# channel['name'] = 'Национално-патриотична телевизия'
-# channel['icon'] = 'http://www.bnptv.info/tv/templates/rhuk_milkyway/images/mw_joomla_logo.png'
-# channel['url'] = 'mms://bnptv.tv:10801'
-# channels.append(channel)
 
 
