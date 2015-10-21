@@ -103,14 +103,13 @@ c.icon = 'http://static1.novatv.bg/layout/novatv/images/big_nav_logo.png'
 c.url = 'rtmp://edge1.evolink.net:2010/fls playpath=ntv_2.stream pageURL=http://i.cdn.bg/live/ app=fls/_definst_ token=N0v4TV6#2 live=true'
 channels.append(c)
 
-c = Channel('ТВ 7')
-c.icon = 'http://tv7.bg/img/public/logoTv7.png'
-c.url = 'http://tv7-hls-eu-perm-live.hls.adaptive.level3.net/tv7live.m3u8'
+c = Channel('ТВ 7', 'http://tv7-hls-eu-perm-live.hls.adaptive.level3.net/tv7live.m3u8', 'http://tv7.bg/img/public/logoTv7.png')
 channels.append(c)
 
-c = Channel('Bulgaria On Air')
-c.icon = 'http://www.bgonair.bg/media/template/default/img/ico/logo.png'
-c.url = 'http://ios.cdn.bg:2006/fls/bonair.stream/playlist.m3u8'
+c = Channel('Bulgaria On Air', 'http://ios.cdn.bg:2006/fls/bonair.stream/playlist.m3u8', 'http://www.bgonair.bg/media/template/default/img/ico/logo.png')
+channels.append(c)
+
+c = Channel('BloombergTV Bulgaria', 'http://ios.cdn.bg:2091/fls/bloomberg.stream/playlist.m3u8', '')
 channels.append(c)
 
 c = Channel('News 7', 'http://tv7-hls-eu-perm-live.hls.adaptive.level3.net/news7live.m3u8', 'http://news7.bg/img/news7/logoNews7.png')
@@ -167,5 +166,9 @@ channels.append(c)
 #c = Channel('Вест ТВ', 'rtmpe://31.13.223.103/vtv app=vtv playpath=vtv pageURL=player.neterra.net/vtv/player.php swfUrl=http://player.neterra.net/vtv/flowplayer/flowplayer.securestreaming-3.2.9.swf token=qqasw23evtv', 'http://vtv.bg/images/logo.gif')
 #channels.append(c)
 
+#Eвроком Царевец
+
+#Кис 13 src=rtmp%3A%2F%2F109.160.96.230%2Flive%2FmyStream&streamType=live
+#c = Channel('Кис 13', 'rtmp://109.160.96.230/myStream&streamType=live app=live swfUrl=http://109.160.96.230/StrobeMediaPlayback.swf pageURL=http://kiss13.net/live.html playpath=live', 'http://kiss13.net/templates/street_tv/images/style5/logo.png')
 
 
