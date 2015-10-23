@@ -59,7 +59,7 @@ class Channel:
 		else:
 			return self.playlist
 
-c = Channel('БНТ')
+c = Channel('БНТ 1')
 c.icon = 'http://cdn.bg/images/www/bnt/16x9-BNT1.png'
 c.tcUrl = 'rtmp://edge3.evolink.net:2020/fls'
 c.pageUrl = 'http://cdn.bg/live/'
@@ -109,7 +109,7 @@ channels.append(c)
 c = Channel('Bulgaria On Air', 'http://ios.cdn.bg:2006/fls/bonair.stream/playlist.m3u8', 'http://www.bgonair.bg/media/template/default/img/ico/logo.png')
 channels.append(c)
 
-c = Channel('BloombergTV Bulgaria', 'http://ios.cdn.bg:2091/fls/bloomberg.stream/playlist.m3u8', '')
+c = Channel('BloombergTV Bulgaria', 'http://ios.cdn.bg:2091/fls/bloomberg.stream/playlist.m3u8', 'http://www.bgonair.bg/media/files/article/640x360/720/7208ce5c53416420f10143fdb6c26a6c.jpeg')
 channels.append(c)
 
 c = Channel('News 7', 'http://tv7-hls-eu-perm-live.hls.adaptive.level3.net/news7live.m3u8', 'http://news7.bg/img/news7/logoNews7.png')
