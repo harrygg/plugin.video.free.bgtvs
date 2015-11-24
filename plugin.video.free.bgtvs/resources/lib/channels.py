@@ -1,6 +1,22 @@
 ﻿# -*- coding: utf-8 -*-
-import urllib2, re
-
+import urllib2, re, xbmc, sys
+# append pydev remote debugger
+REMOTE_DBG = False
+if REMOTE_DBG:
+	try:
+		sys.path.append("C:\\Software\\Java\\eclipse-luna\\plugins\\org.python.pydev_4.4.0.201510052309\\pysrc")
+		import pydevd
+		xbmc.log("After import pydevd")
+		#import pysrc.pydevd as pydevd # with the addon script.module.pydevd, only use `import pydevd`
+		# stdoutToServer and stderrToServer redirect stdout and stderr to eclipse console
+		pydevd.settrace('localhost', stdoutToServer=False, stderrToServer=False, suspend=False)
+	except ImportError:
+		xbmc.log("Error: You must add org.python.pydev.debug.pysrc to your PYTHONPATH.")
+		sys.exit(1)
+	except:
+		xbmc.log("Unexpected error:", sys.exc_info()[0]) 
+		sys.exit(1)
+		
 channels = []
 channel = {}
 bnt_hash = ''
@@ -8,15 +24,14 @@ bnt_channels = []
 
 def getBntHash():
 	global bnt_hash
-	if bnt_hash == '':
-		response = _Request('http://tv.bnt.bg/bnt1/16x9/')
-		matches = re.compile('iframe.*src[\s=\"]*(.*?)["\'\s]+', re.DOTALL).findall(response)
+	response = _Request('http://tv.bnt.bg/bnt1/16x9/')
+	matches = re.compile('iframe.*src[\s=\"]*(.*?)["\'\s]+', re.DOTALL).findall(response)
+	if len(matches) > 0:
+		response = _Request(matches[0])
+		matches = re.compile('stream\?at=(.*?)[\s"\']+').findall(response)
 		if len(matches) > 0:
-			response = _Request(matches[0])
-			matches = re.compile('stream\?at=(.*?)[\s"\']+').findall(response)
-			if len(matches) > 0:
-				bnt_hash = matches[0]
-				return matches[0]
+			bnt_hash = matches[0]
+			return matches[0]
 
 def _Request(url):
 	req = urllib2.Request(url)
@@ -38,12 +53,12 @@ class Channel:
 	name = ''
 	url = ''
 	icon = ''
-	hash = ''
 	url = ''
 	
 	def __init__(self, cname, cUrl = '', cIcon = ''):
 		self.name = cname
-		hash = getBntHash()
+		if 'БНТ' in cname and bnt_hash == '':
+			getBntHash()
 		if cUrl != '':
 			self.url = cUrl
 		if cIcon != '':
