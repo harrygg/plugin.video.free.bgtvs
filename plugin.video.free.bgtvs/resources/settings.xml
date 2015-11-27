@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<settings>
-    <category label="Parser">
-        <setting label="Parser url" type="text" id="parser" default=""/>
-    </category>
-</settings>
