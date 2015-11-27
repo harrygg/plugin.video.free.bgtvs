@@ -91,6 +91,12 @@
             "icon": "http://cem.bg/files/131738198140TRAVEL_CURVES_SHADOW.gif"
         },
         {
+            "id": "traveltv",
+            "name": "Travel TV HD",
+            "url": "http://31.13.223.104/travel/community.stream/playlist.m3u8?hash=943212345",
+            "icon": "http://cem.bg/files/131738198140TRAVEL_CURVES_SHADOW.gif"
+        },        
+        {
             "id": "agrotv",
             "name": "Агро ТВ",
             "url": "rtmp://agrotvlive1.srfms.com:3021/live/ pageUrl=http://www.agrotv.bg/  app=live/ playpath=livestream swfUrl=http://www.agrotv.bg/flowplayer/flowplayer.rtmp-3.2.3.swf live=true",
@@ -138,6 +144,13 @@
             "url": "http://95.87.0.78:8080/tvstz.m3u8",
             "icon": "http://tvstz.com/images/logo_TVSTZ.png"
         },
+        
+        {
+            "id": "delta",
+            "name": "Делта Русе",
+            "url": "http://deltacatv.com/delta.m3u",
+            "icon": "http://www.deltacatv.com/wp-content/uploads/delta_logo_new.png"
+        },        
         {
             "id": "kanal6",
             "name": "Канал 6 Сливен",
@@ -162,6 +175,12 @@
             "url": "mms://stream.kompasbg.com:8081",
             "icon": "http://www.predavatel.com/bg/5/burgas_snimki/tv_kanal0.gif"
         },
+        {
+            "id": "darts",
+            "name": "ТВ Дартс Благоевград",
+            "url": "http://31.13.223.101/darts/darts.stream/playlist.m3u8?hash=943212345",
+            "icon": "http://cem.bg/files/1352295679471darts.gif"
+        },        
         {
             "id": "city",
             "name": "City TV",
@@ -205,6 +224,12 @@
             "icon": "http://cem.bg/files/141292462488039.png"
         },
         {
+            "id": "romatv",
+            "name": "Рома ТВ",
+            "url": "http://185.46.161.3/hls/sd.m3u8",
+            "icon": "http://romatv.bg/templates/tube/images/logo.png"
+        },
+        {
             "id": "alfa",
             "name": "Алфа",
             "url": "rtmp://ataka.tv/live app=live swfUrl=http://www.ataka.tv/flash/flowplayer.commercial-3.2.7.swf pageURL=http://www.ataka.tv/ playpath=live",
@@ -218,7 +243,7 @@
         },
         {
             "id": "pm",
-            "name": "ТВ Пловдивска Метрополия",
+            "name": "Пловдивска Метрополия",
             "url": "rtmp://31.13.218.108/live/&amp;start=1&amp;autostart=true swfUrl=http://www.plovdivskamitropolia.bg/modules/mod_playerjr/player-licensed5.swf pageURL=http://www.plovdivskamitropolia.bg/ playpath=mpegts.stream live=true",
             "icon": "http://cem.bg/files/1366886847412pptv.gif"
         },

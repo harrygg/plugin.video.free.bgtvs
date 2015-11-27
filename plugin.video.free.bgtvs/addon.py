@@ -5,7 +5,7 @@ from resources.lib.helper import *
 		
 reload(sys)  
 sys.setdefaultencoding('utf8')
-_addon = xbmcaddon.Addon(id='plugin.video.free.bgtvs')
+
 params = GetParams()
 
 def Categories():
