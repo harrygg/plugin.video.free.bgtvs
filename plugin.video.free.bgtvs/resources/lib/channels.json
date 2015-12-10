@@ -13,7 +13,7 @@
             "icon": "http://www.btv.bg//static/bg/microsites/btv/img/btv-logo.png"
         },
         {
-            "id": "nova",
+            "id": "novatv",
             "name": "Нова",
             "url": "rtmp://edge1.evolink.net:2010/fls playpath=ntv_2.stream pageURL=http://i.cdn.bg/live/ app=fls/_definst_ token=N0v4TV6#2 live=true",
             "icon": "http://static1.novatv.bg/layout/novatv/images/big_nav_logo.png"
@@ -37,7 +37,7 @@
             "icon": "http://www.bgonair.bg/media/template/default/img/ico/logo.png"
         },
         {
-            "id": "bloomberg",
+            "id": "bloombergtvbulgaria",
             "name": "BloombergTV Bulgaria",
             "url": "http://ios.cdn.bg:2091/fls/bloomberg.stream/playlist.m3u8",
             "icon": "http://cem.bg/files/144041789115720.png"
@@ -79,7 +79,7 @@
             "icon": "http://tv.bnt.bg/img/menu/logoBNTworld.png"
         },
         {
-            "id": "sportal",
+            "id": "sportalbg",
             "name": "Спортал ТВ",
             "url": "http://pri.cdn.bg:2001/fls/sportal_tv_hd.stream/playlist.m3u8",
             "icon": "http://img2.sportal.bg/images/header/logo.png"
@@ -91,7 +91,7 @@
             "icon": "http://cem.bg/files/131738198140TRAVEL_CURVES_SHADOW.gif"
         },
         {
-            "id": "traveltv",
+            "id": "travelhd",
             "name": "Travel TV HD",
             "url": "http://31.13.223.104/travel/community.stream/playlist.m3u8?hash=943212345",
             "icon": "http://cem.bg/files/131738198140TRAVEL_CURVES_SHADOW.gif"
@@ -103,7 +103,7 @@
             "icon": "http://www.agrotv.bg/images/logo.png"
         },
         {
-            "id": "vest",
+            "id": "vtv",
             "name": "Вест ТВ",
             "url": "http://31.13.223.104:1935/vtv/vtv.stream/playlist.m3u8?hash=43212345",
             "icon": "http://vtv.bg/images/logo.gif"
@@ -115,13 +115,13 @@
             "icon": "http://www.cem.bg/files/141630438486979.jpg"
         },
         {
-            "id": "tv1channel",
+            "id": "tv1",
             "name": "ТV1",
             "url": "http://xviktoriax.api.channel.livestream.com/3.0/playlist.m3u8",
             "icon": "http://www.tv1channel.org/templates/rt_oculus/images/logo/light/logo.png"
         },
         {
-            "id": "bgdnes",
+            "id": "bgdnestv",
             "name": "БГ Днес",
             "url": "http://80.72.95.40:8088",
             "icon": "http://cem.bg/files/1299846574356bgdnes.gif"
@@ -133,56 +133,62 @@
             "icon": "http://www.chernomore.bg/media/template/default/img/img/logo.png"
         },
         {
-            "id": "stoichev",
+            "id": "tvstoichev",
             "name": "Стойчев ТВ Стара Загора",
             "url": "http://ios.cdn.bg:2015/fls/tvstoichev.stream/playlist.m3u8",
             "icon": "http://cem.bg/files/1294388656290%D0%9B%D0%9E%D0%93%D0%9E.bmp"
         },
         {
-            "id": "tvsz",
+            "id": "tvstz",
             "name": "ТВ Стара Загора",
             "url": "http://95.87.0.78:8080/tvstz.m3u8",
             "icon": "http://tvstz.com/images/logo_TVSTZ.png"
         },
         
         {
-            "id": "delta",
+            "id": "deltatv",
             "name": "Делта Русе",
             "url": "http://deltacatv.com/delta.m3u",
-            "icon": "http://www.deltacatv.com/wp-content/uploads/delta_logo_new.png"
-        },        
+            "icon": "http://logos.kodibg.org/deltatv.png"
+        },       
         {
             "id": "kanal6",
             "name": "Канал 6 Сливен",
             "url": "http://84.54.139.86:91",
-            "icon": "http://kanal6.bg/images/sampledata/parks/Kanal-6-logo-mini.png"
+            "icon": "http://logos.kodibg.org/kanal6.png"
         },
         {
-            "id": "rimex",
+            "id": "rimextv",
             "name": "Римекс ТВ Враца",
             "url": "http://transcoder1.bitcare.eu:5516/flv/rimextv.flv",
             "icon": "http://tv.rimex-ltd.com/wp-content/themes/RimexTV-MI/images/logo.png"
         },
         {
-            "id": "tvmiks",
+            "id": "tvmix",
             "name": "ТВ Микс Бургас",
             "url": "http://109.160.31.20:8090/tvmix_big.flv",
-            "icon": "http://www.predavatel.com/bg/5/burgas_snimki/tv_mix.png"
+            "icon": "http://logos.kodibg.org/tvmix.png"
         },
         {
-            "id": "kompasbg",
+            "id": "kanal0",
             "name": "Канал 0 Бургас",
             "url": "mms://stream.kompasbg.com:8081",
             "icon": "http://www.predavatel.com/bg/5/burgas_snimki/tv_kanal0.gif"
         },
         {
-            "id": "darts",
+            "id": "tvdarts",
             "name": "ТВ Дартс Благоевград",
             "url": "http://31.13.223.101/darts/darts.stream/playlist.m3u8?hash=943212345",
-            "icon": "http://cem.bg/files/1352295679471darts.gif"
-        },        
+            "icon": "http://logos.kodibg.org/tvdarts.png"
+        },
+				{
+            "id": "tvvarna",
+            "name": "ТВ Варна",
+            "url": "rtmp://78.129.184.15:39421/streaming playPath=stream app=stream swfUrl=http://tvvarna.listen2myshow.com/player-licensed.swf?87 pageUrl=http://tvvarna.listen2myshow.com/ live=true",
+            "icon": "http://logos.kodibg.org/tvvarna.png"
+        },
         {
-            "id": "city",
+            "id": "citytv",
             "name": "City TV",
             "url": "http://nodeb.gocaster.net:1935/CGL/_definst_/mp4:TODAYFM_TEST2/playlist.m3u8",
             "icon": "http://city.bg/themes/city/images/city-web.png"
@@ -203,25 +209,22 @@
             "id": "tiankovfolk",
             "name": "Тянков Фолк",
             "url": "http://31.13.223.101:80/tiankov/tiankov-folk.stream/playlist.m3u8?hash=943212345",
-            "icon": "http://cem.bg/files/141292462488039.png"
+            "icon": "http://logos.kodibg.org/tiankovfolk.png",
+            "icon2": "http://cem.bg/files/141292462488039.png"
         },
         {
-            "id": "tiankovfolk",
-            "name": "Тянков Фолк",
-            "url": "http://31.13.223.101:80/tiankov/tiankov-folk.stream/playlist.m3u8?hash=943212345",
-            "icon": "http://cem.bg/files/141292462488039.png"
-        },
-        {
-            "id": "tiankovorient",
+            "id": "tiankovorientfolk",
             "name": "Тянков Ориент",
             "url": "http://31.13.223.101:80/tiankov/tiankov-orient.stream/playlist.m3u8?hash=943212345",
-            "icon": "http://cem.bg/files/141292462488039.png"
+            "icon": "http://logos.kodibg.org/tiankovfolk.png",
+            "icon2": "http://cem.bg/files/141292462488039.png"
         },
         {
-            "id": "tiankovpopfolk",
+            "id": "tiankovpop",
             "name": "Тянков Поп-фолк",
             "url": "http://31.13.223.103:80/tiankov/tiankov-popfolk.stream/playlist.m3u8?hash=943212345",
-            "icon": "http://cem.bg/files/141292462488039.png"
+            "icon": "http://logos.kodibg.org/tiankovpop.png",
+            "icon2": "http://cem.bg/files/141292462488039.png"
         },
         {
             "id": "romatv",
@@ -233,16 +236,17 @@
             "id": "alfa",
             "name": "Алфа",
             "url": "rtmp://ataka.tv/live app=live swfUrl=http://www.ataka.tv/flash/flowplayer.commercial-3.2.7.swf pageURL=http://www.ataka.tv/ playpath=live",
-            "icon": "http://www.ataka.tv/images/logo_alfa.jpg"
+            "icon": "http://logos.kodibg.org/alfa.png",
+            "icon2": "http://www.ataka.tv/images/logo_alfa.jpg"
         },
         {
-            "id": "npt",
+            "id": "bnptv",
             "name": "Национално-патриотична телевизия",
             "url": "mms://bnptv.tv:10801",
             "icon": "http://www.bnptv.info/tv/templates/rhuk_milkyway/images/mw_joomla_logo.png"
         },
         {
-            "id": "pm",
+            "id": "pmtv",
             "name": "Пловдивска Метрополия",
             "url": "rtmp://31.13.218.108/live/&amp;start=1&amp;autostart=true swfUrl=http://www.plovdivskamitropolia.bg/modules/mod_playerjr/player-licensed5.swf pageURL=http://www.plovdivskamitropolia.bg/ playpath=mpegts.stream live=true",
             "icon": "http://cem.bg/files/1366886847412pptv.gif"
@@ -254,13 +258,13 @@
             "icon": "http://www.christiantv-bg.com/images/logo.png"
         },
         {
-            "id": "arttv",
+            "id": "tvart",
             "name": "Арт ТВ",
             "url": "http://80.72.95.9:1935/live/tvart/playlist.m3u8",
             "icon": "http://cem.bg/files/125008251019Graphic1.jpg"
         },
         {
-            "id": "muvi",
+            "id": "muvitv",
             "name": "ТВ Медицински Университет Варна",
             "url": "http://ios.cdn.bg:2013/fls/livetv.stream/playlist.m3u8",
             "icon": "http://mu-vi.tv/SiteAssets/logo-mu-tv.png"
