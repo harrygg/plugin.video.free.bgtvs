@@ -1,7 +1,23 @@
 ﻿# -*- coding: utf-8 -*-
 import urllib, urllib2, re, xbmc, sys, json, os
 from xbmc import LOGERROR
-
+# append pydev remote debugger
+REMOTE_DBG = False
+if REMOTE_DBG:
+	try:
+		sys.path.append("C:\\Software\\Java\\eclipse-luna\\plugins\\org.python.pydev_4.4.0.201510052309\\pysrc")
+		import pydevd
+		xbmc.log("After import pydevd")
+		#import pysrc.pydevd as pydevd # with the addon script.module.pydevd, only use `import pydevd`
+		# stdoutToServer and stderrToServer redirect stdout and stderr to eclipse console
+		pydevd.settrace('localhost', stdoutToServer=False, stderrToServer=False, suspend=False)
+	except ImportError:
+		xbmc.log("Error: You must add org.python.pydev.debug.pysrc to your PYTHONPATH.")
+		sys.exit(1)
+	except:
+		xbmc.log("Unexpected error:", sys.exc_info()[0]) 
+		sys.exit(1)
+		
 clist = []
 
 try:
@@ -88,6 +104,11 @@ def GetParams():
 				param[splitparams[0]] = splitparams[1]
 	return param
 
+def GetIcon(c):
+	if 'useIcon' in c.keys() and c['useIcon']:
+		return c['icon']
+	else:
+		return "http://logos.kodibg.org/%s.png" % c['id']
 #Eвроком Царевец
 
 #Кис 13 src=rtmp%3A%2F%2F109.160.96.230%2Flive%2FmyStream&streamType=live

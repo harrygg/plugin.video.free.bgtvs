@@ -10,7 +10,7 @@ params = GetParams()
 
 def Categories():
 	for i in range (0, len(clist)):
-		AddItem(clist[i]['name'].encode('utf-8'), i, clist[i]['icon'])
+		AddItem(clist[i]['name'].encode('utf-8'), i, GetIcon(clist[i]))
 
 def AddItem(name, index, icon):
 	u = sys.argv[0] + "?index=" + str(index) + "&mode=1&name=" + urllib.quote_plus(name)

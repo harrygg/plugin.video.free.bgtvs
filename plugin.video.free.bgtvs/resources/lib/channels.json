@@ -85,6 +85,13 @@
             "icon": "http://img2.sportal.bg/images/header/logo.png"
         },
         {
+			"id": "championstv",
+			"name": "Champions TV",
+			"url": "http://46.10.150.112/alpha/alpha/playlist.m3u8",
+			"icon": "http://bravo.btv.bg/web/cl_tv_logo.png",
+			"useIcon" : true
+		},
+        {
             "id": "traveltv",
             "name": "Travel TV",
             "url": "http://31.13.223.101:80/travel/travel.stream/playlist.m3u8?hash=943212345",
