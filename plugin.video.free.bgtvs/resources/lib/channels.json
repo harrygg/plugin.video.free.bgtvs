@@ -1,230 +1,290 @@
-﻿{
-	"channels": [{
+{
+	"channels": [
+		{
 			"id": "bnt1",
 			"name": "БНТ 1",
-			"url": "http://ios.cdn.bg:2020/fls/bnt.stream/playlist.m3u8?at=",
-			"icon": "http://cdn.bg/images/www/bnt/16x9-BNT1.png"
+			"url": [ "http://ios.cdn.bg:2020/fls/bnt.stream/playlist.m3u8?at=" ],
+			"icon": "http://cdn.bg/images/www/bnt/16x9-BNT1.png",
+			"pageUrl": "http://tv.bnt.bg/bnt1/16x9/",
+			"getIframe": true
 		}, {
 			"id": "btv",
 			"name": "bTV",
-			"url": "rtmp://46.10.150.111:80/ios playpath=btvbglive pageURL=http://www.btv.bg/live/ app=ios swfUrl=http://images.btv.bg/fplayer/flowplayer.commercial-3.2.5.swf live=true",
+			"url": [ "rtmp://46.10.150.111:80/ios playpath=btvbglive pageURL=http://www.btv.bg/live/ app=ios swfUrl=http://images.btv.bg/fplayer/flowplayer.commercial-3.2.5.swf live=true" ],
 			"icon": "http://www.btv.bg//static/bg/microsites/btv/img/btv-logo.png"
 		}, {
-			"id": "nova",
+			"id": "novatv",
 			"name": "Нова",
-			"url": "rtmp://edge1.evolink.net:2010/fls playpath=ntv_2.stream pageURL=http://i.cdn.bg/live/ app=fls/_definst_ token=N0v4TV6#2 live=true",
+			"url": [ "rtmp://edge1.evolink.net:2010/fls playpath=ntv_2.stream pageURL=http://i.cdn.bg/live/ app=fls/_definst_ token=N0v4TV6#2 live=true" ],
 			"icon": "http://static1.novatv.bg/layout/novatv/images/big_nav_logo.png"
 		}, {
 			"id": "bnthd",
 			"name": "БНТ HD",
-			"url": "http://ios.cdn.bg:2020/fls/bntHDt.stream/playlist.m3u8?at=",
-			"icon": "http://i.cdn.bg/images/www/bnt/BNTliveHD.png"
+			"url": [ "http://ios.cdn.bg:2020/fls/bntHDt.stream/playlist.m3u8?at="	],
+			"icon": "http://i.cdn.bg/images/www/bnt/BNTliveHD.png",
+			"pageUrl": "http://tv.bnt.bg/bnthd",
+			"getIframe": true
 		}, {
 			"id": "tv7",
 			"name": "ТВ 7",
-			"url": "http://tv7-hls-eu-perm-live.hls.adaptive.level3.net/tv7live.m3u8",
+			"url": [ "http://tv7-hls-eu-perm-live.hls.adaptive.level3.net/tv7live.m3u8" ],
 			"icon": "http://tv7.bg/img/public/logoTv7.png"
 		}, {
 			"id": "bgonair",
 			"name": "Bulgaria On Air",
-			"url": "http://ios.cdn.bg:2006/fls/bonair.stream/playlist.m3u8",
+			"url": [ "http://ios.cdn.bg:2006/fls/bonair.stream/playlist.m3u8" ],
 			"icon": "http://www.bgonair.bg/media/template/default/img/ico/logo.png"
 		}, {
-			"id": "bloomberg",
+			"id": "bloombergtvbulgaria",
 			"name": "BloombergTV Bulgaria",
-			"url": "http://ios.cdn.bg:2091/fls/bloomberg.stream/playlist.m3u8",
+			"url": [ "http://ios.cdn.bg:2091/fls/bloomberg.stream/playlist.m3u8" ],
 			"icon": "http://cem.bg/files/144041789115720.png"
 		}, {
 			"id": "bit",
 			"name": "Би Ай Телевизия",
-			"url": "http://api.new.livestream.com/accounts/5627058/events/3583019",
+			"url": [ 
+				"http://cdn.atv-bg.com/atv/index.m3u8", 
+				"http://api.new.livestream.com/accounts/5627058/events/3583019"
+				],
 			"icon": "http://www.bitelevisions.com/test/wp-content/uploads/2015/10/Bit-Logo-100x60.png"
 		}, {
 			"id": "news7",
 			"name": "News 7",
-			"url": "http://tv7-hls-eu-perm-live.hls.adaptive.level3.net/news7live.m3u8",
+			"url": [ "http://tv7-hls-eu-perm-live.hls.adaptive.level3.net/news7live.m3u8" ],
 			"icon": "http://news7.bg/img/news7/logoNews7.png"
-		}, {
+		},{
 			"id": "kanal3",
 			"name": "Канал 3",
-			"url": "http://ios.cdn.bg:2017/fls/kanal3.stream/playlist.m3u8",
+			"url": [ "http://ios.cdn.bg:2017/fls/kanal3.stream/playlist.m3u8" ],
 			"icon": "http://kanal3.bg/assets/css/images/logo.png"
 		}, {
 			"id": "evrokom",
 			"name": "Евроком",
-			"url": "http://live.eurocom.bg:8080/hls/stream.m3u8",
+			"url": [ "http://live.eurocom.bg:8080/hls/stream.m3u8" ],
 			"icon": "http://cem.bg/files/124454636430Graphic1.jpg"
 		}, {
 			"id": "bnt2",
 			"name": "БНТ 2",
-			"url": "http://ios.cdn.bg:2020/fls/bnt2.stream/playlist.m3u8?at=",
-			"icon": "http://cdn.bg/images/www/bnt/16x9-BNT2.png"
+			"url": [ "http://ios.cdn.bg:2020/fls/bnt2.stream/playlist.m3u8?at=" ],
+			"icon": "http://cdn.bg/images/www/bnt/16x9-BNT2.png",
+			"pageUrl": "http://tv.bnt.bg/bnt2/16x9/",
+			"getIframe": true
 		}, {
 			"id": "bntworld",
 			"name": "БНТ Свят",
-			"url": "rtmp://193.43.26.198:1935/live/bntsat pageUrl=http://tv.bnt.bg/bntworld/ app=live/ swfUrl=http://p.jwpcdn.com/6/12/jwplayer.flash.swf live=true playpath=bntsat",
+			"url": [ "rtmp://193.43.26.198:1935/live/bntsat pageUrl=http://tv.bnt.bg/bntworld/ app=live/ swfUrl=http://p.jwpcdn.com/6/12/jwplayer.flash.swf live=true playpath=bntsat" ],
 			"icon": "http://tv.bnt.bg/img/menu/logoBNTworld.png"
 		}, {
-			"id": "sportal",
-			"name": "Спортал ТВ",
-			"url": "http://pri.cdn.bg:2001/fls/sportal_tv_hd.stream/playlist.m3u8",
-			"icon": "http://img2.sportal.bg/images/header/logo.png"
-		}, {
-			"id": "championstv",
-			"name": "Champions TV",
-			"url": "http://46.10.150.112/alpha/alpha/playlist.m3u8",
-			"icon": "http://bravo.btv.bg/web/cl_tv_logo.png"
-		}, {
-			"id": "traveltv",
-			"name": "Travel TV",
-			"url": "http://31.13.223.101:80/travel/travel.stream/playlist.m3u8?hash=943212345",
-			"icon": "http://cem.bg/files/131738198140TRAVEL_CURVES_SHADOW.gif"
-		}, {
-			"id": "traveltv",
-			"name": "Travel TV HD",
-			"url": "http://31.13.223.104/travel/community.stream/playlist.m3u8?hash=943212345",
-			"icon": "http://cem.bg/files/131738198140TRAVEL_CURVES_SHADOW.gif"
-		}, {
-			"id": "agrotv",
-			"name": "Агро ТВ",
-			"url": "rtmp://agrotvlive1.srfms.com:3021/live/ pageUrl=http://www.agrotv.bg/  app=live/ playpath=livestream swfUrl=http://www.agrotv.bg/flowplayer/flowplayer.rtmp-3.2.3.swf live=true",
-			"icon": "http://www.agrotv.bg/images/logo.png"
-		}, {
-			"id": "vest",
+			"id": "vtv",
 			"name": "Вест ТВ",
-			"url": "http://31.13.223.104:1935/vtv/vtv.stream/playlist.m3u8?hash=43212345",
-			"icon": "http://vtv.bg/images/logo.gif"
+			"url": [ "http://31.13.223.101:1935/vtv/vtv.stream/playlist.m3u8?hash=43212345" ],
+			"icon": "http://vtv.bg/images/logo.gif",
+			"pageUrl": "http://player.neterra.net/vtv/player.php",
+			"checkUrl": true
 		}, {
 			"id": "bulgaria24",
 			"name": "България 24",
-			"url": "http://cdn.atv-bg.com/BG24/index.m3u8",
+			"url": [ "http://cdn.atv-bg.com/BG24/index.m3u8" ],
 			"icon": "http://www.cem.bg/files/141630438486979.jpg"
 		}, {
-			"id": "tv1channel",
+			"id": "tv1",
 			"name": "ТV1",
-			"url": "http://xviktoriax.api.channel.livestream.com/3.0/playlist.m3u8",
+			"url": [ "http://xviktoriax.api.channel.livestream.com/3.0/playlist.m3u8" ],
 			"icon": "http://www.tv1channel.org/templates/rt_oculus/images/logo/light/logo.png"
 		}, {
-			"id": "bgdnes",
+			"id": "bgdnestv",
 			"name": "БГ Днес",
-			"url": "http://80.72.95.40:8088",
+			"url": [ "http://80.72.95.40:8088" ],
 			"icon": "http://cem.bg/files/1299846574356bgdnes.gif"
 		}, {
-			"id": "chernomore",
-			"name": "ТВ Черно Море Варна",
-			"url": "http://ios.cdn.bg:2006/fls/chmore.stream/playlist.m3u8",
-			"icon": "http://www.chernomore.bg/media/template/default/img/img/logo.png"
+			"id": "alfa",
+			"name": "Алфа",
+			"url": [ "rtmp://ataka.tv/live app=live swfUrl=http://www.ataka.tv/flash/flowplayer.commercial-3.2.7.swf pageURL=http://www.ataka.tv/ playpath=live" ],
+			"icon": "http://www.ataka.tv/images/logo_alfa.jpg"
+		},{
+			"id": "separator",
+			"name": "-----------------------------------------     Регионални    -----------------------------" 
 		}, {
-			"id": "stoichev",
-			"name": "Стойчев ТВ Стара Загора",
-			"url": "http://ios.cdn.bg:2015/fls/tvstoichev.stream/playlist.m3u8",
-			"icon": "http://cem.bg/files/1294388656290%D0%9B%D0%9E%D0%93%D0%9E.bmp"
-		}, {
-			"id": "tvsz",
-			"name": "ТВ Стара Загора",
-			"url": "http://95.87.0.78:8080/tvstz.m3u8",
-			"icon": "http://tvstz.com/images/logo_TVSTZ.png"
-		},
-
-		{
-			"id": "delta",
-			"name": "Делта Русе",
-			"url": "http://deltacatv.com/delta.m3u",
-			"icon": "http://www.deltacatv.com/wp-content/uploads/delta_logo_new.png"
-		}, {
-			"id": "kanal6",
-			"name": "Канал 6 Сливен",
-			"url": "http://84.54.139.86:91",
-			"icon": "http://kanal6.bg/images/sampledata/parks/Kanal-6-logo-mini.png"
-		}, {
-			"id": "rimex",
-			"name": "Римекс ТВ Враца",
-			"url": "http://transcoder1.bitcare.eu:5516/flv/rimextv.flv",
-			"icon": "http://tv.rimex-ltd.com/wp-content/themes/RimexTV-MI/images/logo.png"
-		}, {
-			"id": "tvmiks",
-			"name": "ТВ Микс Бургас",
-			"url": "http://109.160.31.20:8090/tvmix_big.flv",
-			"icon": "http://www.predavatel.com/bg/5/burgas_snimki/tv_mix.png"
-		}, {
-			"id": "kompasbg",
-			"name": "Канал 0 Бургас",
-			"url": "mms://stream.kompasbg.com:8081",
+			"id": "kanal0",
+			"name": "Бургас - Канал 0",
+			"url": [ "mms://stream.kompasbg.com:8081" ],
 			"icon": "http://www.predavatel.com/bg/5/burgas_snimki/tv_kanal0.gif"
 		}, {
-			"id": "darts",
-			"name": "ТВ Дартс Благоевград",
-			"url": "http://31.13.223.101/darts/darts.stream/playlist.m3u8?hash=943212345",
-			"icon": "http://cem.bg/files/1352295679471darts.gif"
+			"id": "tvmix",
+			"name": "Бургас - ТВ Микс",
+			"url": [ "http://109.160.31.20:8090/tvmix_big.flv" ],
+			"icon": "http://www.predavatel.com/bg/5/burgas_snimki/tv_mix.png"
 		}, {
-			"id": "city",
+			"id": "tvdarts",
+			"name": "Благоевград - ТВ Дартс",
+			"url": [ "http://31.13.223.101/darts/darts.stream/playlist.m3u8?hash=943212345" ],
+			"icon": "http://tvfilmi.eu/uploads/thumbs/darc.jpeg"
+		}, {
+			"id": "tvvarna",
+			"name": "Варна ТВ",
+			"url": [ "rtmp://78.129.184.15:39421/streaming playPath=stream app=stream swfUrl=http://tvvarna.listen2myshow.com/player-licensed.swf?87 pageUrl=http://tvvarna.listen2myshow.com/ live=true" ],
+			"icon": "http://www.cem.bg/files/1375951058182TVVarna.jpg"
+		}, {
+			"id": "chernomore",
+			"name": "Варна - ТВ Черно Море",
+			"url": [ "http://ios.cdn.bg:2006/fls/chmore.stream/playlist.m3u8" ],
+			"icon": "http://www.chernomore.bg/media/template/default/img/img/logo.png"
+		}, {
+			"id": "rimextv",
+			"name": "Враца - Римекс ТВ",
+			"url": [ "http://transcoder1.bitcare.eu:5516/flv/rimextv.flv" ],
+			"icon": "http://tv.rimex-ltd.com/wp-content/themes/RimexTV-MI/images/logo.png"
+		},{
+			"id": "deltatv",
+			"name": "Русе - ТВ Делта",
+			"url": [ "http://195.34.117.125:8090/live.flv" ],
+			"icon": "http://www.deltacatv.com/wp-content/uploads/logo-delta_izrqzan-300x1291.png"
+		}, {			
+			"id": "kiss13",
+			"name": "Русе - Кис 13",
+			"url": [ "rtmp://109.160.96.230/myStream&streamType=live app=myStream playpath=myStream swfUrl=http://109.160.96.230/StrobeMediaPlayback.swf pageURL=http://kiss13.net/live.html live=true" ],
+			"icon": "http://kiss13.net/templates/street_tv/images/style5/logo.png"
+		}, {
+			"id": "rilatv",
+			"name": "Самоков - ТВ Рила",
+			"url": [ "http://109.160.76.6:90/rila.mpeg" ],
+			"icon": ""
+		}, {
+			"id": "kanal6",
+			"name": "Сливен - Канал 6",
+			"url": [ "http://84.54.139.86:91" ],
+			"icon": "http://new.sliven.net/res/news/63420/logo_k6.jpg"
+		}, {
+			"id": "tvstoichev",
+			"name": "Стара Загора - Стойчев ТВ",
+			"url": [ "http://ios.cdn.bg:2015/fls/tvstoichev.stream/playlist.m3u8" ],
+			"icon": "http://cem.bg/files/1294388656290%D0%9B%D0%9E%D0%93%D0%9E.bmp"
+		}, {
+			"id": "tvstz",
+			"name": "Стара Загора ТВ",
+			"url": [ "http://95.87.0.78:8080/tvstz.m3u8" ],
+			"icon": "http://tvstz.com/images/logo_TVSTZ.png"
+		}, {
+			"id": "etv",
+			"name": "Хасково - eTV",
+			"url": [ "http://195.24.89.20:4010" ],
+			"icon": "http://www.etv.bg/images/site-logo2.png",
+			"useIcon": true
+		}, {
+			"id": "etvhd",
+			"name": "Хасково - eTV HD",
+			"url": [ "http://195.24.89.20:8888" ],
+			"icon": "http://www.etv.bg/images/site-logo2.png",
+			"useIcon": true				
+		},{
+			"id": "separator", "name": "---------------------------------------     Спортни    ------------------------------------" 
+		},{			
+			"id": "sportalbg",
+			"name": "Спортал ТВ",
+			"url": [ "http://pri.cdn.bg:2001/fls/sportal_tv_hd.stream/playlist.m3u8" ],
+			"icon": "http://img2.sportal.bg/images/header/logo.png"
+		},{
+			"id": "sportalbghd",
+			"name": "Спортал ТВ HD",
+			"url": [ "http://pri.cdn.bg:2001/fls/sportal_tv_fullhd.stream/playlist.m3u8" ],
+			"icon": "http://img2.sportal.bg/images/header/logo.png",
+			"useIcon": true
+		}, {
+			"id": "championstv",
+			"name": "bTV Champions TV (Само по време на мачове от ШЛ)",
+			"url": [ "http://46.10.150.112/alpha/alpha/playlist.m3u8" ],
+			"icon": "http://bravo.btv.bg/web/cl_tv_logo.png",
+			"useIcon": true
+		}, {			
+			"id": "separator",
+			"name": "-------------------------------------     Музикални     --------------------------------"
+		}, {
+			"id": "citytv",
 			"name": "City TV",
-			"url": "http://nodeb.gocaster.net:1935/CGL/_definst_/mp4:TODAYFM_TEST2/playlist.m3u8",
+			"url": [ "http://nodeb.gocaster.net:1935/CGL/_definst_/mp4:TODAYFM_TEST2/playlist.m3u8" ],
 			"icon": "http://city.bg/themes/city/images/city-web.png"
 		}, {
 			"id": "thevoice",
 			"name": "The Voice",
-			"url": "rtmp://31.13.217.76/rtplive app=rtplive playpath=thevoice_live.stream pageUrl=http://thevoice.bg/stream/ swfUrl=http://thevoice.bg/js/thevoice_videostreem.swf live=true",
+			"url": [ "rtmp://31.13.217.76/rtplive app=rtplive playpath=thevoice_live.stream pageUrl=http://thevoice.bg/stream/ swfUrl=http://thevoice.bg/js/thevoice_videostreem.swf live=true" ],
 			"icon": "http://s.thevoice.bg/img/logo.png"
 		}, {
 			"id": "magictv",
 			"name": "Magic TV",
-			"url": "rtmp://31.13.217.76:1935/magictv app=magictv playpath=magictv_live.stream pageUrl=http://thevoice.bg/stream/ swfUrl=http://thevoice.bg/js/thevoice_videostreem.swf live=true",
+			"url": [ "rtmp://31.13.217.76:1935/magictv app=magictv playpath=magictv_live.stream pageUrl=http://thevoice.bg/stream/ swfUrl=http://thevoice.bg/js/thevoice_videostreem.swf live=true" ],
 			"icon": "http://www.magictv.bg/web/img/logo.png"
 		}, {
-			"id": "tiankovfolk",
-			"name": "Тянков Фолк",
-			"url": "http://31.13.223.101:80/tiankov/tiankov-folk.stream/playlist.m3u8?hash=943212345",
-			"icon": "http://cem.bg/files/141292462488039.png"
+			"id": "dstv",
+			"name": "DSTV",
+			"url": [ "rtmp://46.249.95.140/live/livestream playpath=livestream  pageUrl=http://dstv-bg.com/ swfUrl=http://server11.infn.it/video/multimedia/strobe/FlashMediaPlayback.swf live=true" ],
+			"icon": "http://dstv-bg.com/wp-content/uploads/2013/08/dstv-malko-Logogg.png"
 		}, {
 			"id": "tiankovfolk",
 			"name": "Тянков Фолк",
-			"url": "http://31.13.223.101:80/tiankov/tiankov-folk.stream/playlist.m3u8?hash=943212345",
+			"url": [ "http://31.13.223.101:80/tiankov/tiankov-folk.stream/playlist.m3u8?hash=943212345" ],
 			"icon": "http://cem.bg/files/141292462488039.png"
 		}, {
-			"id": "tiankovorient",
+			"id": "tiankovorientfolk",
 			"name": "Тянков Ориент",
-			"url": "http://31.13.223.101:80/tiankov/tiankov-orient.stream/playlist.m3u8?hash=943212345",
+			"url": [ "http://31.13.223.101:80/tiankov/tiankov-orient.stream/playlist.m3u8?hash=943212345" ],
 			"icon": "http://cem.bg/files/141292462488039.png"
 		}, {
-			"id": "tiankovpopfolk",
+			"id": "tiankovpop",
 			"name": "Тянков Поп-фолк",
-			"url": "http://31.13.223.103:80/tiankov/tiankov-popfolk.stream/playlist.m3u8?hash=943212345",
+			"url": [ "http://31.13.223.103:80/tiankov/tiankov-popfolk.stream/playlist.m3u8?hash=943212345" ],
 			"icon": "http://cem.bg/files/141292462488039.png"
 		}, {
 			"id": "romatv",
 			"name": "Рома ТВ",
-			"url": "http://185.46.161.3/hls/sd.m3u8",
+			"url": [ "http://185.46.161.3/hls/sd.m3u8" ],
 			"icon": "http://romatv.bg/templates/tube/images/logo.png"
+		}, {			
+			"id": "separator", "name": "-------------------------------------     Тематични    --------------------------------" 
+		},{
+			"id": "traveltv",
+			"name": "Travel TV",
+			"url": [ "http://31.13.223.101:80/travel/travel.stream/playlist.m3u8?hash=943212345" ],
+			"icon": "http://cem.bg/files/131738198140TRAVEL_CURVES_SHADOW.gif",
+			"pageUrl": "http://player.neterra.tv/travel/player.php",
+			"referer": "http://tv.traveltv.bg/live/",
+			"checkUrl": true
 		}, {
-			"id": "alfa",
-			"name": "Алфа",
-			"url": "rtmp://ataka.tv/live app=live swfUrl=http://www.ataka.tv/flash/flowplayer.commercial-3.2.7.swf pageURL=http://www.ataka.tv/ playpath=live",
-			"icon": "http://www.ataka.tv/images/logo_alfa.jpg"
+			"id": "travelhd",
+			"name": "Travel TV HD",
+			"url": [ "http://31.13.223.103/travel/community.stream/playlist.m3u8?hash=943212345" ],
+			"icon": "http://cem.bg/files/131738198140TRAVEL_CURVES_SHADOW.gif",
+			"pageUrl": "http://player.neterra.tv/travel/playerCommunity.php",
+			"referer": "http://hd.traveltv.bg/live/",
+			"checkUrl": true
 		}, {
-			"id": "npt",
+			"id": "agrotv",
+			"name": "Агро ТВ",
+			"url": [ "rtmp://agrotvlive1.srfms.com:3021/live/ pageUrl=http://www.agrotv.bg/  app=live/ playpath=livestream swfUrl=http://www.agrotv.bg/flowplayer/flowplayer.rtmp-3.2.3.swf live=true" ],
+			"icon": "http://www.agrotv.bg/images/logo.png"
+		}, {
+			"id": "bnptv",
 			"name": "Национално-патриотична телевизия",
-			"url": "mms://bnptv.tv:10801",
+			"url": [ "mms://bnptv.tv:10801" ],
 			"icon": "http://www.bnptv.info/tv/templates/rhuk_milkyway/images/mw_joomla_logo.png"
 		}, {
-			"id": "pm",
+			"id": "pmtv",
 			"name": "Пловдивска Метрополия",
-			"url": "rtmp://31.13.218.108/live/&amp;start=1&amp;autostart=true swfUrl=http://www.plovdivskamitropolia.bg/modules/mod_playerjr/player-licensed5.swf pageURL=http://www.plovdivskamitropolia.bg/ playpath=mpegts.stream live=true",
+			"url": [ "rtmp://31.13.218.108/live/&amp;start=1&amp;autostart=true swfUrl=http://www.plovdivskamitropolia.bg/modules/mod_playerjr/player-licensed5.swf pageURL=http://www.plovdivskamitropolia.bg/ playpath=mpegts.stream live=true" ],
 			"icon": "http://cem.bg/files/1366886847412pptv.gif"
 		}, {
 			"id": "christiantv",
 			"name": "Българска Християнска ТВ",
-			"url": "http://130.185.214.2/tv/mbchtv.m3u8?st=BLj9D-nQW3az38P8h2zv7A&e=1448632335",
+			"url": [ "http://130.185.214.2/tv/mbchtv.m3u8?st=BLj9D-nQW3az38P8h2zv7A&e=1448632335" ],
 			"icon": "http://www.christiantv-bg.com/images/logo.png"
 		}, {
-			"id": "arttv",
+			"id": "tvart",
 			"name": "Арт ТВ",
-			"url": "http://80.72.95.9:1935/live/tvart/playlist.m3u8",
+			"url": [ "http://80.72.95.9:1935/live/tvart/playlist.m3u8" ],
 			"icon": "http://cem.bg/files/125008251019Graphic1.jpg"
 		}, {
-			"id": "muvi",
+			"id": "muvitv",
 			"name": "ТВ Медицински Университет Варна",
-			"url": "http://ios.cdn.bg:2013/fls/livetv.stream/playlist.m3u8",
+			"url": [ "http://ios.cdn.bg:2013/fls/livetv.stream/playlist.m3u8" ],
 			"icon": "http://mu-vi.tv/SiteAssets/logo-mu-tv.png"
 		}
 	]

@@ -6,11 +6,31 @@ from resources.lib.helper import *
 reload(sys)  
 sys.setdefaultencoding('utf8')
 
+###########_DEBUG_###########
+
+REMOTE_DBG = False
+if REMOTE_DBG:
+	try:
+		sys.path.append("C:\\Software\\Java\\eclipse-luna\\plugins\\org.python.pydev_4.4.0.201510052309\\pysrc")
+		import pydevd
+		xbmc.log("After import pydevd")
+		#import pysrc.pydevd as pydevd # with the addon script.module.pydevd, only use `import pydevd`
+		# stdoutToServer and stderrToServer redirect stdout and stderr to eclipse console
+		pydevd.settrace('localhost', stdoutToServer=False, stderrToServer=False, suspend=False)
+	except ImportError:
+		xbmc.log("Error: You must add org.python.pydev.debug.pysrc to your PYTHONPATH.")
+		sys.exit(1)
+	except:
+		xbmc.log("Unexpected error:", sys.exc_info()[0]) 
+		sys.exit(1)
+
+###########_ENDDEBUG_###########
+
 params = GetParams()
 
 def Categories():
 	for i in range (0, len(clist)):
-		AddItem(clist[i]['name'].encode('utf-8'), i, GetIcon(clist[i]))
+		AddItem(GetName(i), i, GetIcon(i))
 
 def AddItem(name, index, icon):
 	u = sys.argv[0] + "?index=" + str(index) + "&mode=1&name=" + urllib.quote_plus(name)
