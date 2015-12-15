@@ -13,54 +13,58 @@ except Exception, er:
 	pass            
 
 def GetStream(i):
-	try:
-		if 'pageUrl' not in clist[i].keys():
-			return clist[i]['url'][0]	
-		elif 'bit' in clist[i]['id']: # Livestream
-			return GetLiveStream(clist[i]['url'][0])
-		else: # else return the url
-			return GetStreamFromPage(i)
-	except Exception, er:
-		xbmc.log("plugin.video.free.bgtvs | GetStream() | Channel = " + clist[i]['name'] + " " + str(er), LOGERROR)
+	#try:
+	if 'pageUrl' not in clist[i].keys():
+		return clist[i]['url'][0]	
+	elif 'bit' in clist[i]['id']: # Livestream
+		return GetLiveStream(clist[i]['url'][0])
+	else: # else return the url
+		return GetStreamFromPage(i)
+	#except Exception, er:
+	#	xbmc.log("plugin.video.free.bgtvs | GetStream() | Channel = " + clist[i]['name'] + " " + str(er), LOGERROR)
 
-
-def GetIframeUrl(url):
-	res = Request(url)
+def GetIframeUrl(url, ref):
+	res = Request(url, ref)
 	m = re.compile('iframe.+src[=\s\'"]+(.+?)["\'\s]+', re.DOTALL).findall(res)
 	if len(m) > 0: 
 		return m[0]
-	return None
+	return ''
 
 ua = 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25'
 cookie = None
 
 def GetStreamFromPage(i):
-	if clist[i]['getIframe']:
-		url = GetIframeUrl(clist[i]['pageUrl'])
-	else:
-		url = clist[i]['pageUrl']
-	
+	stream = ''
 	ref = '' #Referer needed to prevent 403
 	if 'referer' in clist[i].keys():
 		ref = clist[i]['referer']
 	else:
 		ref = clist[i]['pageUrl']
-		
-		
-	res = Request(url, ref)
-	m = re.compile('video.+src[\'"\s=]+(.*?)[\'"\s]+', re.DOTALL).findall(res)
-	if len(m) > 0:
-		if 'travelhd' in clist[i]['id']: #traveltvhd wrong path in source fix
-			return m[0].replace('/community/community', '/travel/community')
-		else:
-			return m[0]
-	else: 
-		return clist[i]['url'][0]
+
+	if 'getIframe' in clist[i].keys() and clist[i]['getIframe']:
+		url = GetIframeUrl(clist[i]['pageUrl'], ref)
+	else:
+		url = clist[i]['pageUrl']
 	
+	xbmc.log("GetStreamFromPage: url=" + str(url) + ", ref=" + ref)
+	
+	res = Request(url, ref)
+	m = re.compile('video.+src[\'"\s=]+(.+m3u8.+?)[\'"\s]+', re.DOTALL).findall(res)
+	if len(m) > 0:
+		xbmc.log("GetStreamFromPage: found video tag src=" + m[0])
+		if 'travelhd' in clist[i]['id']: #traveltvhd wrong path in source fix
+			stream = m[0].replace('/community/community', '/travel/community')
+		else:
+			stream = m[0]
+	else: 
+		stream = clist[i]['url'][0]
+		
+	return stream
 
 def Request(url, ref = ''):
 	req = urllib2.Request(url)
 	if ref == '': ref = url
+	xbmc.log("Request: url=" + url + ", ref=" + ref)
 	req.add_header('Referer', ref)
 	req.add_header('User-Agent', ua)
 	res = urllib2.urlopen(req)
@@ -113,7 +117,6 @@ def GetIcon(i):
 	
 def GetName(i):
 	name = clist[i]['name'].encode('utf-8')
-	#val = GetNumber()
 	if clist[i]['id'] != 'separator':
 		name = "%s. %s" % (val.next(), name)
 	return name

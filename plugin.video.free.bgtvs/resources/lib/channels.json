@@ -80,7 +80,7 @@
 			"url": [ "http://31.13.223.101:1935/vtv/vtv.stream/playlist.m3u8?hash=43212345" ],
 			"icon": "http://vtv.bg/images/logo.gif",
 			"pageUrl": "http://player.neterra.net/vtv/player.php",
-			"checkUrl": true
+			"referer":"http://vtv.bg"
 		}, {
 			"id": "bulgaria24",
 			"name": "България 24",
@@ -246,16 +246,14 @@
 			"url": [ "http://31.13.223.101:80/travel/travel.stream/playlist.m3u8?hash=943212345" ],
 			"icon": "http://cem.bg/files/131738198140TRAVEL_CURVES_SHADOW.gif",
 			"pageUrl": "http://player.neterra.tv/travel/player.php",
-			"referer": "http://tv.traveltv.bg/live/",
-			"checkUrl": true
+			"referer": "http://tv.traveltv.bg/live/"
 		}, {
 			"id": "travelhd",
 			"name": "Travel TV HD",
 			"url": [ "http://31.13.223.103/travel/community.stream/playlist.m3u8?hash=943212345" ],
 			"icon": "http://cem.bg/files/131738198140TRAVEL_CURVES_SHADOW.gif",
 			"pageUrl": "http://player.neterra.tv/travel/playerCommunity.php",
-			"referer": "http://hd.traveltv.bg/live/",
-			"checkUrl": true
+			"referer": "http://hd.traveltv.bg/live/"
 		}, {
 			"id": "agrotv",
 			"name": "Агро ТВ",
