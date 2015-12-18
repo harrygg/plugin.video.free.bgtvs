@@ -8,3 +8,5 @@ ECHO Compressing files
 "C:\Program Files\7-Zip\7za" a -tzip %Zip_Name% @build_files.txt -mx5
 
 endlocal
+
+pause

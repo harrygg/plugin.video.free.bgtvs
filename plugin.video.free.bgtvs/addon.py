@@ -5,48 +5,39 @@ from resources.lib.helper import *
 		
 reload(sys)  
 sys.setdefaultencoding('utf8')
-
+        
 params = GetParams()
 
 def Categories():
 	for i in range (0, len(clist)):
-		AddItem(GetName(i), i, GetIcon(i))
+		AddItem(i)
 
-def AddItem(name, index, icon):
-	u = sys.argv[0] + "?index=" + str(index) + "&mode=1&name=" + urllib.quote_plus(name)
-	ok = True
-	liz = xbmcgui.ListItem(name, iconImage = icon, thumbnailImage = icon)
-	liz.setInfo( type = "Video", infoLabels = { "Title" : name } )
-	liz.setProperty("IsPlayable" , "true")
-	ok = xbmcplugin.addDirectoryItem(handle = int(sys.argv[1]), url = u, listitem = liz, isFolder = False)
-	return ok
+def AddItem(i):
+	name = GetName(i)
+	icon = GetIcon(i)
+	li = xbmcgui.ListItem(name, iconImage = icon, thumbnailImage = icon)
+	li.setInfo( type = "Video", infoLabels = { "Title" : name } )
+	if clist[i]['id'] != 'separator':
+		li.setProperty("IsPlayable", 'True')
+	u = "%s?i=%s&mode=Play" % (sys.argv[0], i)
+	xbmcplugin.addDirectoryItem(int(sys.argv[1]), u, li, False)
 
-def Play(index):
-	url = GetStream(index)
-	xbmc.log("plugin.video.free.bgtvs | Playing stream: " + str(clist[index]['url']))
-	li = xbmcgui.ListItem(iconImage = iconimage, thumbnailImage = iconimage, path = url)
-	li.setInfo('video', { 'title': name })
+def Play(i):
+	url = GetStream(i)
+	xbmc.log("plugin.video.free.bgtvs | Playing stream: " + url)
 	xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, xbmcgui.ListItem(path = url))
 		
-index = None
-try: index = int(params["index"])
+i = None
+try: i = int(params["i"])
 except: pass
 
-name = None
-try: name = urllib.unquote_plus(params["name"])
-except: pass
-
-iconimage = None
-try: iconimage = urllib.unquote_plus(params["iconimage"])
-except: pass
-
-mode = 0
-try: mode = int(params["mode"])
+mode = None
+try: mode = params["mode"]
 except: pass
 	
-if mode == 0:
+if mode == None:
 	Categories()
-elif mode == 1:
-	Play(index)
+else:
+	Play(i)
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))

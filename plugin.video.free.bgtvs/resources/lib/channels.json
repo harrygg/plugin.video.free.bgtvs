@@ -65,10 +65,8 @@
 		}, {
 			"id": "bnt2",
 			"name": "БНТ 2",
-			"url": [ "http://ios.cdn.bg:2020/fls/bnt2.stream/playlist.m3u8?at=" ],
-			"icon": "http://cdn.bg/images/www/bnt/16x9-BNT2.png",
-			"pageUrl": "http://tv.bnt.bg/bnt2/16x9/",
-			"getIframe": true
+			"url": [ "rtmp://193.43.26.198:1935/live/bnt2" ],
+			"icon": "http://cdn.bg/images/www/bnt/16x9-BNT2.png"
 		}, {
 			"id": "bntworld",
 			"name": "БНТ Свят",
@@ -260,20 +258,52 @@
 			"url": [ "rtmp://agrotvlive1.srfms.com:3021/live/ pageUrl=http://www.agrotv.bg/  app=live/ playpath=livestream swfUrl=http://www.agrotv.bg/flowplayer/flowplayer.rtmp-3.2.3.swf live=true" ],
 			"icon": "http://www.agrotv.bg/images/logo.png"
 		}, {
+			"id": "autotv",
+			"name": "Аутомото ТВ",
+			"url": [ "http://100automoto.tv:1935/bgtv1/autotv/playlist.m3u8" ],
+			"icon": "http://www.100automoto.tv/images/yootheme/logo.png",
+			"useIcon": true
+		}, {
+			"id": "automoto100gaz",
+			"name": "Аутомото ТВ 100 Газ",
+			"url": [ "mms://100automoto.tv/100gaz" ],
+			"icon": "http://www.100automoto.tv/images/yootheme/logo.png",
+			"useIcon": true
+		}, {
+			"id": "automotobmw",
+			"name": "Аутомото ТВ BMW",
+			"url": [ "mms://100automoto.tv/bmw" ],
+			"icon": "http://www.100automoto.tv/images/yootheme/logo.png",
+			"useIcon": true
+		}, {
+			"id": "automotoelectric",
+			"name": "Аутомото ТВ Electric",
+			"url": [ "mms://100automoto.tv/channel_electric" ],
+			"icon": "http://www.100automoto.tv/images/yootheme/logo.png",
+			"useIcon": true
+		}, {
+			"id": "automotomercedes",
+			"name": "Аутомото ТВ Mercedes",
+			"url": [ "mms://100automoto.tv/channel_mercedes" ],
+			"icon": "http://www.100automoto.tv/images/yootheme/logo.png",
+			"useIcon": true
+		}, {
+			"id": "automotoporsche",
+			"name": "Аутомото ТВ Porsche",
+			"url": [ "mms://100automoto.tv/channel_porsche" ],
+			"icon": "http://www.100automoto.tv/images/yootheme/logo.png",
+			"useIcon": true
+		}, {
+			"id": "automotoitalia",
+			"name": "Аутомото ТВ Italia",
+			"url": [ "mms://100automoto.tv/channel_italy" ],
+			"icon": "http://www.100automoto.tv/images/yootheme/logo.png",
+			"useIcon": true
+		}, {
 			"id": "bnptv",
 			"name": "Национално-патриотична телевизия",
 			"url": [ "mms://bnptv.tv:10801" ],
 			"icon": "http://www.bnptv.info/tv/templates/rhuk_milkyway/images/mw_joomla_logo.png"
-		}, {
-			"id": "pmtv",
-			"name": "Пловдивска Метрополия",
-			"url": [ "rtmp://31.13.218.108/live/&amp;start=1&amp;autostart=true swfUrl=http://www.plovdivskamitropolia.bg/modules/mod_playerjr/player-licensed5.swf pageURL=http://www.plovdivskamitropolia.bg/ playpath=mpegts.stream live=true" ],
-			"icon": "http://cem.bg/files/1366886847412pptv.gif"
-		}, {
-			"id": "christiantv",
-			"name": "Българска Християнска ТВ",
-			"url": [ "http://130.185.214.2/tv/mbchtv.m3u8?st=BLj9D-nQW3az38P8h2zv7A&e=1448632335" ],
-			"icon": "http://www.christiantv-bg.com/images/logo.png"
 		}, {
 			"id": "tvart",
 			"name": "Арт ТВ",
@@ -284,6 +314,36 @@
 			"name": "ТВ Медицински Университет Варна",
 			"url": [ "http://ios.cdn.bg:2013/fls/livetv.stream/playlist.m3u8" ],
 			"icon": "http://mu-vi.tv/SiteAssets/logo-mu-tv.png"
+		}, {			
+			"id": "separator", "name": "-------------------------------------     Религиозни    --------------------------------" 
+		}, {
+			"id": "pmtv",
+			"name": "ТВ Пловдивска Метрополия",
+			"url": [ "rtmp://31.13.218.108/live/&amp;start=1&amp;autostart=true swfUrl=http://www.plovdivskamitropolia.bg/modules/mod_playerjr/player-licensed5.swf pageURL=http://www.plovdivskamitropolia.bg/ playpath=mpegts.stream live=true" ],
+			"icon": "http://cem.bg/files/1366886847412pptv.gif"
+		}, {
+			"id": "christiantv",
+			"name": "Българска Християнска ТВ",
+			"url": [ "http://130.185.214.2/tv/mbchtv.m3u8?st=BLj9D-nQW3az38P8h2zv7A&e=1448632335" ],
+			"icon": "http://www.christiantv-bg.com/images/logo.png"
+		}, {
+			"id": "htv",
+			"name": "Хармония ТВ",
+			"url": [ "rtmp://stream2.htv.bg:1935/securestreaming/sd.sdp" ],
+			"icon": "http://www.htv.bg/images/logo.png",
+			"useIcon": true
+		}, {
+			"id": "htvhd",
+			"name": "Хармония ТВ HD",
+			"url": [ "rtmp://stream2.htv.bg:1935/securestreaming/hd.sdp" ],
+			"icon": "http://www.htv.bg/images/logo.png",
+			"useIcon": true
+		}, {
+			"id": "vvv",
+			"name": "Вяра, воля, визия ТВ",
+			"url": [ "rtmp://vvv.bg:1935/live/vvv.flv" ],
+			"icon": "http://vvv.bg/share/images/site/h1.png",
+			"useIcon": true
 		}
 	]
 }

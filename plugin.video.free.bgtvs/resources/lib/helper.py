@@ -1,5 +1,5 @@
 ﻿# -*- coding: utf-8 -*-
-import urllib, urllib2, re, xbmc, sys, json, os
+import urllib, urllib2, re, xbmc, sys, json, os, xbmcgui
 from xbmc import LOGERROR
 
 clist = []
@@ -10,19 +10,20 @@ try:
         clist = json.load(data_file)['channels']
 except Exception, er:
 	xbmc.log("plugin.video.free.bgtvs | helper.py " + str(er), LOGERROR)
+	xbmcgui.Dialog().ok('Free BG TVs - channels.json error', 'Проблем със зареждането на списъка с каналите.')
 	pass            
 
 def GetStream(i):
-	#try:
+	stream = ''
 	if 'pageUrl' not in clist[i].keys():
-		return clist[i]['url'][0]	
+		if clist[i]['id'] != 'separator':
+			stream = clist[i]['url'][0]
 	elif 'bit' in clist[i]['id']: # Livestream
-		return GetLiveStream(clist[i]['url'][0])
+		stream = GetLiveStream(clist[i]['url'][0])
 	else: # else return the url
-		return GetStreamFromPage(i)
-	#except Exception, er:
-	#	xbmc.log("plugin.video.free.bgtvs | GetStream() | Channel = " + clist[i]['name'] + " " + str(er), LOGERROR)
-
+		stream = GetStreamFromPage(i)
+	return stream
+	
 def GetIframeUrl(url, ref):
 	res = Request(url, ref)
 	m = re.compile('iframe.+src[=\s\'"]+(.+?)["\'\s]+', re.DOTALL).findall(res)
