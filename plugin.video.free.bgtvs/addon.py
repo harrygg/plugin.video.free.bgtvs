@@ -2,15 +2,18 @@
 import re, sys, os.path, urllib, urllib2
 import xbmc, xbmcgui, xbmcplugin, xbmcaddon
 from resources.lib.helper import *
+
 		
+
 reload(sys)  
 sys.setdefaultencoding('utf8')
-        
+
 params = GetParams()
 
 def Categories():
 	for i in range (0, len(clist)):
-		AddItem(i)
+		if Enabled(i):
+			AddItem(i)
 
 def AddItem(i):
 	name = GetName(i)
@@ -23,9 +26,7 @@ def AddItem(i):
 	xbmcplugin.addDirectoryItem(int(sys.argv[1]), u, li, False)
 
 def Play(i):
-	url = GetStream(i)
-	xbmc.log("plugin.video.free.bgtvs | Playing stream: " + url)
-	xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, xbmcgui.ListItem(path = url))
+	xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, xbmcgui.ListItem(path = GetStream(i)))
 		
 i = None
 try: i = int(params["i"])
@@ -35,9 +36,7 @@ mode = None
 try: mode = params["mode"]
 except: pass
 	
-if mode == None:
-	Categories()
-else:
-	Play(i)
+if mode == None: Categories()
+else: Play(i)
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))

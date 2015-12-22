@@ -1,9 +1,0 @@
-plugin.video.free.bgtvs\addon.py
-plugin.video.free.bgtvs\addon.xml
-plugin.video.free.bgtvs\icon.png
-plugin.video.free.bgtvs\changelog.txt
-plugin.video.free.bgtvs\LICENSE
-plugin.video.free.bgtvs\resources\__init__.py
-plugin.video.free.bgtvs\resources\lib\__init__.py
-plugin.video.free.bgtvs\resources\lib\channels.json
-plugin.video.free.bgtvs\resources\lib\helper.py

@@ -4,6 +4,8 @@ from xbmc import LOGERROR
 
 clist = []
 
+		
+		
 try:
     filename = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'channels.json')
     with open(filename) as data_file: 
@@ -22,6 +24,7 @@ def GetStream(i):
 		stream = GetLiveStream(clist[i]['url'][0])
 	else: # else return the url
 		stream = GetStreamFromPage(i)
+	xbmc.log("plugin.video.free.bgtvs | GetStream() returned " + stream)
 	return stream
 	
 def GetIframeUrl(url, ref):
@@ -34,22 +37,24 @@ def GetIframeUrl(url, ref):
 ua = 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25'
 cookie = None
 
+def GetReferer(i): #Referer needed to prevent 403
+	if 'referer' in clist[i].keys():
+		return clist[i]['referer']
+	else:
+		return clist[i]['pageUrl']
+		
 def GetStreamFromPage(i):
 	stream = ''
-	ref = '' #Referer needed to prevent 403
-	if 'referer' in clist[i].keys():
-		ref = clist[i]['referer']
-	else:
-		ref = clist[i]['pageUrl']
+	ref = GetReferer(i)
 
-	if 'getIframe' in clist[i].keys() and clist[i]['getIframe']:
+	if GetProperty(i, 'getIframe'):
 		url = GetIframeUrl(clist[i]['pageUrl'], ref)
 	else:
 		url = clist[i]['pageUrl']
-	
+		
 	xbmc.log("GetStreamFromPage: url=" + str(url) + ", ref=" + ref)
-	
 	res = Request(url, ref)
+	
 	m = re.compile('video.+src[\'"\s=]+(.+m3u8.+?)[\'"\s]+', re.DOTALL).findall(res)
 	if len(m) > 0:
 		xbmc.log("GetStreamFromPage: found video tag src=" + m[0])
@@ -108,7 +113,7 @@ def GetParams():
 
 def GetIcon(i):
 	if clist[i]['id'] != 'separator':
-		if 'useIcon' in clist[i].keys() and clist[i]['useIcon']:
+		if GetProperty(i, 'useLocalIcon'):
 			return clist[i]['icon']
 		else:
 			return "http://logos.kodibg.org/%s.png" % clist[i]['id']
@@ -127,3 +132,10 @@ def GetNumber():
 		yield i
 		
 val = GetNumber()
+
+def GetProperty(i, prop):
+	val = True if 'properties' in clist[i].keys() and prop in clist[i]['properties'] else False
+	return val
+
+def Enabled(i):
+	return not GetProperty(i, "disabled")
