@@ -1,9 +1,7 @@
 ﻿# -*- coding: utf-8 -*-
 import re, sys, os.path, urllib, urllib2
 import xbmc, xbmcgui, xbmcplugin, xbmcaddon
-from resources.lib.helper import *
-
-		
+from resources.lib.helper import *		
 
 reload(sys)  
 sys.setdefaultencoding('utf8')
