@@ -58,7 +58,7 @@ for src_dir, subdirs, files in os.walk(kodidir):
 		os.mkdir(dst_dir)
 		
 	for file_ in files:
-		if 'pyo' not in file_:
+		if 'pyo' not in file_ and 'pyc' not in file_:
 			src_file = os.path.join(src_dir, file_)
 			dst_file = os.path.join(dst_dir, file_)
 			f = pluginName + dst_file.replace(dir, "")
