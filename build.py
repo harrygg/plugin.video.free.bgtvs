@@ -24,12 +24,18 @@ def UpdateBuild(file):
 	return new_version
 
 def AddChangeLog(file):
-	f = open(file, 'a')
-	new_data = '\n[B]*** %s ***[/B]' % new_version
-	f.write(new_data)
-	new_data = '\n- '
-	f.write(new_data)
+	f = open(file, 'r')
+	data = f.read()
 	f.close()
+	m = re.compile(new_version).findall(data)
+	#Modify the file only if it was not as already modified
+	if m == 0:
+		f = open(file, 'a')
+		new_data = '\n[B]*** %s ***[/B]' % new_version
+		f.write(new_data)
+		new_data = '\n- '
+		f.write(new_data)
+		f.close()
 	
 dir = os.getcwd()
 pluginName = dir.split("\\")[-1]

@@ -37,6 +37,11 @@
 		"url": ["http://ios.cdn.bg:2006/fls/bonair.stream/playlist.m3u8"],
 		"customLogo": "http://www.bgonair.bg/media/template/default/img/ico/logo.png"
 	}, {
+		"id": "tveuropa",
+		"name": "ТВ Европа",
+		"url": ["http://lb.blb.cdn.bg:2018/fls/tvevropa.stream/playlist.m3u8"],
+		"customLogo": "http://www.tvevropa.com/public/images/site_images/img_logo.png"
+	}, {
 		"id": "bloombergtvbulgaria",
 		"name": "BloombergTV Bulgaria",
 		"url": ["http://ios.cdn.bg:2091/fls/bloomberg.stream/playlist.m3u8"],
@@ -147,7 +152,7 @@
 		"name": "Велико Търново - Евроком Царевец",
 		"url": ["rtmp://extondemand.livestream.com:80/ondemand app=ondemand playpath=trans/dv15/mogulus-user-files/chevrokom/2013/11/16/f07c3d49-0ea4-42d8-96c4-97dc834086aa swfUrl=http://cdn.livestream.com/chromelessPlayer./v21/playerapi.swf?lschannel=true&browseMode=false&time=&jsEnabled=false&textLines=2&showMoreVideos=false&hideChannelBranding=tr.ue&hideInfo=true&mode=false&autoPlay=true&allowchat=false&t=212276 pageUrl=http://original.livestream.com/embed/evrokom?showMoreVideos=false&hideInfo=true&autoPlay=true&lschannel=true&browseMode=false&textLi.nes=2&hideChannelBranding=true&mode=false&allowchat=false&layout=4&t=212276"],
 		"customLogo": "http://www.ekcarevec.com/intro/logo-evrokom-carevec.png",
-		"properties": ["useCustomLogo"]
+		"properties": [ "useCustomLogo" ]
 	}, {
 		"id": "rimextv",
 		"name": "Враца - Римекс ТВ",
@@ -158,13 +163,13 @@
 		"name": "Добрич - Добруджа Днес",
 		"url": ["rtmp://79.98.109.134:1935/big playpath=live live=true"],
 		"customLogo": "http://www.dobrudjadnes.com/images/logo-dobrudja-dnes.png",
-		"properties": ["useCustomLogo"]
+		"properties": [ "useCustomLogo" ]
 	}, {
 		"id": "rodopi",
 		"name": "Кърджали - ТВ Родопи",
 		"url": ["http://213.145.114.95:8080/#sthash.vpTtLPEJ.dpuf"],
 		"customLogo": "http://www.cem.bg/files/1244717526122Graphic1.jpg",
-		"properties": ["useCustomLogo"]
+		"properties": [ "useCustomLogo" ]
 	}, {
 		"id": "potv",
 		"name": "Пловдив - Обществена телевизия",
@@ -348,6 +353,12 @@
 		"customLogo": "http://www.tv14.net/wp-content/uploads/2010/10/Eco-Bulgaria-TV.jpg",
 		"properties": ["useCustomLogo", "disabled"]
 	}, {
+		"id": "vtk",
+		"name": "Военен ТВ канал",
+		"url": ["http://46.249.95.180/vtk/high.m3u8"],
+		"customLogo": "http://armymedia.bg/wp-content/uploads/2015/03/new_lego_vtk.jpg",
+		"properties": ["", ""]
+	}, {
 		"id": "autotv",
 		"name": "Аутомото ТВ",
 		"url": ["http://100automoto.tv:1935/bgtv1/autotv/playlist.m3u8"],
@@ -453,6 +464,12 @@
 		"name": "Вяра, воля, визия ТВ",
 		"url": ["rtmp://vvv.bg:1935/live/vvv.flv"],
 		"customLogo": "http://vvv.bg/share/images/site/h1.png",
+		"properties": ["useCustomLogo"]
+	}, {
+		"id": "hopetv",
+		"name": "Християнска Адвентна ТВ",
+		"url": ["rtmp://93.152.176.131/hopetv/live_24"],
+		"customLogo": "http://sdabg.tv/images/sdabgtv_logo.png",
 		"properties": ["useCustomLogo"]
 	}]
 }
