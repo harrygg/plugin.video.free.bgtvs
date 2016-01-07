@@ -1,475 +1,626 @@
 {
 	"channels": [{
-		"id": "bnt1",
-		"name": "БНТ 1",
-		"url": [
-			"http://ios.cdn.bg:2020/fls/bnt.stream/playlist.m3u8?at=",
-			"rtmp://193.43.26.198:1935/live/bnt1"
-		],
-		"customLogo": "http://cdn.bg/images/www/bnt/16x9-BNT1.png",
-		"pageUrl": "http://tv.bnt.bg/bnt1/16x9/",
-		"properties": ["getIframe"]
-	}, {
-		"id": "btv",
-		"name": "bTV",
-		"url": ["rtmp://46.10.150.111:80/ios playpath=btvbglive pageURL=http://www.btv.bg/live/ app=ios swfUrl=http://images.btv.bg/fplayer/flowplayer.commercial-3.2.5.swf live=true"],
-		"customLogo": "http://www.btv.bg//static/bg/microsites/btv/img/btv-logo.png"
-	}, {
-		"id": "novatv",
-		"name": "Нова",
-		"url": ["rtmp://edge1.evolink.net:2010/fls playpath=ntv_2.stream pageURL=http://i.cdn.bg/live/ app=fls/_definst_ token=N0v4TV6#2 live=true"],
-		"customLogo": "http://static1.novatv.bg/layout/novatv/images/big_nav_logo.png"
-	}, {
-		"id": "bnthd",
-		"name": "БНТ HD",
-		"url": ["http://ios.cdn.bg:2020/fls/bntHDt.stream/playlist.m3u8?at="],
-		"customLogo" : "http://i.cdn.bg/images/www/bnt/BNTliveHD.png",
-		"pageUrl": "http://tv.bnt.bg/bnthd",
-		"properties" : "getIframe"
-	}, {
-		"id": "tv7",
-		"name": "ТВ 7",
-		"url": ["http://tv7-hls-eu-perm-live.hls.adaptive.level3.net/tv7live.m3u8"],
-		"customLogo": "http://tv7.bg/img/public/logoTv7.png"
-	}, {
-		"id": "bgonair",
-		"name": "Bulgaria On Air",
-		"url": ["http://ios.cdn.bg:2006/fls/bonair.stream/playlist.m3u8"],
-		"customLogo": "http://www.bgonair.bg/media/template/default/img/ico/logo.png"
-	}, {
-		"id": "tveuropa",
-		"name": "ТВ Европа",
-		"url": ["http://lb.blb.cdn.bg:2018/fls/tvevropa.stream/playlist.m3u8"],
-		"customLogo": "http://www.tvevropa.com/public/images/site_images/img_logo.png"
-	}, {
-		"id": "bloombergtvbulgaria",
-		"name": "BloombergTV Bulgaria",
-		"url": ["http://ios.cdn.bg:2091/fls/bloomberg.stream/playlist.m3u8"],
-		"customLogo": "http://cem.bg/files/144041789115720.png"
-	}, {
-		"id": "bit",
-		"name": "Би Ай Телевизия",
-		"url": [
-			"http://cdn.atv-bg.com/atv/index.m3u8",
-			"http://api.new.livestream.com/accounts/5627058/events/3583019"
-		],
-		"customLogo": "http://www.bitelevisions.com/test/wp-content/uploads/2015/10/Bit-Logo-100x60.png"
-	}, {
-		"id": "news7",
-		"name": "News 7",
-		"url": ["http://tv7-hls-eu-perm-live.hls.adaptive.level3.net/news7live.m3u8"],
-		"customLogo": "http://news7.bg/img/news7/logoNews7.png"
-	}, {
-		"id": "kanal3",
-		"name": "Канал 3",
-		"url": ["http://ios.cdn.bg:2017/fls/kanal3.stream/playlist.m3u8"],
-		"customLogo": "http://kanal3.bg/assets/css/images/logo.png"
-	}, {
-		"id": "evrokom",
-		"name": "Евроком",
-		"url": ["http://live.eurocom.bg:8080/hls/stream.m3u8"],
-		"customLogo": "http://cem.bg/files/124454636430Graphic1.jpg"
-	}, {
-		"id": "bnt2",
-		"name": "БНТ 2",
-		"url": ["rtmp://193.43.26.198:1935/live/bnt2"],
-		"customLogo": "http://cdn.bg/images/www/bnt/16x9-BNT2.png"
-	}, {
-		"id": "bntworld",
-		"name": "БНТ Свят",
-		"url": ["rtmp://193.43.26.198:1935/live/bntsat pageUrl=http://tv.bnt.bg/bntworld/ app=live/ swfUrl=http://p.jwpcdn.com/6/12/jwplayer.flash.swf live=true playpath=bntsat"],
-		"customLogo": "http://tv.bnt.bg/img/menu/logoBNTworld.png"
-	}, {
-		"id": "vtv",
-		"name": "Вест ТВ",
-		"url": ["http://31.13.223.101:1935/vtv/vtv.stream/playlist.m3u8?hash=43212345"],
-		"customLogo": "http://vtv.bg/images/logo.gif",
-		"pageUrl": "http://player.neterra.net/vtv/player.php",
-		"referer": "http://vtv.bg"
-	}, {
-		"id": "bulgaria24",
-		"name": "България 24",
-		"url": ["http://cdn.atv-bg.com/BG24/index.m3u8"],
-		"customLogo": "http://www.cem.bg/files/141630438486979.jpg"
-	}, {
-		"id": "tv1",
-		"name": "ТV1",
-		"url": ["http://xviktoriax.api.channel.livestream.com/3.0/playlist.m3u8"],
-		"customLogo": "http://www.tv1channel.org/templates/rt_oculus/images/logo/light/logo.png"
-	}, {
-		"id": "bgdnestv",
-		"name": "БГ Днес",
-		"url": ["http://80.72.95.40:8088"],
-		"customLogo": "http://cem.bg/files/1299846574356bgdnes.gif"
-	}, {
-		"id": "alfa",
-		"name": "Алфа",
-		"url": ["rtmp://ataka.tv/live app=live swfUrl=http://www.ataka.tv/flash/flowplayer.commercial-3.2.7.swf pageURL=http://www.ataka.tv/ playpath=live"],
-		"customLogo": "http://www.ataka.tv/images/logo_alfa.jpg"
-	}, {
-		"id": "bgtv",
-		"name": "BGTV",
-		"url": ["http://www.bgtv-tv.com/Scripts/expressInstall.swf"],
-		"customLogo": "http://www.predavatel.com/bg/tv/bgtv.png",
-		"properties": [ "useCustomLogo", "disabled" ]
-	}, {
-		"id": "gordimytv",
-		"name": "Gordimy TV",
-		"url": [ "rtmp:95.87.193.146:1935/gordimy/livestream playpath=livestream app=livestream pageURL=http://www.gordimy-tv.com/ live=true" ],
-		"customLogo": "http://www.gordimy-tv.com/style/logo.png",
-		"properties": [ "useCustomLogo", "disabled" ]
-	}, {
-		"id": "separator",
-		"name": "-----------------------------------------     Регионални    -----------------------------"
-	}, {
-		"id": "kanal0",
-		"name": "Бургас - Канал 0",
-		"url": ["mms://stream.kompasbg.com:8081"],
-		"customLogo": "http://www.predavatel.com/bg/5/burgas_snimki/tv_kanal0.gif"
-	}, {
-		"id": "tvmix",
-		"name": "Бургас - ТВ Микс",
-		"url": ["http://109.160.31.20:8090/tvmix_big.flv"],
-		"customLogo": "http://www.predavatel.com/bg/5/burgas_snimki/tv_mix.png"
-	}, {
-		"id": "tvdarts",
-		"name": "Благоевград - ТВ Дартс",
-		"url": ["http://31.13.223.101/darts/darts.stream/playlist.m3u8?hash=943212345"],
-		"customLogo": "http://tvfilmi.eu/uploads/thumbs/darc.jpeg"
-	}, {
-		"id": "tvvarna",
-		"name": "Варна ТВ",
-		"url": ["rtmp://78.129.184.15:39421/streaming playPath=stream app=stream swfUrl=http://tvvarna.listen2myshow.com/player-licensed.swf?87 pageUrl=http://tvvarna.listen2myshow.com/ live=true"],
-		"customLogo": "http://www.cem.bg/files/1375951058182TVVarna.jpg",
-		"properties" : [ "disabled" ]
-	}, {
-		"id": "chernomore",
-		"name": "Варна - ТВ Черно Море",
-		"url": ["http://ios.cdn.bg:2006/fls/chmore.stream/playlist.m3u8"],
-		"customLogo": "http://www.chernomore.bg/media/template/default/img/img/logo.png"
-	}, {
-		"id": "evrokomcarevets",
-		"name": "Велико Търново - Евроком Царевец",
-		"url": ["rtmp://extondemand.livestream.com:80/ondemand app=ondemand playpath=trans/dv15/mogulus-user-files/chevrokom/2013/11/16/f07c3d49-0ea4-42d8-96c4-97dc834086aa swfUrl=http://cdn.livestream.com/chromelessPlayer./v21/playerapi.swf?lschannel=true&browseMode=false&time=&jsEnabled=false&textLines=2&showMoreVideos=false&hideChannelBranding=tr.ue&hideInfo=true&mode=false&autoPlay=true&allowchat=false&t=212276 pageUrl=http://original.livestream.com/embed/evrokom?showMoreVideos=false&hideInfo=true&autoPlay=true&lschannel=true&browseMode=false&textLi.nes=2&hideChannelBranding=true&mode=false&allowchat=false&layout=4&t=212276"],
-		"customLogo": "http://www.ekcarevec.com/intro/logo-evrokom-carevec.png",
-		"properties": [ "useCustomLogo" ]
-	}, {
-		"id": "rimextv",
-		"name": "Враца - Римекс ТВ",
-		"url": ["http://transcoder1.bitcare.eu:5516/flv/rimextv.flv"],
-		"customLogo": "http://tv.rimex-ltd.com/wp-content/themes/RimexTV-MI/images/logo.png"
-	}, {
-		"id": "dobrudjadnes",
-		"name": "Добрич - Добруджа Днес",
-		"url": ["rtmp://79.98.109.134:1935/big playpath=live live=true"],
-		"customLogo": "http://www.dobrudjadnes.com/images/logo-dobrudja-dnes.png",
-		"properties": [ "useCustomLogo" ]
-	}, {
-		"id": "rodopi",
-		"name": "Кърджали - ТВ Родопи",
-		"url": ["http://213.145.114.95:8080/#sthash.vpTtLPEJ.dpuf"],
-		"customLogo": "http://www.cem.bg/files/1244717526122Graphic1.jpg",
-		"properties": [ "useCustomLogo" ]
-	}, {
-		"id": "potv",
-		"name": "Пловдив - Обществена телевизия",
-		"url": [ "mms://80.80.158.7:8080" ],
-		"customLogo": "http://www.predavatel.com/bg/3/plovdiv_snimki/tv_potv.gif",
-		"properties": [ "disabled" ]
-	}, {
-		"id": "krakratv",
-		"name": "Перник - Кра Кра",
-		"url": ["rtmp://ns1.pernik.org/live&file=krakra playpath=krakra app=krakra pageURL=http://www.krakra.net/tv.htm live=true"],
-		"customLogo": "http://krakra.tv/img/logo.png.jpg",
-		"properties": [ "disabled" ]
-	}, {
-		"id": "deltatv",
-		"name": "Русе - ТВ Делта",
-		"url": ["http://195.34.117.125:8090/live.flv"],
-		"customLogo": "http://www.deltacatv.com/wp-content/uploads/logo-delta_izrqzan-300x1291.png"
-	}, {
-		"id": "kiss13",
-		"name": "Русе - Кис 13",
-		"url": ["rtmp://109.160.96.230/myStream&streamType=live app=myStream playpath=myStream swfUrl=http://109.160.96.230/StrobeMediaPlayback.swf pageURL=http://kiss13.net/live.html live=true"],
-		"customLogo": "http://kiss13.net/templates/street_tv/images/style5/logo.png"
-	}, {
-		"id": "rilatv",
-		"name": "Самоков - ТВ Рила",
-		"url": ["http://109.160.76.6:90/rila.mpeg"],
-		"customLogo": "",
-		"properties" : [ "disabled"]
-	}, {
-		"id": "kanal6",
-		"name": "Сливен - Канал 6",
-		"url": ["http://84.54.139.86:91"],
-		"customLogo": "http://new.sliven.net/res/news/63420/logo_k6.jpg"
-	}, {
-		"id": "tvstoichev",
-		"name": "Стара Загора - Стойчев ТВ",
-		"url": ["http://ios.cdn.bg:2015/fls/tvstoichev.stream/playlist.m3u8"],
-		"customLogo": "http://cem.bg/files/1294388656290%D0%9B%D0%9E%D0%93%D0%9E.bmp"
-	}, {
-		"id": "tvstz",
-		"name": "Стара Загора ТВ",
-		"url": ["http://95.87.0.78:8080/tvstz.m3u8"],
-		"customLogo": "http://tvstz.com/images/logo_TVSTZ.png"
-	}, {
-		"id": "etv",
-		"name": "Хасково - eTV",
-		"url": ["http://195.24.89.20:4010"],
-		"customLogo": "http://www.etv.bg/images/site-logo2.png",
-		"properties": ["useCustomLogo"]
-	}, {
-		"id": "etvhd",
-		"name": "Хасково - eTV HD",
-		"url": ["http://195.24.89.20:8888"],
-		"customLogo": "http://www.etv.bg/images/site-logo2.png",
-		"properties": ["disabled", "useCustomLogo"]
-	}, {
-		"id": "diana",
-		"name": "Ямбол - Диана Кабел",
-		"url": ["http://78.83.128.247/dk1/"],
-		"customLogo": "http://www.dk-tv.com/livedk.jpg",
-		"properties": ["useCustomLogo"]
-	}, {
-		"id": "separator",
-		"name": "---------------------------------------     Спортни    ------------------------------------"
-	}, {
-		"id": "sportalbg",
-		"name": "Спортал ТВ",
-		"url": ["http://pri.cdn.bg:2001/fls/sportal_tv_hd.stream/playlist.m3u8"],
-		"customLogo": "http://img2.sportal.bg/images/header/logo.png"
-	}, {
-		"id": "sportalbghd",
-		"name": "Спортал ТВ HD",
-		"url": ["http://pri.cdn.bg:2001/fls/sportal_tv_fullhd.stream/playlist.m3u8"],
-		"customLogo": "http://img2.sportal.bg/images/header/logo.png",
-		"properties": ["useCustomLogo"]
-	}, {
-		"id": "championstv",
-		"name": "bTV Champions TV (Само по време на мачове от ШЛ)",
-		"url": ["http://46.10.150.112/alpha/alpha/playlist.m3u8"],
-		"customLogo": "http://bravo.btv.bg/web/cl_tv_logo.png",
-		"properties": ["useCustomLogo"]
-	}, {
-		"id": "separator",
-		"name": "-------------------------------------     Музикални     --------------------------------"
-	}, {
-		"id": "citytv",
-		"name": "City TV",
-		"url": ["http://nodeb.gocaster.net:1935/CGL/_definst_/mp4:TODAYFM_TEST2/playlist.m3u8"],
-		"customLogo": "http://city.bg/themes/city/images/city-web.png"
-	}, {
-		"id": "thevoice",
-		"name": "The Voice",
-		"url": ["rtmp://31.13.217.76/rtplive app=rtplive playpath=thevoice_live.stream pageUrl=http://thevoice.bg/stream/ swfUrl=http://thevoice.bg/js/thevoice_videostreem.swf live=true"],
-		"customLogo": "http://s.thevoice.bg/img/logo.png"
-	}, {
-		"id": "magictv",
-		"name": "Magic TV",
-		"url": ["rtmp://31.13.217.76:1935/magictv app=magictv playpath=magictv_live.stream pageUrl=http://thevoice.bg/stream/ swfUrl=http://thevoice.bg/js/thevoice_videostreem.swf live=true"],
-		"customLogo": "http://www.magictv.bg/web/img/logo.png"
-	}, {
-		"id": "rodinatv",
-		"name": "ТВ Родина",
-		"url": ["http://tvrodina.com:9999/"],
-		"customLogo": "http://www.predavatel.com/bg/2/blagoevgrad_snimki/bla_tvrodina_s.gif",
-		"properties": [ "disabled" ]
-	}, {
-		"id": "dstv",
-		"name": "DSTV",
-		"url": ["rtmp://46.249.95.140/live/livestream playpath=livestream  pageUrl=http://dstv-bg.com/ swfUrl=http://server11.infn.it/video/multimedia/strobe/FlashMediaPlayback.swf live=true"],
-		"customLogo": "http://dstv-bg.com/wp-content/uploads/2013/08/dstv-malko-Logogg.png"
-	}, {
-		"id": "tiankovfolk",
-		"name": "Тянков Фолк",
-		"url": ["http://31.13.223.101:80/tiankov/tiankov-folk.stream/playlist.m3u8?hash=943212345"],
-		"customLogo": "http://cem.bg/files/141292462488039.png"
-	}, {
-		"id": "tiankovorientfolk",
-		"name": "Тянков Ориент",
-		"url": ["http://31.13.223.101:80/tiankov/tiankov-orient.stream/playlist.m3u8?hash=943212345"],
-		"customLogo": "http://cem.bg/files/141292462488039.png"
-	}, {
-		"id": "tiankovpop",
-		"name": "Тянков Поп-фолк",
-		"url": ["http://31.13.223.103:80/tiankov/tiankov-popfolk.stream/playlist.m3u8?hash=943212345"],
-		"customLogo": "http://cem.bg/files/141292462488039.png"
-	}, {
-		"id": "romatv",
-		"name": "Рома ТВ",
-		"url": ["http://185.46.161.3/hls/sd.m3u8"],
-		"customLogo": "http://romatv.bg/templates/tube/images/logo.png",
-		"properties": ["useCustomLogo"]
-	}, {
-		"id": "evrofolk",
-		"name": "Еврофолк ТВ",
-		"url": [ "rtsp://live.cdn2.streamago.tv/streamago/53827/45262/?idcanale=45262" ],
-		"customLogo": "http://tv.eurofolk.com/img/Radio_eurofolk_LIVEON.jpg",
-		"properties": ["useCustomLogo"]
-	}, {
-		"id": "sunrise",
-		"name": "Сънрайз Фолк",
-		"url": ["http://www.sunrisemusicbg.com/flash/o4akvaite-600x.swf"],
-		"customLogo": "http://www.sunrisemusicbg.com/images/stories/loga/logo_sm100x75.png",
-		"properties": ["useCustomLogo"]
-	}, {
-		"id": "emtv",
-		"name": "Европейски Музикална Телевизия",
-		"url": [ "mms://84.22.1.210/emtv", "http://www.utv.bg/tv/stream.php?code=8nfjPCDFe7PPH34j5Puijhgj6UIfrwQE" ],
-		"customLogo": "http://www.tv-logo.com/pt-data/uploads/images/logo/emtv_bg.jpg",
-		"properties": [ "useCustomLogo", "disabled" ]
-	}, {
-		"id": "separator",
-		"name": "-------------------------------------     Тематични    --------------------------------"
-	}, {
-		"id": "bginfo",
-		"name": "БГ Инфо ТВ",
-		"url": ["http://89.215.177.125:8899/stream.flv"],
-		"customLogo": "http://www.bginfo.tv/images/stories/logo/top_logo.png"
-	}, {
-		"id": "traveltv",
-		"name": "Travel TV",
-		"url": ["http://31.13.223.101:80/travel/travel.stream/playlist.m3u8?hash=943212345"],
-		"customLogo": "http://cem.bg/files/131738198140TRAVEL_CURVES_SHADOW.gif",
-		"pageUrl": "http://player.neterra.tv/travel/player.php",
-		"referer": "http://tv.traveltv.bg/live/"
-	}, {
-		"id": "travelhd",
-		"name": "Travel TV HD",
-		"url": ["http://31.13.223.103/travel/community.stream/playlist.m3u8?hash=943212345"],
-		"customLogo": "http://cem.bg/files/131738198140TRAVEL_CURVES_SHADOW.gif",
-		"pageUrl": "http://player.neterra.tv/travel/playerCommunity.php",
-		"referer": "http://hd.traveltv.bg/live/"
-	}, {
-		"id": "agrotv",
-		"name": "Агро ТВ",
-		"url": ["rtmp://agrotvlive1.srfms.com:3021/live/ pageUrl=http://www.agrotv.bg/  app=live/ playpath=livestream swfUrl=http://www.agrotv.bg/flowplayer/flowplayer.rtmp-3.2.3.swf live=true"],
-		"customLogo": "http://www.agrotv.bg/images/logo.png"
-	}, {
-		"id": "ecotv",
-		"name": "Еко ТВ",
-		"url": ["rtsp://212.25.37.150:5544/ecotv"],
-		"customLogo": "http://www.tv14.net/wp-content/uploads/2010/10/Eco-Bulgaria-TV.jpg",
+		"n": "0JHQndCiIDE=",
+		"c": "Национални",
+		"s": [{
+			"u": "cnRtcDovL21lZGlhMS5ibnQuYmc6MTkzNS9saXZlL2JudDE="
+		}, {
+			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjAyMC9mbHMvYm50LnN0cmVhbS9wbGF5bGlzdC5tM3U4P2F0PQ==",
+			"pageUrl": "http://tv.bnt.bg/bnt1/16x9/",
+			"playerUrl": "http://cdn.bg/live/4eViE8vGzI"
+		}],
+		"l": "http://cdn.bg/images/www/bnt/16x9-BNT1.png"
+	}, {
+		"n": "YlRW",
+		"c": "Национални",
+		"s": [{
+			"u": "aHR0cDovLzQ2LjEwLjE1MC4xMTEvaW9zL2J0dmJnbGl2ZS9wbGF5bGlzdC5tM3U4"
+		}, {
+			"u": "cnRtcDovLzQ2LjEwLjE1MC4xMTEvaW9zIHBsYXlwYXRoPWJ0dmJnbGl2ZSBwYWdlVVJMPWh0dHA6Ly93d3cuYnR2LmJnL2xpdmUvIGFwcD1pb3Mgc3dmVXJsPWh0dHA6Ly9pbWFnZXMuYnR2LmJnL2ZwbGF5ZXIvZmxvd3BsYXllci5jb21tZXJjaWFsLTMuMi41LnN3ZiBsaXZlPXRydWU="
+		}],
+		"l": "http://www.btv.bg//static/bg/microsites/btv/img/btv-logo.png"
+	}, {
+		"n": "0J3QvtCy0LA=",
+		"c": "Национални",
+		"s": [{
+			"u": "aHR0cDovL2UxLmNkbi5iZzoyMDYwL2Zscy9udHZfMS5zdHJlYW0vcGxheWxpc3QubTN1OA=="
+		}, {
+			"u": "cnRtcDovL2VkZ2UxLmV2b2xpbmsubmV0OjIwMTAvZmxzIHBsYXlwYXRoPW50dl8yLnN0cmVhbSBwYWdlVVJMPWh0dHA6Ly9pLmNkbi5iZy9saXZlLyBhcHA9ZmxzL19kZWZpbnN0XyB0b2tlbj1OMHY0VFY2IzIgbGl2ZT10cnVl"
+		}],
+		"l": "http://static1.novatv.bg/layout/novatv/images/big_nav_logo.png"
+	}, {
+		"n": "0JHQndCiIEhE",
+		"c": "Национални",
+		"s": [{
+			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjAyMC9mbHMvYm50SER0LnN0cmVhbS9wbGF5bGlzdC5tM3U4P2F0PQ==",
+			"playerUrl":"http://cdn.bg/live/OQ70Ds9Lcp",
+			"pageUrl": "http://tv.bnt.bg/bnthd"
+		}],
+		"l": "http://i.cdn.bg/images/www/bnt/BNTliveHD.png"
+	}, {
+		"n": "0KLQkiA3",
+		"c": "Национални",
+		"s": [{
+			"u": "aHR0cDovL3R2Ny1obHMtZXUtcGVybS1saXZlLmhscy5hZGFwdGl2ZS5sZXZlbDMubmV0L3R2N2xpdmUubTN1OA=="
+		}],
+		"l": "http://tv7.bg/img/public/logoTv7.png"
+	}, {
+		"n": "QnVsZ2FyaWEgT24gQWly",
+		"c": "Национални",
+		"s": [{
+			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjAwNi9mbHMvYm9uYWlyLnN0cmVhbS9wbGF5bGlzdC5tM3U4"
+		}],
+		"l": "http://www.bgonair.bg/media/template/default/img/ico/logo.png"
+	}, {
+		"n": "0KLQkiDQldCy0YDQvtC/0LA=",
+		"c": "Национални",
+		"s": [{
+			"u": "aHR0cDovL2xiLmJsYi5jZG4uYmc6MjAxOC9mbHMvdHZldnJvcGEuc3RyZWFtL3BsYXlsaXN0Lm0zdTg="
+		}],
+		"l": "http://www.tvevropa.com/public/images/site_images/img_logo.png"
+	}, {
+		"n": "Qmxvb21iZXJnVFYgQnVsZ2FyaWE=",
+		"c": "Национални",
+		"s": [{
+			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjA5MS9mbHMvYmxvb21iZXJnLnN0cmVhbS9wbGF5bGlzdC5tM3U4"
+		}],
+		"l": "http://cem.bg/files/144041789115720.png"
+	}, {
+		"n": "0JHQuCDQkNC5INCi0LXQu9C10LLQuNC30LjRjw==",
+		"c": "Национални",
+		"s": [{
+			"u": "aHR0cDovL2FwaS5uZXcubGl2ZXN0cmVhbS5jb20vYWNjb3VudHMvNTYyNzA1OC9ldmVudHMvMzU4MzAxOQ==",
+			"getStreamFromLiveStream": 1
+		}, {
+			"u": "aHR0cDovL2Nkbi5hdHYtYmcuY29tL2F0di9pbmRleC5tM3U4"
+		}],
+		"l": "http://www.bitelevisions.com/test/wp-content/uploads/2015/10/Bit-Logo-100x60.png"
+	}, {
+		"n": "TmV3cyA3",
+		"c": "Национални",
+		"s": [{
+			"u": "aHR0cDovL3R2Ny1obHMtZXUtcGVybS1saXZlLmhscy5hZGFwdGl2ZS5sZXZlbDMubmV0L25ld3M3bGl2ZS5tM3U4"
+		}],
+		"l": "http://news7.bg/img/news7/logoNews7.png"
+	}, {
+		"n": "0JrQsNC90LDQuyAz",
+		"c": "Национални",
+		"s": [{
+			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjAxNy9mbHMva2FuYWwzLnN0cmVhbS9wbGF5bGlzdC5tM3U4"
+		}],
+		"l": "http://kanal3.bg/assets/css/images/logo.png"
+	}, {
+		"n": "0JXQstGA0L7QutC+0Lw=",
+		"c": "Национални",
+		"s": [{
+			"u": "aHR0cDovL2xpdmUuZXVyb2NvbS5iZzo4MDgwL2hscy9zdHJlYW0ubTN1OA=="
+		}],
+		"l": "http://cem.bg/files/124454636430Graphic1.jpg"
+	}, {
+		"n": "0JHQndCiIDI=",
+		"c": "Национални",
+		"s": [{
+			"u": "cnRtcDovL21lZGlhMS5ibnQuYmc6MTkzNS9saXZlL2JudDI="
+		},{
+			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjAyMC9mbHMvYm50Mi5zdHJlYW0vcGxheWxpc3QubTN1OD9hdD04NzgxZmZhNGIwNjQ5ZmI3ZThjNWY0MTU1NTQxMjk5ZQ==",
+			"playerUrl": "http://cdn.bg/live/ZBPbdxDHm7",
+			"pageUrl": "http://tv.bnt.bg/bnt2/16x9/"
+		}],
+		"l": "http://cdn.bg/images/www/bnt/16x9-BNT2.png"
+	}, {
+		"n": "0JHQndCiINCh0LLRj9GC",
+		"c": "Национални",
+		"s": [{
+			"u": "cnRtcDovLzE5My40My4yNi4xOTg6MTkzNS9saXZlL2JudHNhdCBwYWdlVXJsPWh0dHA6Ly90di5ibnQuYmcvYm50d29ybGQvIGFwcD1saXZlLyBzd2ZVcmw9aHR0cDovL3AuandwY2RuLmNvbS82LzEyL2p3cGxheWVyLmZsYXNoLnN3ZiBsaXZlPXRydWUgcGxheXBhdGg9Ym50c2F0"
+		}],
+		"l": "http://tv.bnt.bg/img/menu/logoBNTworld.png"
+	}, {
+		"n": "0JLQtdGB0YIg0KLQkg==",
+		"c": "Национални",
+		"s": [{
+			"u": "aHR0cDovLzMxLjEzLjIyMy4xMDE6MTkzNS92dHYvdnR2LnN0cmVhbS9wbGF5bGlzdC5tM3U4P2hhc2g9NDMyMTIzNDU=",
+			"playerUrl": "http://player.neterra.net/vtv/player.php",
+			"pageUrl": "http://www.vtv.bg/?target=online"
+		}],
+		"l": "http://vtv.bg/images/logo.gif"
+	}, {
+		"n": "0JHRitC70LPQsNGA0LjRjyAyNA==",
+		"c": "Национални",
+		"s": [{
+			"u": "aHR0cDovL2Nkbi5hdHYtYmcuY29tL0JHMjQvaW5kZXgubTN1OA=="
+		}],
+		"l": "http://www.cem.bg/files/141630438486979.jpg"
+	}, {
+		"n": "0KJWMQ==",
+		"c": "Национални",
+		"s": [{
+			"u": "aHR0cDovL3h2aWt0b3JpYXguYXBpLmNoYW5uZWwubGl2ZXN0cmVhbS5jb20vMy4wL3BsYXlsaXN0Lm0zdTg="
+		}],
+		"l": "http://www.tv1channel.org/templates/rt_oculus/images/logo/light/logo.png"
+	}, {
+		"n": "0JHQkyDQlNC90LXRgQ==",
+		"c": "Национални",
+		"s": [{
+			"u": "aHR0cDovLzgwLjcyLjk1LjQwOjgwODg="
+		}],
+		"l": "http://cem.bg/files/1299846574356bgdnes.gif"
+	}, {
+		"n": "0JDQu9GE0LA=",
+		"c": "Национални",
+		"s": [{
+			"u": "cnRtcDovL2F0YWthLnR2L2xpdmUgYXBwPWxpdmUgc3dmVXJsPWh0dHA6Ly93d3cuYXRha2EudHYvZmxhc2gvZmxvd3BsYXllci5jb21tZXJjaWFsLTMuMi43LnN3ZiBwYWdlVVJMPWh0dHA6Ly93d3cuYXRha2EudHYvIHBsYXlwYXRoPWxpdmU="
+		}],
+		"l": "http://www.ataka.tv/images/logo_alfa.jpg"
+	}, {
+		"n": "QkdUVg==",
+		"c": "Национални",
+		"s": [{
+			"u": "aHR0cDovL3d3dy5iZ3R2LXR2LmNvbS9TY3JpcHRzL2V4cHJlc3NJbnN0YWxsLnN3Zg=="
+		}],
+		"l": "http://www.predavatel.com/bg/tv/bgtv.png",
 		"properties": ["useCustomLogo", "disabled"]
 	}, {
-		"id": "vtk",
-		"name": "Военен ТВ канал",
-		"url": ["http://46.249.95.180/vtk/high.m3u8"],
-		"customLogo": "http://armymedia.bg/wp-content/uploads/2015/03/new_lego_vtk.jpg",
-		"properties": ["", ""]
+		"n": "R29yZGlteSBUVg==",
+		"c": "Национални",
+		"s": [{
+			"u": "cnRtcDo5NS44Ny4xOTMuMTQ2OjE5MzUvZ29yZGlteS9saXZlc3RyZWFtIHBsYXlwYXRoPWxpdmVzdHJlYW0gYXBwPWxpdmVzdHJlYW0gcGFnZVVSTD1odHRwOi8vd3d3LmdvcmRpbXktdHYuY29tLyBsaXZlPXRydWU="
+		}],
+		"l": "http://www.gordimy-tv.com/style/logo.png",
+		"properties": ["useCustomLogo", "disabled"]
 	}, {
-		"id": "autotv",
-		"name": "Аутомото ТВ",
-		"url": ["http://100automoto.tv:1935/bgtv1/autotv/playlist.m3u8"],
-		"customLogo": "http://www.100automoto.tv/images/yootheme/logo.png",
+		"n": "0JHRg9GA0LPQsNGBIC0g0JrQsNC90LDQuyAw",
+		"c": "Регионални",
+		"s": [{
+			"u": "bW1zOi8vc3RyZWFtLmtvbXBhc2JnLmNvbTo4MDgx"
+		}],
+		"l": "http://www.predavatel.com/bg/5/burgas_snimki/tv_kanal0.gif"
+	}, {
+		"n": "0JHRg9GA0LPQsNGBIC0g0KLQkiDQnNC40LrRgQ==",
+		"c": "Регионални",
+		"s": [{
+			"u": "aHR0cDovLzEwOS4xNjAuMzEuMjA6ODA5MC90dm1peF9iaWcuZmx2"
+		}],
+		"l": "http://www.predavatel.com/bg/5/burgas_snimki/tv_mix.png"
+	}, {
+		"n": "0JHQu9Cw0LPQvtC10LLQs9GA0LDQtCAtINCi0JIg0JTQsNGA0YLRgQ==",
+		"c": "Регионални",
+		"s": [{
+			"u": "aHR0cDovLzMxLjEzLjIyMy4xMDEvZGFydHMvZGFydHMuc3RyZWFtL3BsYXlsaXN0Lm0zdTg/aGFzaD05NDMyMTIzNDU="
+		}],
+		"l": "http://tvfilmi.eu/uploads/thumbs/darc.jpeg"
+	}, {
+		"n": "0JLQsNGA0L3QsCDQotCS",
+		"c": "Регионални",
+		"s": [{
+			"u": "cnRtcDovLzc4LjEyOS4xODQuMTU6Mzk0MjEvc3RyZWFtaW5nIHBsYXlQYXRoPXN0cmVhbSBhcHA9c3RyZWFtIHN3ZlVybD1odHRwOi8vdHZ2YXJuYS5saXN0ZW4ybXlzaG93LmNvbS9wbGF5ZXItbGljZW5zZWQuc3dmPzg3IHBhZ2VVcmw9aHR0cDovL3R2dmFybmEubGlzdGVuMm15c2hvdy5jb20vIGxpdmU9dHJ1ZQ=="
+		}],
+		"l": "http://www.cem.bg/files/1375951058182TVVarna.jpg",
+		"properties": ["disabled"]
+	}, {
+		"n": "0JLQsNGA0L3QsCAtINCi0JIg0KfQtdGA0L3QviDQnNC+0YDQtQ==",
+		"c": "Регионални",
+		"s": [{
+			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjAwNi9mbHMvY2htb3JlLnN0cmVhbS9wbGF5bGlzdC5tM3U4"
+		}],
+		"l": "http://www.chernomore.bg/media/template/default/img/img/logo.png"
+	}, {
+		"n": "0JLQtdC70LjQutC+INCi0YrRgNC90L7QstC+IC0g0JXQstGA0L7QutC+0Lwg0KbQsNGA0LXQstC10YY=",
+		"c": "Регионални",
+		"s": [{
+			"u": "cnRtcDovL2V4dG9uZGVtYW5kLmxpdmVzdHJlYW0uY29tOjgwL29uZGVtYW5kIGFwcD1vbmRlbWFuZCBwbGF5cGF0aD10cmFucy9kdjE1L21vZ3VsdXMtdXNlci1maWxlcy9jaGV2cm9rb20vMjAxMy8xMS8xNi9mMDdjM2Q0OS0wZWE0LTQyZDgtOTZjNC05N2RjODM0MDg2YWEgc3dmVXJsPWh0dHA6Ly9jZG4ubGl2ZXN0cmVhbS5jb20vY2hyb21lbGVzc1BsYXllci4vdjIxL3BsYXllcmFwaS5zd2Y/bHNjaGFubmVsPXRydWUmYnJvd3NlTW9kZT1mYWxzZSZ0aW1lPSZqc0VuYWJsZWQ9ZmFsc2UmdGV4dExpbmVzPTImc2hvd01vcmVWaWRlb3M9ZmFsc2UmaGlkZUNoYW5uZWxCcmFuZGluZz10ci51ZSZoaWRlSW5mbz10cnVlJm1vZGU9ZmFsc2UmYXV0b1BsYXk9dHJ1ZSZhbGxvd2NoYXQ9ZmFsc2UmdD0yMTIyNzYgcGFnZVVybD1odHRwOi8vb3JpZ2luYWwubGl2ZXN0cmVhbS5jb20vZW1iZWQvZXZyb2tvbT9zaG93TW9yZVZpZGVvcz1mYWxzZSZoaWRlSW5mbz10cnVlJmF1dG9QbGF5PXRydWUmbHNjaGFubmVsPXRydWUmYnJvd3NlTW9kZT1mYWxzZSZ0ZXh0TGkubmVzPTImaGlkZUNoYW5uZWxCcmFuZGluZz10cnVlJm1vZGU9ZmFsc2UmYWxsb3djaGF0PWZhbHNlJmxheW91dD00JnQ9MjEyMjc2"
+		}],
+		"l": "http://www.ekcarevec.com/intro/logo-evrokom-carevec.png",
 		"properties": ["useCustomLogo"]
 	}, {
-		"id": "automoto100gaz",
-		"name": "Аутомото ТВ 100 Газ",
-		"url": ["mms://100automoto.tv/100gaz"],
-		"customLogo": "http://www.100automoto.tv/images/yootheme/logo.png",
+		"n": "0JLRgNCw0YbQsCAtINCg0LjQvNC10LrRgSDQotCS",
+		"c": "Регионални",
+		"s": [{
+			"u": "aHR0cDovL3RyYW5zY29kZXIxLmJpdGNhcmUuZXU6NTUxNi9mbHYvcmltZXh0di5mbHY="
+		}],
+		"l": "http://tv.rimex-ltd.com/wp-content/themes/RimexTV-MI/images/logo.png"
+	}, {
+		"n": "0JTQvtCx0YDQuNGHIC0g0JTQvtCx0YDRg9C00LbQsCDQlNC90LXRgQ==",
+		"c": "Регионални",
+		"s": [{
+			"u": "cnRtcDovLzc5Ljk4LjEwOS4xMzQ6MTkzNS9iaWcgcGxheXBhdGg9bGl2ZSBsaXZlPXRydWU="
+		}],
+		"l": "http://www.dobrudjadnes.com/images/logo-dobrudja-dnes.png",
 		"properties": ["useCustomLogo"]
 	}, {
-		"id": "automotobmw",
-		"name": "Аутомото ТВ BMW",
-		"url": ["mms://100automoto.tv/bmw"],
-		"customLogo": "http://www.100automoto.tv/images/yootheme/logo.png",
+		"n": "0JrRitGA0LTQttCw0LvQuCAtINCi0JIg0KDQvtC00L7Qv9C4",
+		"c": "Регионални",
+		"s": [{
+			"u": "aHR0cDovLzIxMy4xNDUuMTE0Ljk1OjgwODAvI3N0aGFzaC52cFR0TFBFSi5kcHVm"
+		}],
+		"l": "http://www.cem.bg/files/1244717526122Graphic1.jpg",
 		"properties": ["useCustomLogo"]
 	}, {
-		"id": "automotoelectric",
-		"name": "Аутомото ТВ Electric",
-		"url": ["mms://100automoto.tv/channel_electric"],
-		"customLogo": "http://www.100automoto.tv/images/yootheme/logo.png",
+		"n": "0J/Qu9C+0LLQtNC40LIgLSDQntCx0YnQtdGB0YLQstC10L3QsCDRgtC10LvQtdCy0LjQt9C40Y8=",
+		"c": "Регионални",
+		"s": [{
+			"u": "bW1zOi8vODAuODAuMTU4Ljc6ODA4MA=="
+		}],
+		"l": "http://www.predavatel.com/bg/3/plovdiv_snimki/tv_potv.gif",
+		"properties": ["disabled"]
+	}, {
+		"n": "0J/QtdGA0L3QuNC6IC0g0JrRgNCwINCa0YDQsA==",
+		"c": "Регионални",
+		"s": [{
+			"u": "cnRtcDovL25zMS5wZXJuaWsub3JnL2xpdmUmZmlsZT1rcmFrcmEgcGxheXBhdGg9a3Jha3JhIGFwcD1rcmFrcmEgcGFnZVVSTD1odHRwOi8vd3d3LmtyYWtyYS5uZXQvdHYuaHRtIGxpdmU9dHJ1ZQ=="
+		}],
+		"l": "http://krakra.tv/img/logo.png.jpg",
+		"properties": ["disabled"]
+	}, {
+		"n": "0KDRg9GB0LUgLSDQotCSINCU0LXQu9GC0LA=",
+		"c": "Регионални",
+		"s": [{
+			"u": "aHR0cDovLzE5NS4zNC4xMTcuMTI1OjgwOTAvbGl2ZS5mbHY="
+		}],
+		"l": "http://www.deltacatv.com/wp-content/uploads/logo-delta_izrqzan-300x1291.png"
+	}, {
+		"n": "0KDRg9GB0LUgLSDQmtC40YEgMTM=",
+		"c": "Регионални",
+		"s": [{
+			"u": "cnRtcDovLzEwOS4xNjAuOTYuMjMwL215U3RyZWFtJnN0cmVhbVR5cGU9bGl2ZSBhcHA9bXlTdHJlYW0gcGxheXBhdGg9bXlTdHJlYW0gc3dmVXJsPWh0dHA6Ly8xMDkuMTYwLjk2LjIzMC9TdHJvYmVNZWRpYVBsYXliYWNrLnN3ZiBwYWdlVVJMPWh0dHA6Ly9raXNzMTMubmV0L2xpdmUuaHRtbCBsaXZlPXRydWU="
+		}],
+		"l": "http://kiss13.net/templates/street_tv/images/style5/logo.png"
+	}, {
+		"n": "0KHQsNC80L7QutC+0LIgLSDQotCSINCg0LjQu9Cw",
+		"c": "Регионални",
+		"s": [{
+			"u": "aHR0cDovLzEwOS4xNjAuNzYuNjo5MC9yaWxhLm1wZWc="
+		}],
+		"l": "",
+		"properties": ["disabled"]
+	}, {
+		"n": "0KHQu9C40LLQtdC9IC0g0JrQsNC90LDQuyA2",
+		"c": "Регионални",
+		"s": [{
+			"u": "aHR0cDovLzg0LjU0LjEzOS44Njo5MQ=="
+		}],
+		"l": "http://new.sliven.net/res/news/63420/logo_k6.jpg"
+	}, {
+		"n": "0KHRgtCw0YDQsCDQl9Cw0LPQvtGA0LAgLSDQodGC0L7QudGH0LXQsiDQotCS",
+		"c": "Регионални",
+		"s": [{
+			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjAxNS9mbHMvdHZzdG9pY2hldi5zdHJlYW0vcGxheWxpc3QubTN1OA=="
+		}],
+		"l": "http://cem.bg/files/1294388656290%D0%9B%D0%9E%D0%93%D0%9E.bmp"
+	}, {
+		"n": "0KHRgtCw0YDQsCDQl9Cw0LPQvtGA0LAgLSDQotCSINCh0YLQsNGA0LAg0JfQsNCz0L7RgNCw",
+		"c": "Регионални",
+		"s": [{
+			"u": "aHR0cDovLzk1Ljg3LjAuNzg6ODA4MC90dnN0ei5tM3U4"
+		}],
+		"l": "http://tvstz.com/images/logo_TVSTZ.png"
+	}, {
+		"n": "0KHRgtCw0YDQsCDQl9Cw0LPQvtGA0LAgLSDQotCSINCX0LDQs9C+0YDQsA==",
+		"c": "Регионални",
+		"s": [{
+			"u": "aHR0cDovLzk1Ljg3LjAuNzg6ODA4MC9saXZlL3R2X3phZ29yYV81NzZwLm0zdTg="
+		},{
+			"u": "aHR0cDovLzk1Ljg3LjAuNzg6ODA4MC9saXZlL3R2X3phZ29yYV8zNjBwLm0zdTg="
+		}],
+		"l": "http://stznews.bg/images/logo.gif"
+	}, {
+		"n": "0KXQsNGB0LrQvtCy0L4gLSBlVFY=",
+		"c": "Регионални",
+		"s": [{
+			"u": "aHR0cDovLzE5NS4yNC44OS4yMDo0MDEw"
+		},{
+			"u": "aHR0cDovLzE5NS4yNC44OS4yMDo4ODg4",
+			"hd":1
+		}],
+		"l": "http://www.etv.bg/images/site-logo2.png",
 		"properties": ["useCustomLogo"]
 	}, {
-		"id": "automotomercedes",
-		"name": "Аутомото ТВ Mercedes",
-		"url": ["mms://100automoto.tv/channel_mercedes"],
-		"customLogo": "http://www.100automoto.tv/images/yootheme/logo.png",
+		"n": "0K/QvNCx0L7QuyAtINCU0LjQsNC90LAg0JrQsNCx0LXQuw==",
+		"c": "Регионални",
+		"s": [{
+			"u": "aHR0cDovLzc4LjgzLjEyOC4yNDcvZGsxLw=="
+		}],
+		"l": "http://www.dk-tv.com/livedk.jpg",
 		"properties": ["useCustomLogo"]
 	}, {
-		"id": "automotoporsche",
-		"name": "Аутомото ТВ Porsche",
-		"url": ["mms://100automoto.tv/channel_porsche"],
-		"customLogo": "http://www.100automoto.tv/images/yootheme/logo.png",
+		"n": "0KHQv9C+0YDRgtCw0Lsg0KLQkg==",
+		"c": "Спортни",
+		"s": [{
+			"u": "aHR0cDovL3ByaS5jZG4uYmc6MjAwMS9mbHMvc3BvcnRhbF90dl9oZC5zdHJlYW0vcGxheWxpc3QubTN1OA=="
+		}, {
+			"u": "aHR0cDovL3ByaS5jZG4uYmc6MjAwMS9mbHMvc3BvcnRhbF90dl9mdWxsaGQuc3RyZWFtL3BsYXlsaXN0Lm0zdTg=",
+			"hd": 1
+		}],
+		"l": "http://img2.sportal.bg/images/header/logo.png"
+	}, {
+		"n": "YlRWIENoYW1waW9ucyBUViAo0KHQsNC80L4g0L/QviDQstGA0LXQvNC1INC90LAg0LzQsNGH0L7QstC1INC+0YIg0KjQmyk=",
+		"c": "Спортни",
+		"s": [{
+			"u": "aHR0cDovLzQ2LjEwLjE1MC4xMTIvYWxwaGEvYWxwaGEvcGxheWxpc3QubTN1OA=="
+		}],
+		"l": "http://bravo.btv.bg/web/cl_tv_logo.png",
 		"properties": ["useCustomLogo"]
 	}, {
-		"id": "automotoitalia",
-		"name": "Аутомото ТВ Italia",
-		"url": ["mms://100automoto.tv/channel_italy"],
-		"customLogo": "http://www.100automoto.tv/images/yootheme/logo.png",
+		"n": "Q2l0eSBUVg==",
+		"c": "Музикални",
+		"s": [{
+			"u": "aHR0cDovL25vZGViLmdvY2FzdGVyLm5ldDoxOTM1L0NHTC9fZGVmaW5zdF8vbXA0OlRPREFZRk1fVEVTVDIvcGxheWxpc3QubTN1OA=="
+		}],
+		"l": "http://city.bg/themes/city/images/city-web.png"
+	}, {
+		"n": "VGhlIFZvaWNl",
+		"c": "Музикални",
+		"s": [{
+			"u": "cnRtcDovLzMxLjEzLjIxNy43Ni9ydHBsaXZlIGFwcD1ydHBsaXZlIHBsYXlwYXRoPXRoZXZvaWNlX2xpdmUuc3RyZWFtIHBhZ2VVcmw9aHR0cDovL3RoZXZvaWNlLmJnL3N0cmVhbS8gc3dmVXJsPWh0dHA6Ly90aGV2b2ljZS5iZy9qcy90aGV2b2ljZV92aWRlb3N0cmVlbS5zd2YgbGl2ZT10cnVl"
+		}],
+		"l": "http://s.thevoice.bg/img/logo.png"
+	}, {
+		"n": "TWFnaWMgVFY=",
+		"c": "Музикални",
+		"s": [{
+			"u": "cnRtcDovLzMxLjEzLjIxNy43NjoxOTM1L21hZ2ljdHYgYXBwPW1hZ2ljdHYgcGxheXBhdGg9bWFnaWN0dl9saXZlLnN0cmVhbSBwYWdlVXJsPWh0dHA6Ly90aGV2b2ljZS5iZy9zdHJlYW0vIHN3ZlVybD1odHRwOi8vdGhldm9pY2UuYmcvanMvdGhldm9pY2VfdmlkZW9zdHJlZW0uc3dmIGxpdmU9dHJ1ZQ=="
+		}],
+		"l": "http://www.magictv.bg/web/img/logo.png"
+	}, {
+		"n": "0KLQkiDQoNC+0LTQuNC90LA=",
+		"c": "Музикални",
+		"s": [{
+			"u": "aHR0cDovL3R2cm9kaW5hLmNvbTo5OTk5Lw=="
+		}],
+		"l": "http://www.predavatel.com/bg/2/blagoevgrad_snimki/bla_tvrodina_s.gif",
+		"properties": ["disabled"]
+	}, {
+		"n": "RFNUVg==",
+		"c": "Музикални",
+		"s": [{
+			"u": "cnRtcDovLzQ2LjI0OS45NS4xNDAvbGl2ZS9saXZlc3RyZWFtIHBsYXlwYXRoPWxpdmVzdHJlYW0gIHBhZ2VVcmw9aHR0cDovL2RzdHYtYmcuY29tLyBzd2ZVcmw9aHR0cDovL3NlcnZlcjExLmluZm4uaXQvdmlkZW8vbXVsdGltZWRpYS9zdHJvYmUvRmxhc2hNZWRpYVBsYXliYWNrLnN3ZiBsaXZlPXRydWU="
+		}],
+		"l": "http://dstv-bg.com/wp-content/uploads/2013/08/dstv-malko-Logogg.png"
+	}, {
+		"n": "0KLRj9C90LrQvtCyINCk0L7Qu9C6",
+		"c": "Музикални",
+		"s": [{
+			"u": "aHR0cDovLzMxLjEzLjIyMy4xMDE6ODAvdGlhbmtvdi90aWFua292LWZvbGsuc3RyZWFtL3BsYXlsaXN0Lm0zdTg/aGFzaD05NDMyMTIzNDU="
+		}],
+		"l": "http://cem.bg/files/141292462488039.png"
+	}, {
+		"n": "0KLRj9C90LrQvtCyINCe0YDQuNC10L3Rgg==",
+		"c": "Музикални",
+		"s": [{
+			"u": "aHR0cDovLzMxLjEzLjIyMy4xMDE6ODAvdGlhbmtvdi90aWFua292LW9yaWVudC5zdHJlYW0vcGxheWxpc3QubTN1OD9oYXNoPTk0MzIxMjM0NQ=="
+		}],
+		"l": "http://cem.bg/files/141292462488039.png"
+	}, {
+		"n": "0KLRj9C90LrQvtCyINCf0L7Qvy3RhNC+0LvQug==",
+		"c": "Музикални",
+		"s": [{
+			"u": "aHR0cDovLzMxLjEzLjIyMy4xMDM6ODAvdGlhbmtvdi90aWFua292LXBvcGZvbGsuc3RyZWFtL3BsYXlsaXN0Lm0zdTg/aGFzaD05NDMyMTIzNDU="
+		}],
+		"l": "http://cem.bg/files/141292462488039.png"
+	}, {
+		"n": "0KDQvtC80LAg0KLQkg==",
+		"c": "Музикални",
+		"s": [{
+			"u": "aHR0cDovLzE4NS40Ni4xNjEuMy9obHMvc2QubTN1OA=="
+		}],
+		"l": "http://romatv.bg/templates/tube/images/logo.png",
 		"properties": ["useCustomLogo"]
 	}, {
-		"id": "bnptv",
-		"name": "Национално-патриотична телевизия",
-		"url": ["mms://bnptv.tv:10801"],
-		"customLogo": "http://www.bnptv.info/tv/templates/rhuk_milkyway/images/mw_joomla_logo.png"
-	}, {
-		"id": "tvart",
-		"name": "Арт ТВ",
-		"url": ["http://80.72.95.9:1935/live/tvart/playlist.m3u8"],
-		"customLogo": "http://cem.bg/files/125008251019Graphic1.jpg"
-	}, {
-		"id": "live7",
-		"name": "Live 7 Арт ТВ",
-		"url": ["rtmp://extondemand.livestream.com/ondemand app=ondemand playpath=mp4:trans/dv15/mogulus-user-files/chlive7tv/2013/11/20/a1f957f0-3bfa-4c07-80c3-16ec0818bf67.mp4 swfUrl=http://cdn.livestream.com/chromelessPlayer/v21/playera.pi.swf?lschannel=true&jsEnabled=false&browseMode=false&time=&textLines=2&showMoreVideos=false&hideChannelBranding=true&hideInfo=.true&mode=false&autoPlay=true&allowchat=false&t=530076 pageURL=http://original.livestream.com/embed/li.ve7tv?showMoreVideos=false&hideInfo=true&autoPlay=true&lschannel=true&browseMode=false&textLines=2&hideChannelBranding=true&mode.=false&allowchat=false&layout=4&t=530076"],
-		"customLogo": "https://static.wixstatic.com/media/60e173_3d128f023eb74ec89edba008d717341d.png/v1/fill/w_139,h_139,al_c,usm_0.50_1.20_0.00/60e173_3d128f023eb74ec89edba008d717341d.png",
+		"n": "0JXQstGA0L7RhNC+0LvQuiDQotCS",
+		"c": "Музикални",
+		"s": [{
+			"u": "cnRzcDovL2xpdmUuY2RuMi5zdHJlYW1hZ28udHYvc3RyZWFtYWdvLzUzODI3LzQ1MjYyLz9pZGNhbmFsZT00NTI2Mg=="
+		}],
+		"l": "http://tv.eurofolk.com/img/Radio_eurofolk_LIVEON.jpg",
 		"properties": ["useCustomLogo"]
 	}, {
-		"id": "winetv",
-		"name": "Wine ТВ",
-		"url": ["rtsp://212.25.37.150:5545/winearttv"],
-		"customLogo": "http://live-tv.me/wp-content/uploads/2014/05/WineArt.gif",
-		"properties": [ "useCustomLogo", "disabled" ]
-	}, {
-		"id": "muvitv",
-		"name": "ТВ Медицински Университет Варна",
-		"url": ["http://ios.cdn.bg:2013/fls/livetv.stream/playlist.m3u8"],
-		"customLogo": "http://mu-vi.tv/SiteAssets/logo-mu-tv.png"
-	}, {
-		"id": "mogaznam",
-		"name": "Детска телевизия - Аз Мога, Аз Знам",
-		"url": [ "rtmp://extondemand.livestream.com/ondemand app=ondemand playpath=trans/dv15/mogulus-user-files/chicaniknow2d/2015/10/19/e17f909e-52c6-4613-acfc-80300bbe94ad swfUrl=http://cdn.livestream.com/chromelessPlayer/v21/playerapi.swf?showMoreVideos=false&jsEnabled=false&showBorderControlBar=false&time=&allowChat=false&borderColor=0xCCCCCC&iconColor=0x555555 pageURL=http://cdn.livestream.com/embed/icaniknow2d" ],
-		"customLogo": ""
-	}, {
-		"id": "separator",
-		"name": "-------------------------------------     Религиозни    --------------------------------"
-	}, {
-		"id": "pmtv",
-		"name": "ТВ Пловдивска Метрополия",
-		"url": ["rtmp://31.13.218.108/live/&amp;start=1&amp;autostart=true swfUrl=http://www.plovdivskamitropolia.bg/modules/mod_playerjr/player-licensed5.swf pageURL=http://www.plovdivskamitropolia.bg/ playpath=mpegts.stream live=true"],
-		"customLogo": "http://cem.bg/files/1366886847412pptv.gif",
+		"n": "0KHRitC90YDQsNC50Lcg0KTQvtC70Lo=",
+		"c": "Музикални",
+		"s": [{
+			"u": "aHR0cDovL3d3dy5zdW5yaXNlbXVzaWNiZy5jb20vZmxhc2gvbzRha3ZhaXRlLTYwMHguc3dm"
+		}],
+		"l": "http://www.sunrisemusicbg.com/images/stories/loga/logo_sm100x75.png",
 		"properties": ["useCustomLogo"]
 	}, {
-		"id": "christiantv",
-		"name": "Българска Християнска ТВ",
-		"url": ["http://130.185.214.2/tv/mbchtv.m3u8?st=BLj9D-nQW3az38P8h2zv7A&e=1448632335"],
-		"customLogo": "http://www.christiantv-bg.com/images/logo.png",
+		"n": "0JXQstGA0L7Qv9C10LnRgdC60Lgg0JzRg9C30LjQutCw0LvQvdCwINCi0LXQu9C10LLQuNC30LjRjw==",
+		"c": "Музикални",
+		"s": [{
+			"u": "bW1zOi8vODQuMjIuMS4yMTAvZW10dg=="
+		}, {
+			"u": "aHR0cDovL3d3dy51dHYuYmcvdHYvc3RyZWFtLnBocD9jb2RlPThuZmpQQ0RGZTdQUEgzNGo1UHVpamhnajZVSWZyd1FF"
+		}],
+		"l": "http://www.tv-logo.com/pt-data/uploads/images/logo/emtv_bg.jpg",
+		"properties": ["useCustomLogo", "disabled"]
+	}, {
+		"n": "0JHQkyDQmNC90YTQviDQotCS",
+		"c": "Тематични",
+		"s": [{
+			"u": "aHR0cDovLzg5LjIxNS4xNzcuMTI1Ojg4OTkvc3RyZWFtLmZsdg=="
+		}],
+		"l": "http://www.bginfo.tv/images/stories/logo/top_logo.png"
+	}, {
+		"n": "VHJhdmVsIFRW",
+		"c": "Тематични",
+		"s": [{
+			"u": "aHR0cDovLzMxLjEzLjIyMy4xMDE6ODAvdHJhdmVsL3RyYXZlbC5zdHJlYW0vcGxheWxpc3QubTN1OD9oYXNoPTk0MzIxMjM0NQ==",
+			"playerUrl": "http://player.neterra.tv/travel/player.php",
+			"pageUrl": "http://tv.traveltv.bg/live/"
+		}],
+		"l": "http://logos.kodibg.org/traveltv.png"		
+	}, {
+		"n": "VHJhdmVsIFRWIEhE",
+		"c": "Тематични",
+		"s": [{
+			"u": "aHR0cDovLzMxLjEzLjIyMy4xMDMvdHJhdmVsL2NvbW11bml0eS5zdHJlYW0vcGxheWxpc3QubTN1OD9oYXNoPTk0MzIxMjM0NQ==",
+			"pageUrl": "http://hd.traveltv.bg/live/",
+			"playerUrl": "http://player.neterra.tv/travel/playerCommunity.php"
+		}],
+		"l": "http://logos.kodibg.org/travelhd.png"
+	}, {
+		"n": "0JDQs9GA0L4g0KLQkg==",
+		"c": "Тематични",
+		"s": [{
+			"u": "cnRtcDovL2Fncm90dmxpdmUxLnNyZm1zLmNvbTozMDIxL2xpdmUvIHBhZ2VVcmw9aHR0cDovL3d3dy5hZ3JvdHYuYmcvICBhcHA9bGl2ZS8gcGxheXBhdGg9bGl2ZXN0cmVhbSBzd2ZVcmw9aHR0cDovL3d3dy5hZ3JvdHYuYmcvZmxvd3BsYXllci9mbG93cGxheWVyLnJ0bXAtMy4yLjMuc3dmIGxpdmU9dHJ1ZQ=="
+		}],
+		"l": "http://www.agrotv.bg/images/logo.png"
+	}, {
+		"n": "0JXQutC+INCi0JI=",
+		"c": "Тематични",
+		"s": [{
+			"u": "cnRzcDovLzIxMi4yNS4zNy4xNTA6NTU0NC9lY290dg=="
+		}],
+		"l": "http://www.tv14.net/wp-content/uploads/2010/10/Eco-Bulgaria-TV.jpg",
+		"properties": ["useCustomLogo", "disabled"]
+	}, {
+		"n": "0JLQvtC10L3QtdC9INCi0JIg0LrQsNC90LDQuw==",
+		"c": "Тематични",
+		"s": [{
+			"u": "aHR0cDovLzQ2LjI0OS45NS4xODAvdnRrL2hpZ2gubTN1OA=="
+		}],
+		"l": "http://armymedia.bg/wp-content/uploads/2015/03/new_lego_vtk.jpg"
+	}, {
+		"n": "0JDRg9GC0L7QvNC+0YLQviDQotCS",
+		"c": "Тематични",
+		"s": [{
+			"u": "aHR0cDovLzEwMGF1dG9tb3RvLnR2OjE5MzUvYmd0djEvYXV0b3R2L3BsYXlsaXN0Lm0zdTg="
+		}],
+		"l": "http://www.100automoto.tv/images/yootheme/logo.png",
 		"properties": ["useCustomLogo"]
 	}, {
-		"id": "htv",
-		"name": "Хармония ТВ",
-		"url": ["rtmp://stream2.htv.bg:1935/securestreaming/sd.sdp"],
-		"customLogo": "http://www.htv.bg/images/logo.png",
+		"n": "0JDRg9GC0L7QvNC+0YLQviDQotCSIDEwMCDQk9Cw0Lc=",
+		"c": "Тематични",
+		"s": [{
+			"u": "bW1zOi8vMTAwYXV0b21vdG8udHYvMTAwZ2F6"
+		}],
+		"l": "http://www.100automoto.tv/images/yootheme/logo.png",
 		"properties": ["useCustomLogo"]
 	}, {
-		"id": "htvhd",
-		"name": "Хармония ТВ HD",
-		"url": ["rtmp://stream2.htv.bg:1935/securestreaming/hd.sdp"],
-		"customLogo": "http://www.htv.bg/images/logo.png",
+		"n": "0JDRg9GC0L7QvNC+0YLQviDQotCSIEJNVw==",
+		"c": "Тематични",
+		"s": [{
+			"u": "bW1zOi8vMTAwYXV0b21vdG8udHYvYm13"
+		}],
+		"l": "http://www.100automoto.tv/images/yootheme/logo.png",
 		"properties": ["useCustomLogo"]
 	}, {
-		"id": "vvv",
-		"name": "Вяра, воля, визия ТВ",
-		"url": ["rtmp://vvv.bg:1935/live/vvv.flv"],
-		"customLogo": "http://vvv.bg/share/images/site/h1.png",
+		"n": "0JDRg9GC0L7QvNC+0YLQviDQotCSIEVsZWN0cmlj",
+		"c": "Тематични",
+		"s": [{
+			"u": "bW1zOi8vMTAwYXV0b21vdG8udHYvY2hhbm5lbF9lbGVjdHJpYw=="
+		}],
+		"l": "http://www.100automoto.tv/images/yootheme/logo.png",
 		"properties": ["useCustomLogo"]
 	}, {
-		"id": "hopetv",
-		"name": "Християнска Адвентна ТВ",
-		"url": ["rtmp://93.152.176.131/hopetv/live_24"],
-		"customLogo": "http://sdabg.tv/images/sdabgtv_logo.png",
+		"n": "0JDRg9GC0L7QvNC+0YLQviDQotCSIE1lcmNlZGVz",
+		"c": "Тематични",
+		"s": [{
+			"u": "bW1zOi8vMTAwYXV0b21vdG8udHYvY2hhbm5lbF9tZXJjZWRlcw=="
+		}],
+		"l": "http://www.100automoto.tv/images/yootheme/logo.png",
+		"properties": ["useCustomLogo"]
+	}, {
+		"n": "0JDRg9GC0L7QvNC+0YLQviDQotCSIFBvcnNjaGU=",
+		"c": "Тематични",
+		"s": [{
+			"u": "bW1zOi8vMTAwYXV0b21vdG8udHYvY2hhbm5lbF9wb3JzY2hl"
+		}],
+		"l": "http://www.100automoto.tv/images/yootheme/logo.png",
+		"properties": ["useCustomLogo"]
+	}, {
+		"n": "0JDRg9GC0L7QvNC+0YLQviDQotCSIEl0YWxpYQ==",
+		"c": "Тематични",
+		"s": [{
+			"u": "bW1zOi8vMTAwYXV0b21vdG8udHYvY2hhbm5lbF9pdGFseQ=="
+		}],
+		"l": "http://www.100automoto.tv/images/yootheme/logo.png",
+		"properties": ["useCustomLogo"]
+	}, {
+		"n": "0J3QsNGG0LjQvtC90LDQu9C90L4t0L/QsNGC0YDQuNC+0YLQuNGH0L3QsCDRgtC10LvQtdCy0LjQt9C40Y8=",
+		"c": "Тематични",
+		"s": [{
+			"u": "bW1zOi8vYm5wdHYudHY6MTA4MDE="
+		}],
+		"l": "http://www.bnptv.info/tv/templates/rhuk_milkyway/images/mw_joomla_logo.png"
+	}, {
+		"n": "0JDRgNGCINCi0JI=",
+		"c": "Тематични",
+		"s": [{
+			"u": "aHR0cDovLzgwLjcyLjk1Ljk6MTkzNS9saXZlL3R2YXJ0L3BsYXlsaXN0Lm0zdTg="
+		}],
+		"l": "http://cem.bg/files/125008251019Graphic1.jpg"
+	}, {
+		"n": "TGl2ZSA3INCQ0YDRgiDQotCS",
+		"c": "Тематични",
+		"s": [{
+			"u": "cnRtcDovL2V4dG9uZGVtYW5kLmxpdmVzdHJlYW0uY29tL29uZGVtYW5kIGFwcD1vbmRlbWFuZCBwbGF5cGF0aD1tcDQ6dHJhbnMvZHYxNS9tb2d1bHVzLXVzZXItZmlsZXMvY2hsaXZlN3R2LzIwMTMvMTEvMjAvYTFmOTU3ZjAtM2JmYS00YzA3LTgwYzMtMTZlYzA4MThiZjY3Lm1wNCBzd2ZVcmw9aHR0cDovL2Nkbi5saXZlc3RyZWFtLmNvbS9jaHJvbWVsZXNzUGxheWVyL3YyMS9wbGF5ZXJhLnBpLnN3Zj9sc2NoYW5uZWw9dHJ1ZSZqc0VuYWJsZWQ9ZmFsc2UmYnJvd3NlTW9kZT1mYWxzZSZ0aW1lPSZ0ZXh0TGluZXM9MiZzaG93TW9yZVZpZGVvcz1mYWxzZSZoaWRlQ2hhbm5lbEJyYW5kaW5nPXRydWUmaGlkZUluZm89LnRydWUmbW9kZT1mYWxzZSZhdXRvUGxheT10cnVlJmFsbG93Y2hhdD1mYWxzZSZ0PTUzMDA3NiBwYWdlVVJMPWh0dHA6Ly9vcmlnaW5hbC5saXZlc3RyZWFtLmNvbS9lbWJlZC9saS52ZTd0dj9zaG93TW9yZVZpZGVvcz1mYWxzZSZoaWRlSW5mbz10cnVlJmF1dG9QbGF5PXRydWUmbHNjaGFubmVsPXRydWUmYnJvd3NlTW9kZT1mYWxzZSZ0ZXh0TGluZXM9MiZoaWRlQ2hhbm5lbEJyYW5kaW5nPXRydWUmbW9kZS49ZmFsc2UmYWxsb3djaGF0PWZhbHNlJmxheW91dD00JnQ9NTMwMDc2"
+		}],
+		"l": "https://static.wixstatic.com/media/60e173_3d128f023eb74ec89edba008d717341d.png/v1/fill/w_139,h_139,al_c,usm_0.50_1.20_0.00/60e173_3d128f023eb74ec89edba008d717341d.png",
+		"properties": ["useCustomLogo"]
+	}, {
+		"n": "V2luZSDQotCS",
+		"c": "Тематични",
+		"s": [{
+			"u": "cnRzcDovLzIxMi4yNS4zNy4xNTA6NTU0NS93aW5lYXJ0dHY="
+		}],
+		"l": "http://live-tv.me/wp-content/uploads/2014/05/WineArt.gif",
+		"properties": ["useCustomLogo", "disabled"]
+	}, {
+		"n": "0KLQkiDQnNC10LTQuNGG0LjQvdGB0LrQuCDQo9C90LjQstC10YDRgdC40YLQtdGCINCS0LDRgNC90LA=",
+		"c": "Тематични",
+		"s": [{
+			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjAxMy9mbHMvbGl2ZXR2LnN0cmVhbS9wbGF5bGlzdC5tM3U4"
+		}],
+		"l": "http://mu-vi.tv/SiteAssets/logo-mu-tv.png"
+	}, {
+		"n": "0JTQtdGC0YHQutCwINGC0LXQu9C10LLQuNC30LjRjyAtINCQ0Lcg0JzQvtCz0LAsINCQ0Lcg0JfQvdCw0Lw=",
+		"c": "Детски",
+		"s": [{
+			"u": "cnRtcDovL2V4dG9uZGVtYW5kLmxpdmVzdHJlYW0uY29tL29uZGVtYW5kIGFwcD1vbmRlbWFuZCBwbGF5cGF0aD10cmFucy9kdjE1L21vZ3VsdXMtdXNlci1maWxlcy9jaGljYW5pa25vdzJkLzIwMTUvMTAvMTkvZTE3ZjkwOWUtNTJjNi00NjEzLWFjZmMtODAzMDBiYmU5NGFkIHN3ZlVybD1odHRwOi8vY2RuLmxpdmVzdHJlYW0uY29tL2Nocm9tZWxlc3NQbGF5ZXIvdjIxL3BsYXllcmFwaS5zd2Y/c2hvd01vcmVWaWRlb3M9ZmFsc2UmanNFbmFibGVkPWZhbHNlJnNob3dCb3JkZXJDb250cm9sQmFyPWZhbHNlJnRpbWU9JmFsbG93Q2hhdD1mYWxzZSZib3JkZXJDb2xvcj0weENDQ0NDQyZpY29uQ29sb3I9MHg1NTU1NTUgcGFnZVVSTD1odHRwOi8vY2RuLmxpdmVzdHJlYW0uY29tL2VtYmVkL2ljYW5pa25vdzJk"
+		}],
+		"l": ""
+	}, {
+		"n": "0KLQkiDQn9C70L7QstC00LjQstGB0LrQsCDQnNC10YLRgNC+0L/QvtC70LjRjw==",
+		"c": "Религиозни",
+		"s": [{
+			"u": "cnRtcDovLzMxLjEzLjIxOC4xMDgvbGl2ZS8mYW1wO3N0YXJ0PTEmYW1wO2F1dG9zdGFydD10cnVlIHN3ZlVybD1odHRwOi8vd3d3LnBsb3ZkaXZza2FtaXRyb3BvbGlhLmJnL21vZHVsZXMvbW9kX3BsYXllcmpyL3BsYXllci1saWNlbnNlZDUuc3dmIHBhZ2VVUkw9aHR0cDovL3d3dy5wbG92ZGl2c2thbWl0cm9wb2xpYS5iZy8gcGxheXBhdGg9bXBlZ3RzLnN0cmVhbSBsaXZlPXRydWU="
+		}],
+		"l": "http://cem.bg/files/1366886847412pptv.gif",
+		"properties": ["useCustomLogo"]
+	}, {
+		"n": "0JHRitC70LPQsNGA0YHQutCwINCl0YDQuNGB0YLQuNGP0L3RgdC60LAg0KLQkg==",
+		"c": "Религиозни",
+		"s": [{
+			"u": "aHR0cDovLzEzMC4xODUuMjE0LjIvdHYvbWJjaHR2Lm0zdTg/c3Q9QkxqOUQtblFXM2F6MzhQOGgyenY3QSZlPTE0NDg2MzIzMzU="
+		}],
+		"l": "http://www.christiantv-bg.com/images/logo.png",
+		"properties": ["useCustomLogo"]
+	}, {
+		"n": "0KXQsNGA0LzQvtC90LjRjyDQotCS",
+		"c": "Религиозни",
+		"s": [{
+			"u": "cnRtcDovL3N0cmVhbTIuaHR2LmJnOjE5MzUvc2VjdXJlc3RyZWFtaW5nL3NkLnNkcA=="
+		},{
+			"u": "cnRtcDovL3N0cmVhbTIuaHR2LmJnOjE5MzUvc2VjdXJlc3RyZWFtaW5nL2hkLnNkcA==",
+			"hd": 1
+		}],
+		"l": "http://www.htv.bg/images/logo.png",
+		"properties": ["useCustomLogo"]
+	}, {
+		"n": "0JLRj9GA0LAsINCy0L7Qu9GPLCDQstC40LfQuNGPINCi0JI=",
+		"c": "Религиозни",
+		"s": [{
+			"u": "cnRtcDovL3Z2di5iZzoxOTM1L2xpdmUvdnZ2LmZsdg=="
+		},{
+			"u": "cnRtcDovL3Z2di5iZzoxOTM1L2xpdmUvdnZ2Mi5mbHY="
+		}],
+		"l": "http://vvv.bg/share/images/site/h1.png",
+		"properties": ["useCustomLogo"]
+	}, {
+		"n": "0KXRgNC40YHRgtC40Y/QvdGB0LrQsCDQkNC00LLQtdC90YLQvdCwINCi0JI=",
+		"c": "Религиозни",
+		"s": [{
+			"u": "cnRtcDovLzkzLjE1Mi4xNzYuMTMxL2hvcGV0di9saXZlXzI0"
+		}],
+		"l": "http://sdabg.tv/images/sdabgtv_logo.png",
 		"properties": ["useCustomLogo"]
 	}]
 }
