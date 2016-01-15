@@ -1,626 +1,638 @@
 {
-	"channels": [{
+	"assets": [{
 		"n": "0JHQndCiIDE=",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "cnRtcDovL21lZGlhMS5ibnQuYmc6MTkzNS9saXZlL2JudDE="
 		}, {
 			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjAyMC9mbHMvYm50LnN0cmVhbS9wbGF5bGlzdC5tM3U4P2F0PQ==",
-			"pageUrl": "http://tv.bnt.bg/bnt1/16x9/",
-			"playerUrl": "http://cdn.bg/live/4eViE8vGzI"
+			"pa": "aHR0cDovL3R2LmJudC5iZy9ibnQxLzE2eDkv",
+			"pl": "aHR0cDovL2Nkbi5iZy9saXZlLzRlVmlFOHZHekk="
 		}],
-		"l": "http://cdn.bg/images/www/bnt/16x9-BNT1.png"
+		"l": "aHR0cDovL2xvZ29zLmtvZGliZy5vcmcvYm50MS5wbmc="
 	}, {
 		"n": "YlRW",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "aHR0cDovLzQ2LjEwLjE1MC4xMTEvaW9zL2J0dmJnbGl2ZS9wbGF5bGlzdC5tM3U4"
 		}, {
 			"u": "cnRtcDovLzQ2LjEwLjE1MC4xMTEvaW9zIHBsYXlwYXRoPWJ0dmJnbGl2ZSBwYWdlVVJMPWh0dHA6Ly93d3cuYnR2LmJnL2xpdmUvIGFwcD1pb3Mgc3dmVXJsPWh0dHA6Ly9pbWFnZXMuYnR2LmJnL2ZwbGF5ZXIvZmxvd3BsYXllci5jb21tZXJjaWFsLTMuMi41LnN3ZiBsaXZlPXRydWU="
 		}],
-		"l": "http://www.btv.bg//static/bg/microsites/btv/img/btv-logo.png"
+		"l": "aHR0cDovL3d3dy5idHYuYmcvL3N0YXRpYy9iZy9taWNyb3NpdGVzL2J0di9pbWcvYnR2LWxvZ28ucG5n"
 	}, {
 		"n": "0J3QvtCy0LA=",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "aHR0cDovL2UxLmNkbi5iZzoyMDYwL2Zscy9udHZfMS5zdHJlYW0vcGxheWxpc3QubTN1OA=="
 		}, {
 			"u": "cnRtcDovL2VkZ2UxLmV2b2xpbmsubmV0OjIwMTAvZmxzIHBsYXlwYXRoPW50dl8yLnN0cmVhbSBwYWdlVVJMPWh0dHA6Ly9pLmNkbi5iZy9saXZlLyBhcHA9ZmxzL19kZWZpbnN0XyB0b2tlbj1OMHY0VFY2IzIgbGl2ZT10cnVl"
 		}],
-		"l": "http://static1.novatv.bg/layout/novatv/images/big_nav_logo.png"
+		"l": "aHR0cDovL3N0YXRpYzEubm92YXR2LmJnL2xheW91dC9ub3ZhdHYvaW1hZ2VzL2JpZ19uYXZfbG9nby5wbmc="
 	}, {
 		"n": "0JHQndCiIEhE",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjAyMC9mbHMvYm50SER0LnN0cmVhbS9wbGF5bGlzdC5tM3U4P2F0PQ==",
-			"playerUrl":"http://cdn.bg/live/OQ70Ds9Lcp",
-			"pageUrl": "http://tv.bnt.bg/bnthd"
+			"pa":"aHR0cDovL2Nkbi5iZy9saXZlL09RNzBEczlMY3A=",
+			"pl": "aHR0cDovL3R2LmJudC5iZy9ibnRoZA=="
 		}],
-		"l": "http://i.cdn.bg/images/www/bnt/BNTliveHD.png"
+		"l": "aHR0cDovL2kuY2RuLmJnL2ltYWdlcy93d3cvYm50L0JOVGxpdmVIRC5wbmc="
 	}, {
 		"n": "0KLQkiA3",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "aHR0cDovL3R2Ny1obHMtZXUtcGVybS1saXZlLmhscy5hZGFwdGl2ZS5sZXZlbDMubmV0L3R2N2xpdmUubTN1OA=="
 		}],
-		"l": "http://tv7.bg/img/public/logoTv7.png"
+		"l": "aHR0cDovL3R2Ny5iZy9pbWcvcHVibGljL2xvZ29UdjcucG5n"
 	}, {
 		"n": "QnVsZ2FyaWEgT24gQWly",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjAwNi9mbHMvYm9uYWlyLnN0cmVhbS9wbGF5bGlzdC5tM3U4"
 		}],
-		"l": "http://www.bgonair.bg/media/template/default/img/ico/logo.png"
+		"l": "aHR0cDovL3d3dy5iZ29uYWlyLmJnL21lZGlhL3RlbXBsYXRlL2RlZmF1bHQvaW1nL2ljby9sb2dvLnBuZw=="
 	}, {
 		"n": "0KLQkiDQldCy0YDQvtC/0LA=",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "aHR0cDovL2xiLmJsYi5jZG4uYmc6MjAxOC9mbHMvdHZldnJvcGEuc3RyZWFtL3BsYXlsaXN0Lm0zdTg="
 		}],
-		"l": "http://www.tvevropa.com/public/images/site_images/img_logo.png"
+		"l": "aHR0cDovL3d3dy50dmV2cm9wYS5jb20vcHVibGljL2ltYWdlcy9zaXRlX2ltYWdlcy9pbWdfbG9nby5wbmc="
 	}, {
 		"n": "Qmxvb21iZXJnVFYgQnVsZ2FyaWE=",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjA5MS9mbHMvYmxvb21iZXJnLnN0cmVhbS9wbGF5bGlzdC5tM3U4"
 		}],
-		"l": "http://cem.bg/files/144041789115720.png"
+		"l": "aHR0cDovL2NlbS5iZy9maWxlcy8xNDQwNDE3ODkxMTU3MjAucG5n"
 	}, {
 		"n": "0JHQuCDQkNC5INCi0LXQu9C10LLQuNC30LjRjw==",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "aHR0cDovL2FwaS5uZXcubGl2ZXN0cmVhbS5jb20vYWNjb3VudHMvNTYyNzA1OC9ldmVudHMvMzU4MzAxOQ==",
 			"getStreamFromLiveStream": 1
 		}, {
 			"u": "aHR0cDovL2Nkbi5hdHYtYmcuY29tL2F0di9pbmRleC5tM3U4"
 		}],
-		"l": "http://www.bitelevisions.com/test/wp-content/uploads/2015/10/Bit-Logo-100x60.png"
+		"l": "aHR0cDovL3d3dy5iaXRlbGV2aXNpb25zLmNvbS90ZXN0L3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDE1LzEwL0JpdC1Mb2dvLTEwMHg2MC5wbmc="
 	}, {
 		"n": "TmV3cyA3",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "aHR0cDovL3R2Ny1obHMtZXUtcGVybS1saXZlLmhscy5hZGFwdGl2ZS5sZXZlbDMubmV0L25ld3M3bGl2ZS5tM3U4"
 		}],
-		"l": "http://news7.bg/img/news7/logoNews7.png"
+		"l": "aHR0cDovL25ld3M3LmJnL2ltZy9uZXdzNy9sb2dvTmV3czcucG5n"
 	}, {
 		"n": "0JrQsNC90LDQuyAz",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjAxNy9mbHMva2FuYWwzLnN0cmVhbS9wbGF5bGlzdC5tM3U4"
 		}],
-		"l": "http://kanal3.bg/assets/css/images/logo.png"
+		"l": "aHR0cDovL2thbmFsMy5iZy9hc3NldHMvY3NzL2ltYWdlcy9sb2dvLnBuZw=="
 	}, {
 		"n": "0JXQstGA0L7QutC+0Lw=",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "aHR0cDovL2xpdmUuZXVyb2NvbS5iZzo4MDgwL2hscy9zdHJlYW0ubTN1OA=="
 		}],
-		"l": "http://cem.bg/files/124454636430Graphic1.jpg"
+		"l": "aHR0cDovL2NlbS5iZy9maWxlcy8xMjQ0NTQ2MzY0MzBHcmFwaGljMS5qcGc="
 	}, {
 		"n": "0JHQndCiIDI=",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "cnRtcDovL21lZGlhMS5ibnQuYmc6MTkzNS9saXZlL2JudDI="
 		},{
 			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjAyMC9mbHMvYm50Mi5zdHJlYW0vcGxheWxpc3QubTN1OD9hdD04NzgxZmZhNGIwNjQ5ZmI3ZThjNWY0MTU1NTQxMjk5ZQ==",
-			"playerUrl": "http://cdn.bg/live/ZBPbdxDHm7",
-			"pageUrl": "http://tv.bnt.bg/bnt2/16x9/"
+			"pl": "aHR0cDovL2Nkbi5iZy9saXZlL1pCUGJkeERIbTc=",
+			"pa": "aHR0cDovL3R2LmJudC5iZy9ibnQyLzE2eDkv"
 		}],
-		"l": "http://cdn.bg/images/www/bnt/16x9-BNT2.png"
+		"l": "aHR0cDovL2Nkbi5iZy9pbWFnZXMvd3d3L2JudC8xNng5LUJOVDIucG5n"
 	}, {
 		"n": "0JHQndCiINCh0LLRj9GC",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "cnRtcDovLzE5My40My4yNi4xOTg6MTkzNS9saXZlL2JudHNhdCBwYWdlVXJsPWh0dHA6Ly90di5ibnQuYmcvYm50d29ybGQvIGFwcD1saXZlLyBzd2ZVcmw9aHR0cDovL3AuandwY2RuLmNvbS82LzEyL2p3cGxheWVyLmZsYXNoLnN3ZiBsaXZlPXRydWUgcGxheXBhdGg9Ym50c2F0"
 		}],
-		"l": "http://tv.bnt.bg/img/menu/logoBNTworld.png"
+		"l": "aHR0cDovL3R2LmJudC5iZy9pbWcvbWVudS9sb2dvQk5Ud29ybGQucG5n"
 	}, {
 		"n": "0JLQtdGB0YIg0KLQkg==",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "aHR0cDovLzMxLjEzLjIyMy4xMDE6MTkzNS92dHYvdnR2LnN0cmVhbS9wbGF5bGlzdC5tM3U4P2hhc2g9NDMyMTIzNDU=",
-			"playerUrl": "http://player.neterra.net/vtv/player.php",
-			"pageUrl": "http://www.vtv.bg/?target=online"
+			"pl": "aHR0cDovL3BsYXllci5uZXRlcnJhLm5ldC92dHYvcGxheWVyLnBocA==",
+			"pa": "aHR0cDovL3d3dy52dHYuYmcvP3RhcmdldD1vbmxpbmU="
 		}],
-		"l": "http://vtv.bg/images/logo.gif"
+		"l": "aHR0cDovL3Z0di5iZy9pbWFnZXMvbG9nby5naWY="
 	}, {
 		"n": "0JHRitC70LPQsNGA0LjRjyAyNA==",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "aHR0cDovL2Nkbi5hdHYtYmcuY29tL0JHMjQvaW5kZXgubTN1OA=="
 		}],
-		"l": "http://www.cem.bg/files/141630438486979.jpg"
+		"l": "aHR0cDovL3d3dy5jZW0uYmcvZmlsZXMvMTQxNjMwNDM4NDg2OTc5LmpwZw=="
 	}, {
 		"n": "0KJWMQ==",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "aHR0cDovL3h2aWt0b3JpYXguYXBpLmNoYW5uZWwubGl2ZXN0cmVhbS5jb20vMy4wL3BsYXlsaXN0Lm0zdTg="
 		}],
-		"l": "http://www.tv1channel.org/templates/rt_oculus/images/logo/light/logo.png"
+		"l": "aHR0cDovL3d3dy50djFjaGFubmVsLm9yZy90ZW1wbGF0ZXMvcnRfb2N1bHVzL2ltYWdlcy9sb2dvL2xpZ2h0L2xvZ28ucG5n"
 	}, {
 		"n": "0JHQkyDQlNC90LXRgQ==",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "aHR0cDovLzgwLjcyLjk1LjQwOjgwODg="
 		}],
-		"l": "http://cem.bg/files/1299846574356bgdnes.gif"
+		"l": "aHR0cDovL2NlbS5iZy9maWxlcy8xMjk5ODQ2NTc0MzU2YmdkbmVzLmdpZg=="
 	}, {
 		"n": "0JDQu9GE0LA=",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "cnRtcDovL2F0YWthLnR2L2xpdmUgYXBwPWxpdmUgc3dmVXJsPWh0dHA6Ly93d3cuYXRha2EudHYvZmxhc2gvZmxvd3BsYXllci5jb21tZXJjaWFsLTMuMi43LnN3ZiBwYWdlVVJMPWh0dHA6Ly93d3cuYXRha2EudHYvIHBsYXlwYXRoPWxpdmU="
 		}],
-		"l": "http://www.ataka.tv/images/logo_alfa.jpg"
+		"l": "aHR0cDovL3d3dy5hdGFrYS50di9pbWFnZXMvbG9nb19hbGZhLmpwZw=="
 	}, {
 		"n": "QkdUVg==",
-		"c": "Национални",
+		"d": "1",
+		"c": "1",
 		"s": [{
 			"u": "aHR0cDovL3d3dy5iZ3R2LXR2LmNvbS9TY3JpcHRzL2V4cHJlc3NJbnN0YWxsLnN3Zg=="
 		}],
-		"l": "http://www.predavatel.com/bg/tv/bgtv.png",
-		"properties": ["useCustomLogo", "disabled"]
+		"l": "aHR0cDovL3d3dy5wcmVkYXZhdGVsLmNvbS9iZy90di9iZ3R2LnBuZw=="
 	}, {
+		"d": "1",
 		"n": "R29yZGlteSBUVg==",
-		"c": "Национални",
+		"c": "1",
 		"s": [{
 			"u": "cnRtcDo5NS44Ny4xOTMuMTQ2OjE5MzUvZ29yZGlteS9saXZlc3RyZWFtIHBsYXlwYXRoPWxpdmVzdHJlYW0gYXBwPWxpdmVzdHJlYW0gcGFnZVVSTD1odHRwOi8vd3d3LmdvcmRpbXktdHYuY29tLyBsaXZlPXRydWU="
 		}],
-		"l": "http://www.gordimy-tv.com/style/logo.png",
-		"properties": ["useCustomLogo", "disabled"]
+		"l": "aHR0cDovL3d3dy5nb3JkaW15LXR2LmNvbS9zdHlsZS9sb2dvLnBuZw=="
 	}, {
 		"n": "0JHRg9GA0LPQsNGBIC0g0JrQsNC90LDQuyAw",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "bW1zOi8vc3RyZWFtLmtvbXBhc2JnLmNvbTo4MDgx"
 		}],
-		"l": "http://www.predavatel.com/bg/5/burgas_snimki/tv_kanal0.gif"
+		"l": "aHR0cDovL3d3dy5wcmVkYXZhdGVsLmNvbS9iZy81L2J1cmdhc19zbmlta2kvdHZfa2FuYWwwLmdpZg=="
 	}, {
 		"n": "0JHRg9GA0LPQsNGBIC0g0KLQkiDQnNC40LrRgQ==",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "aHR0cDovLzEwOS4xNjAuMzEuMjA6ODA5MC90dm1peF9iaWcuZmx2"
 		}],
-		"l": "http://www.predavatel.com/bg/5/burgas_snimki/tv_mix.png"
+		"l": "aHR0cDovL3d3dy5wcmVkYXZhdGVsLmNvbS9iZy81L2J1cmdhc19zbmlta2kvdHZfbWl4LnBuZw=="
 	}, {
 		"n": "0JHQu9Cw0LPQvtC10LLQs9GA0LDQtCAtINCi0JIg0JTQsNGA0YLRgQ==",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "aHR0cDovLzMxLjEzLjIyMy4xMDEvZGFydHMvZGFydHMuc3RyZWFtL3BsYXlsaXN0Lm0zdTg/aGFzaD05NDMyMTIzNDU="
 		}],
-		"l": "http://tvfilmi.eu/uploads/thumbs/darc.jpeg"
+		"l": "aHR0cDovL3R2ZmlsbWkuZXUvdXBsb2Fkcy90aHVtYnMvZGFyYy5qcGVn"
 	}, {
 		"n": "0JLQsNGA0L3QsCDQotCS",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "cnRtcDovLzc4LjEyOS4xODQuMTU6Mzk0MjEvc3RyZWFtaW5nIHBsYXlQYXRoPXN0cmVhbSBhcHA9c3RyZWFtIHN3ZlVybD1odHRwOi8vdHZ2YXJuYS5saXN0ZW4ybXlzaG93LmNvbS9wbGF5ZXItbGljZW5zZWQuc3dmPzg3IHBhZ2VVcmw9aHR0cDovL3R2dmFybmEubGlzdGVuMm15c2hvdy5jb20vIGxpdmU9dHJ1ZQ=="
 		}],
-		"l": "http://www.cem.bg/files/1375951058182TVVarna.jpg",
-		"properties": ["disabled"]
+		"d": "1",
+		"l": "aHR0cDovL3d3dy5jZW0uYmcvZmlsZXMvMTM3NTk1MTA1ODE4MlRWVmFybmEuanBn"
 	}, {
 		"n": "0JLQsNGA0L3QsCAtINCi0JIg0KfQtdGA0L3QviDQnNC+0YDQtQ==",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjAwNi9mbHMvY2htb3JlLnN0cmVhbS9wbGF5bGlzdC5tM3U4"
 		}],
-		"l": "http://www.chernomore.bg/media/template/default/img/img/logo.png"
+		"l": "aHR0cDovL3d3dy5jaGVybm9tb3JlLmJnL21lZGlhL3RlbXBsYXRlL2RlZmF1bHQvaW1nL2ltZy9sb2dvLnBuZw=="
 	}, {
 		"n": "0JLQtdC70LjQutC+INCi0YrRgNC90L7QstC+IC0g0JXQstGA0L7QutC+0Lwg0KbQsNGA0LXQstC10YY=",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "cnRtcDovL2V4dG9uZGVtYW5kLmxpdmVzdHJlYW0uY29tOjgwL29uZGVtYW5kIGFwcD1vbmRlbWFuZCBwbGF5cGF0aD10cmFucy9kdjE1L21vZ3VsdXMtdXNlci1maWxlcy9jaGV2cm9rb20vMjAxMy8xMS8xNi9mMDdjM2Q0OS0wZWE0LTQyZDgtOTZjNC05N2RjODM0MDg2YWEgc3dmVXJsPWh0dHA6Ly9jZG4ubGl2ZXN0cmVhbS5jb20vY2hyb21lbGVzc1BsYXllci4vdjIxL3BsYXllcmFwaS5zd2Y/bHNjaGFubmVsPXRydWUmYnJvd3NlTW9kZT1mYWxzZSZ0aW1lPSZqc0VuYWJsZWQ9ZmFsc2UmdGV4dExpbmVzPTImc2hvd01vcmVWaWRlb3M9ZmFsc2UmaGlkZUNoYW5uZWxCcmFuZGluZz10ci51ZSZoaWRlSW5mbz10cnVlJm1vZGU9ZmFsc2UmYXV0b1BsYXk9dHJ1ZSZhbGxvd2NoYXQ9ZmFsc2UmdD0yMTIyNzYgcGFnZVVybD1odHRwOi8vb3JpZ2luYWwubGl2ZXN0cmVhbS5jb20vZW1iZWQvZXZyb2tvbT9zaG93TW9yZVZpZGVvcz1mYWxzZSZoaWRlSW5mbz10cnVlJmF1dG9QbGF5PXRydWUmbHNjaGFubmVsPXRydWUmYnJvd3NlTW9kZT1mYWxzZSZ0ZXh0TGkubmVzPTImaGlkZUNoYW5uZWxCcmFuZGluZz10cnVlJm1vZGU9ZmFsc2UmYWxsb3djaGF0PWZhbHNlJmxheW91dD00JnQ9MjEyMjc2"
 		}],
-		"l": "http://www.ekcarevec.com/intro/logo-evrokom-carevec.png",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3d3dy5la2NhcmV2ZWMuY29tL2ludHJvL2xvZ28tZXZyb2tvbS1jYXJldmVjLnBuZw=="
 	}, {
 		"n": "0JLRgNCw0YbQsCAtINCg0LjQvNC10LrRgSDQotCS",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "aHR0cDovL3RyYW5zY29kZXIxLmJpdGNhcmUuZXU6NTUxNi9mbHYvcmltZXh0di5mbHY="
 		}],
-		"l": "http://tv.rimex-ltd.com/wp-content/themes/RimexTV-MI/images/logo.png"
+		"l": "aHR0cDovL3R2LnJpbWV4LWx0ZC5jb20vd3AtY29udGVudC90aGVtZXMvUmltZXhUVi1NSS9pbWFnZXMvbG9nby5wbmc="
 	}, {
 		"n": "0JTQvtCx0YDQuNGHIC0g0JTQvtCx0YDRg9C00LbQsCDQlNC90LXRgQ==",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "cnRtcDovLzc5Ljk4LjEwOS4xMzQ6MTkzNS9iaWcgcGxheXBhdGg9bGl2ZSBsaXZlPXRydWU="
 		}],
-		"l": "http://www.dobrudjadnes.com/images/logo-dobrudja-dnes.png",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3d3dy5kb2JydWRqYWRuZXMuY29tL2ltYWdlcy9sb2dvLWRvYnJ1ZGphLWRuZXMucG5n"
 	}, {
 		"n": "0JrRitGA0LTQttCw0LvQuCAtINCi0JIg0KDQvtC00L7Qv9C4",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "aHR0cDovLzIxMy4xNDUuMTE0Ljk1OjgwODAvI3N0aGFzaC52cFR0TFBFSi5kcHVm"
 		}],
-		"l": "http://www.cem.bg/files/1244717526122Graphic1.jpg",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3d3dy5jZW0uYmcvZmlsZXMvMTI0NDcxNzUyNjEyMkdyYXBoaWMxLmpwZw=="
 	}, {
 		"n": "0J/Qu9C+0LLQtNC40LIgLSDQntCx0YnQtdGB0YLQstC10L3QsCDRgtC10LvQtdCy0LjQt9C40Y8=",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "bW1zOi8vODAuODAuMTU4Ljc6ODA4MA=="
 		}],
-		"l": "http://www.predavatel.com/bg/3/plovdiv_snimki/tv_potv.gif",
-		"properties": ["disabled"]
+		"d": "1",
+		"l": "aHR0cDovL3d3dy5wcmVkYXZhdGVsLmNvbS9iZy8zL3Bsb3ZkaXZfc25pbWtpL3R2X3BvdHYuZ2lm"
 	}, {
 		"n": "0J/QtdGA0L3QuNC6IC0g0JrRgNCwINCa0YDQsA==",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "cnRtcDovL25zMS5wZXJuaWsub3JnL2xpdmUmZmlsZT1rcmFrcmEgcGxheXBhdGg9a3Jha3JhIGFwcD1rcmFrcmEgcGFnZVVSTD1odHRwOi8vd3d3LmtyYWtyYS5uZXQvdHYuaHRtIGxpdmU9dHJ1ZQ=="
 		}],
-		"l": "http://krakra.tv/img/logo.png.jpg",
-		"properties": ["disabled"]
+		"d": "1",
+		"l": "aHR0cDovL2tyYWtyYS50di9pbWcvbG9nby5wbmcuanBn"
 	}, {
 		"n": "0KDRg9GB0LUgLSDQotCSINCU0LXQu9GC0LA=",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "aHR0cDovLzE5NS4zNC4xMTcuMTI1OjgwOTAvbGl2ZS5mbHY="
 		}],
-		"l": "http://www.deltacatv.com/wp-content/uploads/logo-delta_izrqzan-300x1291.png"
+		"l": "aHR0cDovL3d3dy5kZWx0YWNhdHYuY29tL3dwLWNvbnRlbnQvdXBsb2Fkcy9sb2dvLWRlbHRhX2l6cnF6YW4tMzAweDEyOTEucG5n"
 	}, {
 		"n": "0KDRg9GB0LUgLSDQmtC40YEgMTM=",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "cnRtcDovLzEwOS4xNjAuOTYuMjMwL215U3RyZWFtJnN0cmVhbVR5cGU9bGl2ZSBhcHA9bXlTdHJlYW0gcGxheXBhdGg9bXlTdHJlYW0gc3dmVXJsPWh0dHA6Ly8xMDkuMTYwLjk2LjIzMC9TdHJvYmVNZWRpYVBsYXliYWNrLnN3ZiBwYWdlVVJMPWh0dHA6Ly9raXNzMTMubmV0L2xpdmUuaHRtbCBsaXZlPXRydWU="
 		}],
-		"l": "http://kiss13.net/templates/street_tv/images/style5/logo.png"
+		"l": "aHR0cDovL2tpc3MxMy5uZXQvdGVtcGxhdGVzL3N0cmVldF90di9pbWFnZXMvc3R5bGU1L2xvZ28ucG5n"
 	}, {
 		"n": "0KHQsNC80L7QutC+0LIgLSDQotCSINCg0LjQu9Cw",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "aHR0cDovLzEwOS4xNjAuNzYuNjo5MC9yaWxhLm1wZWc="
 		}],
-		"l": "",
-		"properties": ["disabled"]
+		"d": "1",
+		"l": ""
 	}, {
 		"n": "0KHQu9C40LLQtdC9IC0g0JrQsNC90LDQuyA2",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "aHR0cDovLzg0LjU0LjEzOS44Njo5MQ=="
 		}],
-		"l": "http://new.sliven.net/res/news/63420/logo_k6.jpg"
+		"l": "aHR0cDovL25ldy5zbGl2ZW4ubmV0L3Jlcy9uZXdzLzYzNDIwL2xvZ29fazYuanBn"
 	}, {
 		"n": "0KHRgtCw0YDQsCDQl9Cw0LPQvtGA0LAgLSDQodGC0L7QudGH0LXQsiDQotCS",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjAxNS9mbHMvdHZzdG9pY2hldi5zdHJlYW0vcGxheWxpc3QubTN1OA=="
 		}],
-		"l": "http://cem.bg/files/1294388656290%D0%9B%D0%9E%D0%93%D0%9E.bmp"
+		"l": "aHR0cDovL2NlbS5iZy9maWxlcy8xMjk0Mzg4NjU2MjkwJUQwJTlCJUQwJTlFJUQwJTkzJUQwJTlFLmJtcA=="
 	}, {
 		"n": "0KHRgtCw0YDQsCDQl9Cw0LPQvtGA0LAgLSDQotCSINCh0YLQsNGA0LAg0JfQsNCz0L7RgNCw",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "aHR0cDovLzk1Ljg3LjAuNzg6ODA4MC90dnN0ei5tM3U4"
 		}],
-		"l": "http://tvstz.com/images/logo_TVSTZ.png"
+		"l": "aHR0cDovL3R2c3R6LmNvbS9pbWFnZXMvbG9nb19UVlNUWi5wbmc="
 	}, {
 		"n": "0KHRgtCw0YDQsCDQl9Cw0LPQvtGA0LAgLSDQotCSINCX0LDQs9C+0YDQsA==",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "aHR0cDovLzk1Ljg3LjAuNzg6ODA4MC9saXZlL3R2X3phZ29yYV81NzZwLm0zdTg="
 		},{
 			"u": "aHR0cDovLzk1Ljg3LjAuNzg6ODA4MC9saXZlL3R2X3phZ29yYV8zNjBwLm0zdTg="
 		}],
-		"l": "http://stznews.bg/images/logo.gif"
+		"l": "aHR0cDovL3N0em5ld3MuYmcvaW1hZ2VzL2xvZ28uZ2lm"
 	}, {
 		"n": "0KXQsNGB0LrQvtCy0L4gLSBlVFY=",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "aHR0cDovLzE5NS4yNC44OS4yMDo0MDEw"
 		},{
 			"u": "aHR0cDovLzE5NS4yNC44OS4yMDo4ODg4",
 			"hd":1
 		}],
-		"l": "http://www.etv.bg/images/site-logo2.png",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3d3dy5ldHYuYmcvaW1hZ2VzL3NpdGUtbG9nbzIucG5n"
 	}, {
 		"n": "0K/QvNCx0L7QuyAtINCU0LjQsNC90LAg0JrQsNCx0LXQuw==",
-		"c": "Регионални",
+		"c": "2",
 		"s": [{
 			"u": "aHR0cDovLzc4LjgzLjEyOC4yNDcvZGsxLw=="
 		}],
-		"l": "http://www.dk-tv.com/livedk.jpg",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3d3dy5kay10di5jb20vbGl2ZWRrLmpwZw=="
 	}, {
 		"n": "0KHQv9C+0YDRgtCw0Lsg0KLQkg==",
-		"c": "Спортни",
+		"c": "3",
 		"s": [{
 			"u": "aHR0cDovL3ByaS5jZG4uYmc6MjAwMS9mbHMvc3BvcnRhbF90dl9oZC5zdHJlYW0vcGxheWxpc3QubTN1OA=="
 		}, {
 			"u": "aHR0cDovL3ByaS5jZG4uYmc6MjAwMS9mbHMvc3BvcnRhbF90dl9mdWxsaGQuc3RyZWFtL3BsYXlsaXN0Lm0zdTg=",
 			"hd": 1
 		}],
-		"l": "http://img2.sportal.bg/images/header/logo.png"
+		"l": "aHR0cDovL2ltZzIuc3BvcnRhbC5iZy9pbWFnZXMvaGVhZGVyL2xvZ28ucG5n"
 	}, {
 		"n": "YlRWIENoYW1waW9ucyBUViAo0KHQsNC80L4g0L/QviDQstGA0LXQvNC1INC90LAg0LzQsNGH0L7QstC1INC+0YIg0KjQmyk=",
-		"c": "Спортни",
+		"c": "3",
 		"s": [{
 			"u": "aHR0cDovLzQ2LjEwLjE1MC4xMTIvYWxwaGEvYWxwaGEvcGxheWxpc3QubTN1OA=="
 		}],
-		"l": "http://bravo.btv.bg/web/cl_tv_logo.png",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL2JyYXZvLmJ0di5iZy93ZWIvY2xfdHZfbG9nby5wbmc="
 	}, {
 		"n": "Q2l0eSBUVg==",
-		"c": "Музикални",
+		"c": "4",
 		"s": [{
 			"u": "aHR0cDovL25vZGViLmdvY2FzdGVyLm5ldDoxOTM1L0NHTC9fZGVmaW5zdF8vbXA0OlRPREFZRk1fVEVTVDIvcGxheWxpc3QubTN1OA=="
 		}],
-		"l": "http://city.bg/themes/city/images/city-web.png"
+		"l": "aHR0cDovL2NpdHkuYmcvdGhlbWVzL2NpdHkvaW1hZ2VzL2NpdHktd2ViLnBuZw=="
 	}, {
 		"n": "VGhlIFZvaWNl",
-		"c": "Музикални",
+		"c": "4",
 		"s": [{
 			"u": "cnRtcDovLzMxLjEzLjIxNy43Ni9ydHBsaXZlIGFwcD1ydHBsaXZlIHBsYXlwYXRoPXRoZXZvaWNlX2xpdmUuc3RyZWFtIHBhZ2VVcmw9aHR0cDovL3RoZXZvaWNlLmJnL3N0cmVhbS8gc3dmVXJsPWh0dHA6Ly90aGV2b2ljZS5iZy9qcy90aGV2b2ljZV92aWRlb3N0cmVlbS5zd2YgbGl2ZT10cnVl"
 		}],
-		"l": "http://s.thevoice.bg/img/logo.png"
+		"l": "aHR0cDovL3MudGhldm9pY2UuYmcvaW1nL2xvZ28ucG5n"
 	}, {
 		"n": "TWFnaWMgVFY=",
-		"c": "Музикални",
+		"c": "4",
 		"s": [{
 			"u": "cnRtcDovLzMxLjEzLjIxNy43NjoxOTM1L21hZ2ljdHYgYXBwPW1hZ2ljdHYgcGxheXBhdGg9bWFnaWN0dl9saXZlLnN0cmVhbSBwYWdlVXJsPWh0dHA6Ly90aGV2b2ljZS5iZy9zdHJlYW0vIHN3ZlVybD1odHRwOi8vdGhldm9pY2UuYmcvanMvdGhldm9pY2VfdmlkZW9zdHJlZW0uc3dmIGxpdmU9dHJ1ZQ=="
 		}],
-		"l": "http://www.magictv.bg/web/img/logo.png"
+		"l": "aHR0cDovL3d3dy5tYWdpY3R2LmJnL3dlYi9pbWcvbG9nby5wbmc="
 	}, {
 		"n": "0KLQkiDQoNC+0LTQuNC90LA=",
-		"c": "Музикални",
+		"c": "4",
 		"s": [{
 			"u": "aHR0cDovL3R2cm9kaW5hLmNvbTo5OTk5Lw=="
 		}],
-		"l": "http://www.predavatel.com/bg/2/blagoevgrad_snimki/bla_tvrodina_s.gif",
-		"properties": ["disabled"]
+		"d": "1",
+		"l": "aHR0cDovL3d3dy5wcmVkYXZhdGVsLmNvbS9iZy8yL2JsYWdvZXZncmFkX3NuaW1raS9ibGFfdHZyb2RpbmFfcy5naWY="
 	}, {
 		"n": "RFNUVg==",
-		"c": "Музикални",
+		"c": "4",
 		"s": [{
 			"u": "cnRtcDovLzQ2LjI0OS45NS4xNDAvbGl2ZS9saXZlc3RyZWFtIHBsYXlwYXRoPWxpdmVzdHJlYW0gIHBhZ2VVcmw9aHR0cDovL2RzdHYtYmcuY29tLyBzd2ZVcmw9aHR0cDovL3NlcnZlcjExLmluZm4uaXQvdmlkZW8vbXVsdGltZWRpYS9zdHJvYmUvRmxhc2hNZWRpYVBsYXliYWNrLnN3ZiBsaXZlPXRydWU="
 		}],
-		"l": "http://dstv-bg.com/wp-content/uploads/2013/08/dstv-malko-Logogg.png"
+		"l": "aHR0cDovL2RzdHYtYmcuY29tL3dwLWNvbnRlbnQvdXBsb2Fkcy8yMDEzLzA4L2RzdHYtbWFsa28tTG9nb2dnLnBuZw=="
 	}, {
 		"n": "0KLRj9C90LrQvtCyINCk0L7Qu9C6",
-		"c": "Музикални",
+		"c": "4",
 		"s": [{
 			"u": "aHR0cDovLzMxLjEzLjIyMy4xMDE6ODAvdGlhbmtvdi90aWFua292LWZvbGsuc3RyZWFtL3BsYXlsaXN0Lm0zdTg/aGFzaD05NDMyMTIzNDU="
 		}],
-		"l": "http://cem.bg/files/141292462488039.png"
+		"l": "aHR0cDovL2NlbS5iZy9maWxlcy8xNDEyOTI0NjI0ODgwMzkucG5n"
 	}, {
 		"n": "0KLRj9C90LrQvtCyINCe0YDQuNC10L3Rgg==",
-		"c": "Музикални",
+		"c": "4",
 		"s": [{
 			"u": "aHR0cDovLzMxLjEzLjIyMy4xMDE6ODAvdGlhbmtvdi90aWFua292LW9yaWVudC5zdHJlYW0vcGxheWxpc3QubTN1OD9oYXNoPTk0MzIxMjM0NQ=="
 		}],
-		"l": "http://cem.bg/files/141292462488039.png"
+		"l": "aHR0cDovL2NlbS5iZy9maWxlcy8xNDEyOTI0NjI0ODgwMzkucG5n"
 	}, {
 		"n": "0KLRj9C90LrQvtCyINCf0L7Qvy3RhNC+0LvQug==",
-		"c": "Музикални",
+		"c": "4",
 		"s": [{
 			"u": "aHR0cDovLzMxLjEzLjIyMy4xMDM6ODAvdGlhbmtvdi90aWFua292LXBvcGZvbGsuc3RyZWFtL3BsYXlsaXN0Lm0zdTg/aGFzaD05NDMyMTIzNDU="
 		}],
-		"l": "http://cem.bg/files/141292462488039.png"
+		"l": "aHR0cDovL2NlbS5iZy9maWxlcy8xNDEyOTI0NjI0ODgwMzkucG5n"
 	}, {
 		"n": "0KDQvtC80LAg0KLQkg==",
-		"c": "Музикални",
+		"c": "4",
 		"s": [{
 			"u": "aHR0cDovLzE4NS40Ni4xNjEuMy9obHMvc2QubTN1OA=="
 		}],
-		"l": "http://romatv.bg/templates/tube/images/logo.png",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3JvbWF0di5iZy90ZW1wbGF0ZXMvdHViZS9pbWFnZXMvbG9nby5wbmc="
 	}, {
 		"n": "0JXQstGA0L7RhNC+0LvQuiDQotCS",
-		"c": "Музикални",
+		"c": "4",
 		"s": [{
 			"u": "cnRzcDovL2xpdmUuY2RuMi5zdHJlYW1hZ28udHYvc3RyZWFtYWdvLzUzODI3LzQ1MjYyLz9pZGNhbmFsZT00NTI2Mg=="
 		}],
-		"l": "http://tv.eurofolk.com/img/Radio_eurofolk_LIVEON.jpg",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3R2LmV1cm9mb2xrLmNvbS9pbWcvUmFkaW9fZXVyb2ZvbGtfTElWRU9OLmpwZw=="
 	}, {
 		"n": "0KHRitC90YDQsNC50Lcg0KTQvtC70Lo=",
-		"c": "Музикални",
+		"c": "4",
 		"s": [{
 			"u": "aHR0cDovL3d3dy5zdW5yaXNlbXVzaWNiZy5jb20vZmxhc2gvbzRha3ZhaXRlLTYwMHguc3dm"
 		}],
-		"l": "http://www.sunrisemusicbg.com/images/stories/loga/logo_sm100x75.png",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3d3dy5zdW5yaXNlbXVzaWNiZy5jb20vaW1hZ2VzL3N0b3JpZXMvbG9nYS9sb2dvX3NtMTAweDc1LnBuZw=="
 	}, {
 		"n": "0JXQstGA0L7Qv9C10LnRgdC60Lgg0JzRg9C30LjQutCw0LvQvdCwINCi0LXQu9C10LLQuNC30LjRjw==",
-		"c": "Музикални",
+		"c": "4",
 		"s": [{
 			"u": "bW1zOi8vODQuMjIuMS4yMTAvZW10dg=="
 		}, {
 			"u": "aHR0cDovL3d3dy51dHYuYmcvdHYvc3RyZWFtLnBocD9jb2RlPThuZmpQQ0RGZTdQUEgzNGo1UHVpamhnajZVSWZyd1FF"
 		}],
-		"l": "http://www.tv-logo.com/pt-data/uploads/images/logo/emtv_bg.jpg",
-		"properties": ["useCustomLogo", "disabled"]
+		"d": "1",
+		"l": "aHR0cDovL3d3dy50di1sb2dvLmNvbS9wdC1kYXRhL3VwbG9hZHMvaW1hZ2VzL2xvZ28vZW10dl9iZy5qcGc="
 	}, {
 		"n": "0JHQkyDQmNC90YTQviDQotCS",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "aHR0cDovLzg5LjIxNS4xNzcuMTI1Ojg4OTkvc3RyZWFtLmZsdg=="
 		}],
-		"l": "http://www.bginfo.tv/images/stories/logo/top_logo.png"
+		"l": "aHR0cDovL3d3dy5iZ2luZm8udHYvaW1hZ2VzL3N0b3JpZXMvbG9nby90b3BfbG9nby5wbmc="
 	}, {
 		"n": "VHJhdmVsIFRW",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "aHR0cDovLzMxLjEzLjIyMy4xMDE6ODAvdHJhdmVsL3RyYXZlbC5zdHJlYW0vcGxheWxpc3QubTN1OD9oYXNoPTk0MzIxMjM0NQ==",
-			"playerUrl": "http://player.neterra.tv/travel/player.php",
-			"pageUrl": "http://tv.traveltv.bg/live/"
+			"pl": "aHR0cDovL3BsYXllci5uZXRlcnJhLnR2L3RyYXZlbC9wbGF5ZXIucGhw",
+			"pa": "aHR0cDovL3R2LnRyYXZlbHR2LmJnL2xpdmUv"
 		}],
-		"l": "http://logos.kodibg.org/traveltv.png"		
+		"l": "aHR0cDovL2xvZ29zLmtvZGliZy5vcmcvdHJhdmVsdHYucG5n"
 	}, {
 		"n": "VHJhdmVsIFRWIEhE",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "aHR0cDovLzMxLjEzLjIyMy4xMDMvdHJhdmVsL2NvbW11bml0eS5zdHJlYW0vcGxheWxpc3QubTN1OD9oYXNoPTk0MzIxMjM0NQ==",
-			"pageUrl": "http://hd.traveltv.bg/live/",
-			"playerUrl": "http://player.neterra.tv/travel/playerCommunity.php"
+			"pa": "aHR0cDovL2hkLnRyYXZlbHR2LmJnL2xpdmUv",
+			"pl": "aHR0cDovL3BsYXllci5uZXRlcnJhLnR2L3RyYXZlbC9wbGF5ZXJDb21tdW5pdHkucGhw"
 		}],
-		"l": "http://logos.kodibg.org/travelhd.png"
+		"l": "aHR0cDovL2xvZ29zLmtvZGliZy5vcmcvdHJhdmVsaGQucG5n"
 	}, {
 		"n": "0JDQs9GA0L4g0KLQkg==",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "cnRtcDovL2Fncm90dmxpdmUxLnNyZm1zLmNvbTozMDIxL2xpdmUvIHBhZ2VVcmw9aHR0cDovL3d3dy5hZ3JvdHYuYmcvICBhcHA9bGl2ZS8gcGxheXBhdGg9bGl2ZXN0cmVhbSBzd2ZVcmw9aHR0cDovL3d3dy5hZ3JvdHYuYmcvZmxvd3BsYXllci9mbG93cGxheWVyLnJ0bXAtMy4yLjMuc3dmIGxpdmU9dHJ1ZQ=="
 		}],
-		"l": "http://www.agrotv.bg/images/logo.png"
+		"l": "aHR0cDovL3d3dy5hZ3JvdHYuYmcvaW1hZ2VzL2xvZ28ucG5n"
 	}, {
 		"n": "0JXQutC+INCi0JI=",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "cnRzcDovLzIxMi4yNS4zNy4xNTA6NTU0NC9lY290dg=="
 		}],
-		"l": "http://www.tv14.net/wp-content/uploads/2010/10/Eco-Bulgaria-TV.jpg",
-		"properties": ["useCustomLogo", "disabled"]
+		"d": "1",
+		"l": "aHR0cDovL3d3dy50djE0Lm5ldC93cC1jb250ZW50L3VwbG9hZHMvMjAxMC8xMC9FY28tQnVsZ2FyaWEtVFYuanBn"
 	}, {
 		"n": "0JLQvtC10L3QtdC9INCi0JIg0LrQsNC90LDQuw==",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "aHR0cDovLzQ2LjI0OS45NS4xODAvdnRrL2hpZ2gubTN1OA=="
 		}],
-		"l": "http://armymedia.bg/wp-content/uploads/2015/03/new_lego_vtk.jpg"
+		"l": "aHR0cDovL2FybXltZWRpYS5iZy93cC1jb250ZW50L3VwbG9hZHMvMjAxNS8wMy9uZXdfbGVnb192dGsuanBn"
 	}, {
 		"n": "0JDRg9GC0L7QvNC+0YLQviDQotCS",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "aHR0cDovLzEwMGF1dG9tb3RvLnR2OjE5MzUvYmd0djEvYXV0b3R2L3BsYXlsaXN0Lm0zdTg="
 		}],
-		"l": "http://www.100automoto.tv/images/yootheme/logo.png",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3d3dy4xMDBhdXRvbW90by50di9pbWFnZXMveW9vdGhlbWUvbG9nby5wbmc="
 	}, {
 		"n": "0JDRg9GC0L7QvNC+0YLQviDQotCSIDEwMCDQk9Cw0Lc=",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "bW1zOi8vMTAwYXV0b21vdG8udHYvMTAwZ2F6"
 		}],
-		"l": "http://www.100automoto.tv/images/yootheme/logo.png",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3d3dy4xMDBhdXRvbW90by50di9pbWFnZXMveW9vdGhlbWUvbG9nby5wbmc="
 	}, {
 		"n": "0JDRg9GC0L7QvNC+0YLQviDQotCSIEJNVw==",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "bW1zOi8vMTAwYXV0b21vdG8udHYvYm13"
 		}],
-		"l": "http://www.100automoto.tv/images/yootheme/logo.png",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3d3dy4xMDBhdXRvbW90by50di9pbWFnZXMveW9vdGhlbWUvbG9nby5wbmc="
 	}, {
 		"n": "0JDRg9GC0L7QvNC+0YLQviDQotCSIEVsZWN0cmlj",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "bW1zOi8vMTAwYXV0b21vdG8udHYvY2hhbm5lbF9lbGVjdHJpYw=="
 		}],
-		"l": "http://www.100automoto.tv/images/yootheme/logo.png",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3d3dy4xMDBhdXRvbW90by50di9pbWFnZXMveW9vdGhlbWUvbG9nby5wbmc="
 	}, {
 		"n": "0JDRg9GC0L7QvNC+0YLQviDQotCSIE1lcmNlZGVz",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "bW1zOi8vMTAwYXV0b21vdG8udHYvY2hhbm5lbF9tZXJjZWRlcw=="
 		}],
-		"l": "http://www.100automoto.tv/images/yootheme/logo.png",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3d3dy4xMDBhdXRvbW90by50di9pbWFnZXMveW9vdGhlbWUvbG9nby5wbmc="
 	}, {
 		"n": "0JDRg9GC0L7QvNC+0YLQviDQotCSIFBvcnNjaGU=",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "bW1zOi8vMTAwYXV0b21vdG8udHYvY2hhbm5lbF9wb3JzY2hl"
 		}],
-		"l": "http://www.100automoto.tv/images/yootheme/logo.png",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3d3dy4xMDBhdXRvbW90by50di9pbWFnZXMveW9vdGhlbWUvbG9nby5wbmc="
 	}, {
 		"n": "0JDRg9GC0L7QvNC+0YLQviDQotCSIEl0YWxpYQ==",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "bW1zOi8vMTAwYXV0b21vdG8udHYvY2hhbm5lbF9pdGFseQ=="
 		}],
-		"l": "http://www.100automoto.tv/images/yootheme/logo.png",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3d3dy4xMDBhdXRvbW90by50di9pbWFnZXMveW9vdGhlbWUvbG9nby5wbmc="
 	}, {
 		"n": "0J3QsNGG0LjQvtC90LDQu9C90L4t0L/QsNGC0YDQuNC+0YLQuNGH0L3QsCDRgtC10LvQtdCy0LjQt9C40Y8=",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "bW1zOi8vYm5wdHYudHY6MTA4MDE="
 		}],
-		"l": "http://www.bnptv.info/tv/templates/rhuk_milkyway/images/mw_joomla_logo.png"
+		"l": "aHR0cDovL3d3dy5ibnB0di5pbmZvL3R2L3RlbXBsYXRlcy9yaHVrX21pbGt5d2F5L2ltYWdlcy9td19qb29tbGFfbG9nby5wbmc="
 	}, {
 		"n": "0JDRgNGCINCi0JI=",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "aHR0cDovLzgwLjcyLjk1Ljk6MTkzNS9saXZlL3R2YXJ0L3BsYXlsaXN0Lm0zdTg="
 		}],
-		"l": "http://cem.bg/files/125008251019Graphic1.jpg"
+		"l": "aHR0cDovL2NlbS5iZy9maWxlcy8xMjUwMDgyNTEwMTlHcmFwaGljMS5qcGc="
 	}, {
 		"n": "TGl2ZSA3INCQ0YDRgiDQotCS",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "cnRtcDovL2V4dG9uZGVtYW5kLmxpdmVzdHJlYW0uY29tL29uZGVtYW5kIGFwcD1vbmRlbWFuZCBwbGF5cGF0aD1tcDQ6dHJhbnMvZHYxNS9tb2d1bHVzLXVzZXItZmlsZXMvY2hsaXZlN3R2LzIwMTMvMTEvMjAvYTFmOTU3ZjAtM2JmYS00YzA3LTgwYzMtMTZlYzA4MThiZjY3Lm1wNCBzd2ZVcmw9aHR0cDovL2Nkbi5saXZlc3RyZWFtLmNvbS9jaHJvbWVsZXNzUGxheWVyL3YyMS9wbGF5ZXJhLnBpLnN3Zj9sc2NoYW5uZWw9dHJ1ZSZqc0VuYWJsZWQ9ZmFsc2UmYnJvd3NlTW9kZT1mYWxzZSZ0aW1lPSZ0ZXh0TGluZXM9MiZzaG93TW9yZVZpZGVvcz1mYWxzZSZoaWRlQ2hhbm5lbEJyYW5kaW5nPXRydWUmaGlkZUluZm89LnRydWUmbW9kZT1mYWxzZSZhdXRvUGxheT10cnVlJmFsbG93Y2hhdD1mYWxzZSZ0PTUzMDA3NiBwYWdlVVJMPWh0dHA6Ly9vcmlnaW5hbC5saXZlc3RyZWFtLmNvbS9lbWJlZC9saS52ZTd0dj9zaG93TW9yZVZpZGVvcz1mYWxzZSZoaWRlSW5mbz10cnVlJmF1dG9QbGF5PXRydWUmbHNjaGFubmVsPXRydWUmYnJvd3NlTW9kZT1mYWxzZSZ0ZXh0TGluZXM9MiZoaWRlQ2hhbm5lbEJyYW5kaW5nPXRydWUmbW9kZS49ZmFsc2UmYWxsb3djaGF0PWZhbHNlJmxheW91dD00JnQ9NTMwMDc2"
 		}],
-		"l": "https://static.wixstatic.com/media/60e173_3d128f023eb74ec89edba008d717341d.png/v1/fill/w_139,h_139,al_c,usm_0.50_1.20_0.00/60e173_3d128f023eb74ec89edba008d717341d.png",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cHM6Ly9zdGF0aWMud2l4c3RhdGljLmNvbS9tZWRpYS82MGUxNzNfM2QxMjhmMDIzZWI3NGVjODllZGJhMDA4ZDcxNzM0MWQucG5nL3YxL2ZpbGwvd18xMzksaF8xMzksYWxfYyx1c21fMC41MF8xLjIwXzAuMDAvNjBlMTczXzNkMTI4ZjAyM2ViNzRlYzg5ZWRiYTAwOGQ3MTczNDFkLnBuZw=="
 	}, {
 		"n": "V2luZSDQotCS",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "cnRzcDovLzIxMi4yNS4zNy4xNTA6NTU0NS93aW5lYXJ0dHY="
 		}],
-		"l": "http://live-tv.me/wp-content/uploads/2014/05/WineArt.gif",
-		"properties": ["useCustomLogo", "disabled"]
+		"d": "1",
+		"l": "aHR0cDovL2xpdmUtdHYubWUvd3AtY29udGVudC91cGxvYWRzLzIwMTQvMDUvV2luZUFydC5naWY="
 	}, {
 		"n": "0KLQkiDQnNC10LTQuNGG0LjQvdGB0LrQuCDQo9C90LjQstC10YDRgdC40YLQtdGCINCS0LDRgNC90LA=",
-		"c": "Тематични",
+		"c": "10",
 		"s": [{
 			"u": "aHR0cDovL2lvcy5jZG4uYmc6MjAxMy9mbHMvbGl2ZXR2LnN0cmVhbS9wbGF5bGlzdC5tM3U4"
 		}],
-		"l": "http://mu-vi.tv/SiteAssets/logo-mu-tv.png"
+		"l": "aHR0cDovL211LXZpLnR2L1NpdGVBc3NldHMvbG9nby1tdS10di5wbmc="
 	}, {
 		"n": "0JTQtdGC0YHQutCwINGC0LXQu9C10LLQuNC30LjRjyAtINCQ0Lcg0JzQvtCz0LAsINCQ0Lcg0JfQvdCw0Lw=",
-		"c": "Детски",
+		"c": "8",
 		"s": [{
 			"u": "cnRtcDovL2V4dG9uZGVtYW5kLmxpdmVzdHJlYW0uY29tL29uZGVtYW5kIGFwcD1vbmRlbWFuZCBwbGF5cGF0aD10cmFucy9kdjE1L21vZ3VsdXMtdXNlci1maWxlcy9jaGljYW5pa25vdzJkLzIwMTUvMTAvMTkvZTE3ZjkwOWUtNTJjNi00NjEzLWFjZmMtODAzMDBiYmU5NGFkIHN3ZlVybD1odHRwOi8vY2RuLmxpdmVzdHJlYW0uY29tL2Nocm9tZWxlc3NQbGF5ZXIvdjIxL3BsYXllcmFwaS5zd2Y/c2hvd01vcmVWaWRlb3M9ZmFsc2UmanNFbmFibGVkPWZhbHNlJnNob3dCb3JkZXJDb250cm9sQmFyPWZhbHNlJnRpbWU9JmFsbG93Q2hhdD1mYWxzZSZib3JkZXJDb2xvcj0weENDQ0NDQyZpY29uQ29sb3I9MHg1NTU1NTUgcGFnZVVSTD1odHRwOi8vY2RuLmxpdmVzdHJlYW0uY29tL2VtYmVkL2ljYW5pa25vdzJk"
 		}],
 		"l": ""
 	}, {
 		"n": "0KLQkiDQn9C70L7QstC00LjQstGB0LrQsCDQnNC10YLRgNC+0L/QvtC70LjRjw==",
-		"c": "Религиозни",
+		"c": "9",
 		"s": [{
 			"u": "cnRtcDovLzMxLjEzLjIxOC4xMDgvbGl2ZS8mYW1wO3N0YXJ0PTEmYW1wO2F1dG9zdGFydD10cnVlIHN3ZlVybD1odHRwOi8vd3d3LnBsb3ZkaXZza2FtaXRyb3BvbGlhLmJnL21vZHVsZXMvbW9kX3BsYXllcmpyL3BsYXllci1saWNlbnNlZDUuc3dmIHBhZ2VVUkw9aHR0cDovL3d3dy5wbG92ZGl2c2thbWl0cm9wb2xpYS5iZy8gcGxheXBhdGg9bXBlZ3RzLnN0cmVhbSBsaXZlPXRydWU="
 		}],
-		"l": "http://cem.bg/files/1366886847412pptv.gif",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL2NlbS5iZy9maWxlcy8xMzY2ODg2ODQ3NDEycHB0di5naWY="
 	}, {
 		"n": "0JHRitC70LPQsNGA0YHQutCwINCl0YDQuNGB0YLQuNGP0L3RgdC60LAg0KLQkg==",
-		"c": "Религиозни",
+		"c": "9",
 		"s": [{
 			"u": "aHR0cDovLzEzMC4xODUuMjE0LjIvdHYvbWJjaHR2Lm0zdTg/c3Q9QkxqOUQtblFXM2F6MzhQOGgyenY3QSZlPTE0NDg2MzIzMzU="
 		}],
-		"l": "http://www.christiantv-bg.com/images/logo.png",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3d3dy5jaHJpc3RpYW50di1iZy5jb20vaW1hZ2VzL2xvZ28ucG5n"
 	}, {
 		"n": "0KXQsNGA0LzQvtC90LjRjyDQotCS",
-		"c": "Религиозни",
+		"c": "9",
 		"s": [{
 			"u": "cnRtcDovL3N0cmVhbTIuaHR2LmJnOjE5MzUvc2VjdXJlc3RyZWFtaW5nL3NkLnNkcA=="
 		},{
 			"u": "cnRtcDovL3N0cmVhbTIuaHR2LmJnOjE5MzUvc2VjdXJlc3RyZWFtaW5nL2hkLnNkcA==",
 			"hd": 1
 		}],
-		"l": "http://www.htv.bg/images/logo.png",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3d3dy5odHYuYmcvaW1hZ2VzL2xvZ28ucG5n"
 	}, {
 		"n": "0JLRj9GA0LAsINCy0L7Qu9GPLCDQstC40LfQuNGPINCi0JI=",
-		"c": "Религиозни",
+		"c": "9",
 		"s": [{
 			"u": "cnRtcDovL3Z2di5iZzoxOTM1L2xpdmUvdnZ2LmZsdg=="
 		},{
 			"u": "cnRtcDovL3Z2di5iZzoxOTM1L2xpdmUvdnZ2Mi5mbHY="
 		}],
-		"l": "http://vvv.bg/share/images/site/h1.png",
-		"properties": ["useCustomLogo"]
+		"l": "aHR0cDovL3Z2di5iZy9zaGFyZS9pbWFnZXMvc2l0ZS9oMS5wbmc="
 	}, {
 		"n": "0KXRgNC40YHRgtC40Y/QvdGB0LrQsCDQkNC00LLQtdC90YLQvdCwINCi0JI=",
-		"c": "Религиозни",
+		"c": "9",
 		"s": [{
 			"u": "cnRtcDovLzkzLjE1Mi4xNzYuMTMxL2hvcGV0di9saXZlXzI0"
 		}],
-		"l": "http://sdabg.tv/images/sdabgtv_logo.png",
-		"properties": ["useCustomLogo"]
-	}]
+		"l": "aHR0cDovL3NkYWJnLnR2L2ltYWdlcy9zZGFiZ3R2X2xvZ28ucG5n"
+	}],
+		"categories": [{
+				"id": "1",
+				"name": "Национални"
+			}, {
+				"id": "2",
+				"name": "Регионални"
+			}, {
+			"id": "3",
+				"name": "Спортни"
+			}, {
+			"id": "4",
+				"name": "Музикални"
+			}, {
+			"id": "5",
+				"name": "Филмови"
+			}, {
+			"id": "6",
+				"name": "Новинарски"
+			}, {
+			"id": "7",
+				"name": "Научни"
+			}, {
+			"id": "8",
+				"name": "Детски"
+			}, {
+			"id": "9",
+				"name": "Религиозни"
+			}, {
+			"id": "10",
+				"name": "Тематични"
+			}, {
+			"id": "11",
+				"name": "Други"
+			}]
 }

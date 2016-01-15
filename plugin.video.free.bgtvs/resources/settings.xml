@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<category label="Общи">
+		<setting id="show_disabled" type="bool" label="Показвай деактивирани канали" default="false"/>
+		<setting type="sep"/>
+		<setting id="listType" type="enum" label="Използвай списък с канали:" values="Отдалечен|Локален"  default="0" />
+		<setting label="Въведете урл на отдалечения списък с канали" type="lsep" visible="eq(-1,0)" />
+		<setting label="Урл:" type="text"   id="url" default="http://rawgit.com/harrygg/plugin.video.free.bgtvs/master/plugin.video.free.bgtvs/resources/lib/assets.json"  visible="eq(-2,0)"/>
+		<setting label="Въведете път до локалния списък с канали" type="lsep"  visible="eq(-3,1)"/>
+		<setting label="Път:" type="file" id="file" value="" visible="eq(-4,1)"/>
+		<setting type="sep"/>
+		<setting id="debug" type="bool" label="Дебъг лог" default="false"/>
+	</category>
+</settings>
