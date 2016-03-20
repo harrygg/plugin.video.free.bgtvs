@@ -1,25 +1,19 @@
-﻿# -*- coding: utf-8 -*-
-import re, sys, os.path, urllib, urllib2
-from resources.lib.helper import *		
+# -*- coding: utf-8 -*-
+import sys, xbmcplugin
+from resources.lib.helper import *
 
 reload(sys)  
 sys.setdefaultencoding('utf8')
 
-params = GetParams()
+params = get_params()
 
-i = None
-try: i = int(params["i"])
-except: pass
+try: id = int(params["id"])
+except: id = None
 
-s = None
-try: s = int(params["s"])
-except: pass
-
-mode = None
 try: mode = params["mode"]
-except: pass
+except: mode = None
 	
-if mode == None: ListChannels()
-else: Play(i,s)
+if mode == None: show_channels()
+else: show_streams(id)
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))

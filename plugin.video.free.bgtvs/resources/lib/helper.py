@@ -1,28 +1,177 @@
-﻿# -*- coding: utf-8 -*-
-import urllib, urllib2, re, xbmc, sys, json, os, xbmcaddon, xbmcgui, xbmcplugin, base64
-from datetime import datetime, timedelta	
+﻿import sys, os, xbmc, xbmcgui, xbmcaddon, xbmcplugin, gzip, sqlite3, urllib, urllib2, re, json
+from datetime import datetime, timedelta
 
-clist = []
-id = 'plugin.video.free.bgtvs'
-addon = xbmcaddon.Addon(id=id)
-showDisabled =  True if addon.getSetting('show_disabled') == "true" else False
-aName = 'assets.json'
-profile = xbmc.translatePath(addon.getAddonInfo('profile'))
-afp = os.path.join(profile, aName)
-ua = 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25'
-cookie = None
-#Settings
-showDisabledAssets =  True if addon.getSetting('show_disabled') == "true" else False
-debug =  True if addon.getSetting('debug') == "true" else False
-useRemoteAssets = True if addon.getSetting('listType') == "0" else False
-remoteAssetsUrl =  addon.getSetting('url')
-localAssetsPath =  addon.getSetting('file')
+def download_assets():
+	try:
+		remote_db = 'https://github.com/harrygg/plugin.video.free.bgtvs/blob/sqlite/plugin.video.free.bgtvs/resources/storage/tv.db.gz?raw=true'
+		xbmc.log('Downloading assets from url: %s' % remote_db)
+		save_to_file = local_db if '.gz' not in remote_db else local_db + ".gz"
+		f = urllib2.urlopen(remote_db)
+		if not os.path.exists(os.path.dirname(save_to_file)):
+			create_dir(save_to_file)
+		with open(save_to_file, "wb") as code:
+			code.write(f.read())
+		extract(save_to_file)
+	except Exception, er:
+		xbmc.log(str(er), xbmc.LOGERROR)
+		raise
 
-def Request(url, ref = ''):
+def create_dir(path):
+	try: os.makedirs(os.path.dirname(path))
+	except OSError as exc: # Guard against race condition
+		if exc.errno != errno.EEXIST:
+			raise
+			
+def extract(path):
+	try:
+		gz = gzip.GzipFile(path, 'rb')
+		s = gz.read()
+		gz.close()
+		out = file(local_db, 'wb')
+		out.write(s)
+		out.close()
+	except:
+		raise
+
+		
+def show_channels():
+	for c in get_channels():
+		if show_disabled or not c.disabled:
+			name = c.name
+			if c.disabled:
+				name = '[COLOR brown]' + name + '[/COLOR]'
+			li = xbmcgui.ListItem(name, iconImage = c.logo, thumbnailImage = c.logo)
+			li.setInfo( type = "Video", infoLabels = { "Title" : c.name } )
+			li.setProperty("IsPlayable", str(c.playable))
+			if c.playable:
+				u = c.stream_url
+				is_dir = False
+			else:
+				u = "%s?id=%s&mode=show_streams" % (sys.argv[0], c.id)
+				is_dir = True
+			xbmcplugin.addDirectoryItem(int(sys.argv[1]), u, li, is_dir)	
+			
+			
+def get_channels():
+	channels = []
+	try:
+		conn = sqlite3.connect(local_db)
+		cursor = conn.execute('''
+		SELECT c.id, c.disabled, c.name, cat.name AS category, c.logo, COUNT(s.id) AS streams, 
+		s.stream_url, s.page_url, s.player_url FROM channels AS c 
+		JOIN streams AS s ON c.id == s.channel_id 
+		JOIN categories as cat ON c.category_id == cat.id 
+		GROUP BY c.id, c.name''')
+		
+		for row in cursor:
+			c = Channel(row)
+			channels.append(c)
+	except Exception, er:
+		xbmc.log(str(er), xbmc.LOGERROR)
+	return channels
+
+		
+def show_streams(id):
+	streams = get_streams(id)
+	i = 1
+	for s in streams:
+		if not s.disabled:
+			name = '[COLOR brown] %s (поток %s)[/COLOR]' % (s.name, i)
+			li = xbmcgui.ListItem(name, iconImage = s.logo, thumbnailImage = s.logo)
+			li.setInfo( type = "Video", infoLabels = { "Title" : s.name } )
+			li.setProperty("IsPlayable", 'True')
+			xbmcplugin.addDirectoryItem(int(sys.argv[1]), s.stream_url, li, False)
+			i += 1	
+	
+def get_streams(id):
+	streams = []
+	try:
+		conn = sqlite3.connect(local_db)
+		cursor = conn.execute('''
+		SELECT s.stream_url, s.page_url, s.player_url, s.disabled, c.name, c.logo 
+		FROM streams AS s 
+		JOIN channels AS c 
+		ON s.channel_id = c.id 
+		WHERE c.id = ?''', [id])
+
+		for row in cursor:
+			c = Stream(row)
+			streams.append(c)
+	except Exception, er:
+		xbmc.log(str(er), xbmc.LOGERROR)
+	return streams	
+		
+def get_params():
+  param = []
+  paramstring = sys.argv[2]
+  if len(paramstring) >= 2:
+    params = sys.argv[2]
+    cleanedparams = params.replace('?','')
+    if (params[len(params)-1] == '/'):
+      params = params[0:len(params) - 2]
+    pairsofparams = cleanedparams.split('&')
+    param = {}
+    for i in range(len(pairsofparams)):
+      splitparams = {}
+      splitparams = pairsofparams[i].split('=')
+      if (len(splitparams)) == 2:
+        param[splitparams[0]] = splitparams[1]
+  return param
+	
+class Channel:
+	def __init__(self, attr):
+		self.id = attr[0]
+		self.disabled = attr[1] == 1
+		self.name = attr[2]
+		self.category = attr[3]
+		self.logo = attr[4]
+		self.streams = attr[5]
+		self.stream_url = attr[6] + '|User-Agent=%s' % ua
+		self.page_url = '' if attr[7] == None else attr[7]
+		self.player_url = '' if attr[8] == None else attr[8]
+		self.playable = False if self.streams > 1 or self.player_url != '' else True
+
+class Stream:
+	def __init__(self, attr):
+		self.stream_url = attr[0] 
+		self.page_url = attr[1]
+		self.player_url = attr[2]
+		self.disabled = attr[3] == 1
+		self.name = attr[4]
+		self.logo = attr[5]
+		if self.player_url != None and self.player_url != '':
+			self.resolve()
+		
+	def resolve(self):
+		if '3583019' in self.player_url: #BiT
+			return self._livestream()
+		
+		res = request(self.player_url, self.page_url)
+		m = re.compile('video.+src[=\s"\']+(.+?)[\s"\']+', re.DOTALL).findall(res)
+		self.stream_url = '' if len(m) == 0 else m[0]
+		#travelhd wrong stream name hack
+		if 'playerCommunity' in self.player_url:
+			self.stream_url.replace('/community/community', '/travel/community')	
+		self.stream_url += '|User-Agent=%s' % ua
+		
+	def _livestream(self):
+		res = request(self.player_url, self.page_url)
+		m3u = ''
+		try:
+			json_res = json.loads(res)
+			pl = json_res['stream_info']['m3u8_url']
+			res = request(pl, self.player_url)	
+			m = re.compile('(http.+av\-p\.m3u8.+)').findall(res)
+			m3u = '%s|User-Agent=%s&Cookie=%s' % (m[0], ua, cookie)
+		except Exception, er:
+			xbmc.log(str(er), xbmc.LOGERROR)
+		return m3u
+		
+def request(url, ref = ''):
 	req = urllib2.Request(url)
 	if ref == '': 
 		ref = url
-	xbmc.log("%s | Request() | url=%s, ref=%s" % (id, url, ref))
+	xbmc.log("Request() | url=%s, ref=%s" % (url, ref))
 	req.add_header('Referer', ref)
 	req.add_header('User-Agent', ua)
 	res = urllib2.urlopen(req)
@@ -34,164 +183,26 @@ def Request(url, ref = ''):
 	res.close()
 	return r
 
-def Log(msg, level = xbmc.LOGERROR):
-	xbmc.log(" | " + id + " | " + str(msg), level)
-	
-def GetNewAssetsList():
-	try:
-		if useRemoteAssets == True:
-			res = Request(remoteAssetsUrl)
-			global clist, categories
-			clist = json.loads(res)['assets']
-			categories = json.loads(res)['categories']
-			if not os.path.exists(os.path.dirname(afp)):
-				try:
-					os.makedirs(os.path.dirname(afp))
-				except OSError as exc: 
-					pass # Guard against race condition
-					if exc.errno != errno.EEXIST: 
-						raise
-			with open(afp, "w") as f:
-				f.write(res)
-		else:
-			LoadAssets(localAssetsPath)
-	except Exception, er:
-		Log(str(er))
-		if debug:
-			Log("\rSERVER RESPONSE: " + res )
-		LoadAssets(os.path.join(os.path.dirname(os.path.realpath(__file__)), aName))
+clist = []
+categories = []
+id = 'plugin.video.free.bgtvs'
+addon = xbmcaddon.Addon(id=id)
+ua = 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25'
+profile = xbmc.translatePath(addon.getAddonInfo('profile'))
+show_disabled =  True if addon.getSetting('show_disabled') == "true" else False
+local_db = os.path.join(profile, 'tv.db')
+cookie = ''
 
-def LoadAssets(file = ""):
-	df = open(file) 
-	global clist, categories
-	content = json.load(df)
-	categories = content['categories']
-	clist = content['assets']
-	df.close()
-	
-#load assets
 try:
-	if os.path.exists(afp):
-		#check if the file is too old
-		treshold = datetime.now() - timedelta(hours=12)
-		file_modified = datetime.fromtimestamp(os.path.getmtime(afp))
-		if file_modified < treshold: #file is more than a day old
-			GetNewAssetsList()
-		else: #file is new
-			LoadAssets(afp)
+	if os.path.exists(local_db):
+		treshold = datetime.now() - timedelta(hours=6)
+		fileModified = datetime.fromtimestamp(os.path.getmtime(local_db))
+		if fileModified < treshold: #file is more than a day old
+			download_assets()
 	else: #file does not exist, perhaps first run
-		GetNewAssetsList()
+			download_assets()
 except Exception, er:
-	Log(er)
-	xbmc.executebuiltin('Notification(%s,%s,10000,%s)'%('Free BG TVs', 'Неуспешно зареждане на списъка с канали',''))          
-
-def GetStream(i,n):
-	if 'pl' in clist[i]['s'][n].keys():
-		stream = GetStreamFromSource(clist[i]['s'][n])
-	else:
-		s = clist[i]['s'][n]['u']
-		s = base64.b64decode(s)
-		if '3583019' in s: # BiT
-			stream = GetLiveStream(clist[i]['s'][0])
-		else: # else return the url
-			stream = s
-	xbmc.log("%s | GetStream() returned %s" % (id, stream))
-	return stream
-
-def GetStreamFromSource(stream):
-	try:
-		pl = base64.b64decode(stream['pl'])
-		pa = base64.b64decode(stream['pa'])
-		res = Request(pl, pa)
-		m = re.compile('video.+src[=\s"\']+(.+?)[\s"\']+', re.DOTALL).findall(res)
-		src = "" if len(m) == 0 else m[0]
-		#travelhd wrong stream name hack
-		if 'playerCommunity' in pl:
-			src.replace('/community/community', '/travel/community')	
-		return src
-	except:
-		return base64.b64decode(stream['u'])
-
-def GetLiveStream(url):
-	r = Request(url)
-	json_res = json.loads(r)
-	pl = json_res['stream_info']['m3u8_url']
-	r = Request(pl)	
-	m = re.compile('(http.+av\-p\.m3u8.+)').findall(r)
-	if len(m) > 0:
-		p = m[0] + '|User-Agent=' + ua
-		if cookie != '' :
-			p = p + '&Cookie=' + cookie
-		return p
-
-def GetParams():
-	param = []
-	paramstring = sys.argv[2]
-	if len(paramstring) >= 2:
-		params = sys.argv[2]
-		cleanedparams = params.replace('?','')
-		if (params[len(params)-1] == '/'):
-			params = params[0:len(params) - 2]
-		pairsofparams = cleanedparams.split('&')
-		param = {}
-		for i in range(len(pairsofparams)):
-			splitparams = {}
-			splitparams = pairsofparams[i].split('=')
-			if (len(splitparams)) == 2:
-				param[splitparams[0]] = splitparams[1]
-	return param
-
-def GetName(i, n):
-	name = base64.b64decode(clist[i]['n']).encode('utf-8')
-	if n > 0:
-		try: 
-			hd = clist[i]['s'][n]['hd']
-			if hd == 1: hd = 'HD' 
-		except: hd = ''
-		#type = base64.b64decode(clist[i]['s'][n]['u']).split(':')[0]
-		indent = '     '
-		if len(str(i)) > 1: indent = indent + '   ' #increase the indentation
-		name = '%s%s %s (стрийм %s)' % (indent, name, hd, n + 1)
-	else:
-		name = "%s. %s" % (val.next(), name)
-	return name
-
-def GetNumber():
-	for i in range(1, len(clist) + 1):
-		yield i
-		
-val = GetNumber()
-
-def Enabled(i):
-	return False if 'd' in clist[i].keys() and clist[i]['d'] == "1" else True 
-
-def AddItem(i, n):
-	name = GetName(i, n)
-	if not Enabled(i): #change color of disabled channel
-		name = '[COLOR brown]' + name + '[/COLOR]'
-	icon = base64.b64decode(clist[i]['l'])
-	li = xbmcgui.ListItem(name, iconImage = icon, thumbnailImage = icon)
-	li.setInfo( type = "Video", infoLabels = { "Title" : name } )
-	li.setProperty("IsPlayable", 'True')
-	u = "%s?i=%s&s=%s&mode=Play" % (sys.argv[0], i, n)
-	xbmcplugin.addDirectoryItem(int(sys.argv[1]), u, li, False)
-
-def Play(i,s):
-	xbmcplugin.setResolvedUrl(int(sys.argv[1]), True, xbmcgui.ListItem(path = GetStream(i,s)))
-	#u = "%s" % (sys.argv[0])
-	#builtin = 'Container.Update(%s)' % (u)
-	#xbmc.executebuiltin(builtin)
-
-def AddSeparator(cat):
-	name = '---------------------------------------    %s    -----------------------------' % cat
-	li = xbmcgui.ListItem(name, iconImage = '', thumbnailImage = '')
-	xbmcplugin.addDirectoryItem(int(sys.argv[1]), '', li, False)
-
-def ListChannels():
-	for i in range(0, len(clist)):
-		channelEnabled = Enabled(i)
-		if showDisabled or channelEnabled:
-			if i > 0 and clist[i]["c"] != clist[i-1]["c"]:
-				AddSeparator(categories[int(clist[i]["c"])-1]["name"])
-			for n in range(0, len(clist[i]["s"])):
-				AddItem(i, n)
+	xbmc.log(str(er), xbmc.LOGERROR)
+	xbmc.executebuiltin('Notification(%s,%s,10000,%s)' % ('БГ Камерите','Неуспешно сваляне на най-новия списък с камери',''))
+	assets = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../storage/tv.db.gz')
+	extract(assets)
