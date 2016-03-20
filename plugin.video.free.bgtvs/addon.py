@@ -1,18 +1,19 @@
-from xbmcswift2 import Plugin
+# -*- coding: utf-8 -*-
+import sys, xbmcplugin
+from resources.lib.helper import *
 
+reload(sys)  
+sys.setdefaultencoding('utf8')
 
-plugin = Plugin()
+params = get_params()
 
+try: id = int(params["id"])
+except: id = None
 
-@plugin.route('/')
-def index():
-    item = {
-        'label': 'Hello XBMC!',
-        'path': 'http://s3.amazonaws.com/KA-youtube-converted/JwO_25S_eWE.mp4/JwO_25S_eWE.mp4',
-        'is_playable': True
-    }
-    return [item]
+try: mode = params["mode"]
+except: mode = None
+	
+if mode == None: show_channels()
+else: show_streams(id)
 
-
-if __name__ == '__main__':
-    plugin.run()
+xbmcplugin.endOfDirectory(int(sys.argv[1]))
