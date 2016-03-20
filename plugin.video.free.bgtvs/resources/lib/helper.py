@@ -1,6 +1,24 @@
 ﻿import sys, os, xbmc, xbmcgui, xbmcaddon, xbmcplugin, gzip, sqlite3, urllib, urllib2, re, json
 from datetime import datetime, timedelta
 
+#append_pydev_remote_debugger
+REMOTE_DBG = False
+if REMOTE_DBG:
+	try:
+		sys.path.append("C:\\Software\\Java\\eclipse-luna\\plugins\\org.python.pydev_4.4.0.201510052309\\pysrc")
+		import pydevd
+		xbmc.log("After import pydevd")
+		#import pysrc.pydevd as pydevd # with the addon script.module.pydevd, only use `import pydevd`
+		# stdoutToServer and stderrToServer redirect stdout and stderr to eclipse console
+		pydevd.settrace('localhost', stdoutToServer=False, stderrToServer=False, suspend=False)
+	except ImportError:
+		xbmc.log("Error: You must add org.python.pydev.debug.pysrc to your PYTHONPATH.")
+		sys.exit(1)
+	except:
+		xbmc.log("Unexpected error:", sys.exc_info()[0]) 
+		sys.exit(1)
+#end_append_pydev_remote_debugger	
+
 def download_assets():
 	try:
 		remote_db = 'https://github.com/harrygg/plugin.video.free.bgtvs/blob/sqlite/plugin.video.free.bgtvs/resources/storage/tv.db.gz?raw=true'
@@ -75,8 +93,10 @@ def show_streams(id):
 	streams = get_streams(id)
 	i = 1
 	for s in streams:
-		if not s.disabled:
-			name = '[COLOR brown] %s (поток %s)[/COLOR]' % (s.name, i)
+		if show_disabled or not s.disabled:
+			name = '%s (поток %s)' % (s.name, i) 
+			if s.disabled:
+				name = '[COLOR brown] %s [/COLOR]' % name
 			li = xbmcgui.ListItem(name, iconImage = s.logo, thumbnailImage = s.logo)
 			li.setInfo( type = "Video", infoLabels = { "Title" : s.name } )
 			li.setProperty("IsPlayable", 'True')
