@@ -120,7 +120,17 @@ def get_streams(id):
 	except Exception, er:
 		xbmc.log(str(er), xbmc.LOGERROR)
 	return streams	
-		
+
+def play_stream(id):
+	urls = get_streams(id)
+	s = urls[0]
+	li = xbmcgui.ListItem(s.name, iconImage = s.logo, thumbnailImage = s.logo, path=s.stream_url)
+	li.setInfo( type = "Video", infoLabels = { "Title" : s.name } )
+	li.setProperty("IsPlayable", 'True')
+	#xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url, listitem, isFolder=False)
+	xbmcplugin.setResolvedUrl(handle=int(sys.argv[1]), succeeded=True, listitem=li)
+	
+	
 def get_params():
   param = []
   paramstring = sys.argv[2]
