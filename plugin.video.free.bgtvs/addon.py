@@ -17,6 +17,6 @@ if mode == None: show_channels()
 elif mode == 'show_streams':
 	show_streams(id)
 else:
-	play_stream(id)
+	play_channel(id)
 
 xbmcplugin.endOfDirectory(int(sys.argv[1]))

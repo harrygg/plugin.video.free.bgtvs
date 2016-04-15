@@ -1,27 +1,9 @@
 ﻿import sys, os, xbmc, xbmcgui, xbmcaddon, xbmcplugin, gzip, sqlite3, urllib, urllib2, re, json
 from datetime import datetime, timedelta
 
-#append_pydev_remote_debugger
-REMOTE_DBG = False
-if REMOTE_DBG:
-	try:
-		sys.path.append("C:\\Software\\Java\\eclipse-luna\\plugins\\org.python.pydev_4.4.0.201510052309\\pysrc")
-		import pydevd
-		xbmc.log("After import pydevd")
-		#import pysrc.pydevd as pydevd # with the addon script.module.pydevd, only use `import pydevd`
-		# stdoutToServer and stderrToServer redirect stdout and stderr to eclipse console
-		pydevd.settrace('localhost', stdoutToServer=False, stderrToServer=False, suspend=False)
-	except ImportError:
-		xbmc.log("Error: You must add org.python.pydev.debug.pysrc to your PYTHONPATH.")
-		sys.exit(1)
-	except:
-		xbmc.log("Unexpected error:", sys.exc_info()[0]) 
-		sys.exit(1)
-#end_append_pydev_remote_debugger	
-
 def download_assets():
 	try:
-		remote_db = 'https://github.com/harrygg/plugin.video.free.bgtvs/blob/sqlite/plugin.video.free.bgtvs/resources/storage/tv.db.gz?raw=true'
+		remote_db = 'https://github.com/harrygg/%s/blob/sqlite/%s/resources/storage/tv.db.gz?raw=true' % (id, id)
 		xbmc.log('Downloading assets from url: %s' % remote_db)
 		save_to_file = local_db if '.gz' not in remote_db else local_db + ".gz"
 		f = urllib2.urlopen(remote_db)
@@ -121,7 +103,7 @@ def get_streams(id):
 		xbmc.log(str(er), xbmc.LOGERROR)
 	return streams	
 
-def play_stream(id):
+def play_channel(id):
 	urls = get_streams(id)
 	s = urls[0]
 	li = xbmcgui.ListItem(s.name, iconImage = s.logo, thumbnailImage = s.logo, path=s.stream_url)
