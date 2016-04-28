@@ -33,68 +33,88 @@ def extract(path):
 	except:
 		raise
 
+def show_categories():
+	cats = []
+	try:
+		conn = sqlite3.connect(local_db)
+		cursor = conn.execute('''SELECT * FROM categories''')
 		
-def show_channels():
-	for c in get_channels():
-		if show_disabled or not c.disabled:
-			name = c.name
-			if c.disabled:
-				name = '[COLOR brown]' + name + '[/COLOR]'
-			li = xbmcgui.ListItem(name, iconImage = c.logo, thumbnailImage = c.logo)
-			li.setInfo( type = "Video", infoLabels = { "Title" : c.name } )
-			li.setProperty("IsPlayable", str(c.playable))
-			if c.playable:
-				u = c.stream_url
-				is_dir = False
-			else:
-				u = "%s?id=%s&mode=show_streams" % (sys.argv[0], c.id)
-				is_dir = True
-			xbmcplugin.addDirectoryItem(int(sys.argv[1]), u, li, is_dir)	
+		li = xbmcgui.ListItem('Всички')
+		url = "%s?id=0&mode=show_channels" % sys.argv[0]
+		xbmcplugin.addDirectoryItem(int(sys.argv[1]), url, li, True)
+
+		#Add categories
+		for row in cursor:
+			li = xbmcgui.ListItem(row[1])
+			url = "%s?id=%s&mode=show_channels" % (sys.argv[0], row[0])
+			xbmcplugin.addDirectoryItem(int(sys.argv[1]), url, li, True)
 			
-			
-def get_channels():
+	except Exception, er:
+		xbmc.log(str(er), xbmc.LOGERROR)
+	return cats
+
+def show_channels(id):
+	for c in get_channels(id):
+		name = c.name
+		if c.disabled:
+			name = '[COLOR brown]' + name + '[/COLOR]'
+		li = xbmcgui.ListItem(name, iconImage = c.logo, thumbnailImage = c.logo)
+		li.setInfo( type = "Video", infoLabels = { "Title" : c.name } )
+		li.setProperty("IsPlayable", str(c.playable))
+		if c.playable:
+			u = c.stream_url
+			is_dir = False
+		else:
+			u = "%s?id=%s&mode=show_streams" % (sys.argv[0], c.id)
+			is_dir = True
+		xbmcplugin.addDirectoryItem(int(sys.argv[1]), u, li, is_dir)	
+	
+
+
+def get_channels(id):
 	channels = []
 	try:
 		conn = sqlite3.connect(local_db)
+		sign = '<>' if id == str(0) else '='
 		cursor = conn.execute('''
-		SELECT c.id, c.disabled, c.name, cat.name AS category, c.logo, COUNT(s.id) AS streams, 
-		s.stream_url, s.page_url, s.player_url FROM channels AS c 
-		JOIN streams AS s ON c.id == s.channel_id 
-		JOIN categories as cat ON c.category_id == cat.id 
-		GROUP BY c.id, c.name''')
+		SELECT c.id, c.disabled, c.name, cat.name AS category, c.logo, COUNT(s.id) AS streams, s.stream_url, s.page_url, s.player_url 
+		FROM channels AS c 
+		JOIN streams AS s ON c.id = s.channel_id 
+		JOIN categories as cat ON c.category_id = cat.id 
+		WHERE c.category_id %s %s %s 
+		GROUP BY c.id, c.name 
+		ORDER BY c.name''' % (sign, id, disabled_query))
 		
 		for row in cursor:
 			c = Channel(row)
 			channels.append(c)
 	except Exception, er:
-		xbmc.log(str(er), xbmc.LOGERROR)
+		xbmc.log('get_channels() ' + str(er), xbmc.LOGERROR)
 	return channels
 
-		
 def show_streams(id):
 	streams = get_streams(id)
 	i = 1
 	for s in streams:
-		if show_disabled or not s.disabled:
-			name = '%s (поток %s)' % (s.name, i) 
-			if s.disabled:
-				name = '[COLOR brown] %s [/COLOR]' % name
-			li = xbmcgui.ListItem(name, iconImage = s.logo, thumbnailImage = s.logo)
-			li.setInfo( type = "Video", infoLabels = { "Title" : s.name } )
-			li.setProperty("IsPlayable", 'True')
-			xbmcplugin.addDirectoryItem(int(sys.argv[1]), s.stream_url, li, False)
-			i += 1	
+		name = '%s (поток %s)' % (s.name, i) 
+		if s.disabled:
+			name = '[COLOR brown] %s [/COLOR]' % name
+		li = xbmcgui.ListItem(name, iconImage = s.logo, thumbnailImage = s.logo)
+		li.setInfo( type = "Video", infoLabels = { "Title" : s.name } )
+		li.setProperty("IsPlayable", str(True))
+		xbmcplugin.addDirectoryItem(int(sys.argv[1]), s.stream_url, li, False)
+		i += 1	
 	
 def get_streams(id):
 	streams = []
 	try:
 		conn = sqlite3.connect(local_db)
 		cursor = conn.execute('''
-		SELECT s.stream_url, s.page_url, s.player_url, s.disabled, c.name, c.logo 
+		SELECT s.stream_url, s.page_url, s.player_url, s.disabled, c.name ||' '|| s.comment, c.logo
 		FROM streams AS s 
 		JOIN channels AS c 
 		ON s.channel_id = c.id 
-		WHERE c.id = ?''', [id])
+		WHERE c.id = %s %s''' % (id, disabled_query))
 
 		for row in cursor:
 			c = Stream(row)
@@ -103,13 +123,12 @@ def get_streams(id):
 		xbmc.log(str(er), xbmc.LOGERROR)
 	return streams	
 
-def play_channel(id):
+def play_channel(channel_id, stream_index = 0):
 	urls = get_streams(id)
-	s = urls[0]
+	s = urls[stream_index]
 	li = xbmcgui.ListItem(s.name, iconImage = s.logo, thumbnailImage = s.logo, path=s.stream_url)
 	li.setInfo( type = "Video", infoLabels = { "Title" : s.name } )
 	li.setProperty("IsPlayable", 'True')
-	#xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]), url, listitem, isFolder=False)
 	xbmcplugin.setResolvedUrl(handle=int(sys.argv[1]), succeeded=True, listitem=li)
 	
 	
@@ -129,7 +148,12 @@ def get_params():
       if (len(splitparams)) == 2:
         param[splitparams[0]] = splitparams[1]
   return param
-	
+
+class Category:
+	def __init__(self, id, title):
+		self.id = id
+		self.title = title
+
 class Channel:
 	def __init__(self, attr):
 		self.id = attr[0]
@@ -201,7 +225,9 @@ id = 'plugin.video.free.bgtvs'
 addon = xbmcaddon.Addon(id=id)
 ua = 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25'
 profile = xbmc.translatePath(addon.getAddonInfo('profile'))
+
 show_disabled =  True if addon.getSetting('show_disabled') == "true" else False
+disabled_query = '''AND c.disabled = 0''' if show_disabled == False else ''
 local_db = os.path.join(profile, 'tv.db')
 cookie = ''
 

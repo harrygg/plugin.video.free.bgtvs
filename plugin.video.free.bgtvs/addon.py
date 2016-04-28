@@ -7,13 +7,16 @@ sys.setdefaultencoding('utf8')
 
 params = get_params()
 
-try: id = int(params["id"])
+try: id = params["id"]
 except: id = None
 
 try: mode = params["mode"]
 except: mode = None
 	
-if mode == None: show_channels()
+if mode == None: 
+	show_categories()
+elif mode == 'show_channels':
+	show_channels(id)
 elif mode == 'show_streams':
 	show_streams(id)
 else:
