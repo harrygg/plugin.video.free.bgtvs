@@ -54,36 +54,34 @@ def show_categories():
 	return cats
 
 def show_channels(id):
-	for c in get_channels(id):
-		name = c.name
-		if c.disabled:
-			name = '[COLOR brown]' + name + '[/COLOR]'
-		li = xbmcgui.ListItem(name, iconImage = c.logo, thumbnailImage = c.logo)
+	
+	for c in get_channels(id):			
+		li = xbmcgui.ListItem(c.name, iconImage = c.logo, thumbnailImage = c.logo)
 		li.setInfo( type = "Video", infoLabels = { "Title" : c.name } )
 		li.setProperty("IsPlayable", str(c.playable))
+	
 		if c.playable:
 			u = c.stream_url
-			is_dir = False
 		else:
 			u = "%s?id=%s&mode=show_streams" % (sys.argv[0], c.id)
-			is_dir = True
-		xbmcplugin.addDirectoryItem(int(sys.argv[1]), u, li, is_dir)	
-	
-
+		
+		xbmcplugin.addDirectoryItem(int(sys.argv[1]), u, li, False)	
 
 def get_channels(id):
 	channels = []
 	try:
 		conn = sqlite3.connect(local_db)
 		sign = '<>' if id == str(0) else '='
-		cursor = conn.execute('''
+		q = '''
 		SELECT c.id, c.disabled, c.name, cat.name AS category, c.logo, COUNT(s.id) AS streams, s.stream_url, s.page_url, s.player_url 
 		FROM channels AS c 
 		JOIN streams AS s ON c.id = s.channel_id 
 		JOIN categories as cat ON c.category_id = cat.id 
-		WHERE c.category_id %s %s %s 
+		WHERE c.category_id %s %s %s
 		GROUP BY c.id, c.name 
-		ORDER BY c.name''' % (sign, id, disabled_query))
+		ORDER BY c.name''' % (sign, id, disabled_query)
+		xbmc.log(q)
+		cursor = conn.execute(q)
 		
 		for row in cursor:
 			c = Channel(row)
@@ -94,16 +92,15 @@ def get_channels(id):
 
 def show_streams(id):
 	streams = get_streams(id)
-	i = 1
-	for s in streams:
-		name = '%s (поток %s)' % (s.name, i) 
-		if s.disabled:
-			name = '[COLOR brown] %s [/COLOR]' % name
-		li = xbmcgui.ListItem(name, iconImage = s.logo, thumbnailImage = s.logo)
-		li.setInfo( type = "Video", infoLabels = { "Title" : s.name } )
-		li.setProperty("IsPlayable", str(True))
-		xbmcplugin.addDirectoryItem(int(sys.argv[1]), s.stream_url, li, False)
-		i += 1	
+	dialog = xbmcgui.Dialog()
+	select = dialog.select('Изберете стрийм', [s.name for s in streams])
+	if select == -1: 
+		return False
+	else:
+		url = streams[select].stream_url
+		xbmc.log(url)
+		item = xbmcgui.ListItem(path=url)
+		xbmcplugin.setResolvedUrl(int(sys.argv[1]), succeeded=True, listitem=item)
 	
 def get_streams(id):
 	streams = []
@@ -118,6 +115,7 @@ def get_streams(id):
 
 		for row in cursor:
 			c = Stream(row)
+			
 			streams.append(c)
 	except Exception, er:
 		xbmc.log(str(er), xbmc.LOGERROR)
@@ -166,7 +164,9 @@ class Channel:
 		self.page_url = '' if attr[7] == None else attr[7]
 		self.player_url = '' if attr[8] == None else attr[8]
 		self.playable = False if self.streams > 1 or self.player_url != '' else True
-
+		if self.disabled:
+			self.name = '[COLOR brown]%s[/COLOR]' % self.name
+			
 class Stream:
 	def __init__(self, attr):
 		self.stream_url = attr[0] 
@@ -177,13 +177,17 @@ class Stream:
 		self.logo = attr[5]
 		if self.player_url != None and self.player_url != '':
 			self.resolve()
+		if self.disabled:
+			self.name = '[COLOR brown]%s[/COLOR]' % self.name
 		
 	def resolve(self):
 		if '3583019' in self.player_url: #BiT
 			return self._livestream()
 		
 		res = request(self.player_url, self.page_url)
-		m = re.compile('video.+src[=\s"\']+(.+?)[\s"\']+', re.DOTALL).findall(res)
+		#m = re.compile('video.+src[=\s"\']+(.+?)[\s"\']+', re.DOTALL).findall(res)
+		#if len(m) == 0:
+		m = re.compile('(http.*m3u.*?)[\'"]+').findall(res)
 		self.stream_url = '' if len(m) == 0 else m[0]
 		#travelhd wrong stream name hack
 		if 'playerCommunity' in self.player_url:
