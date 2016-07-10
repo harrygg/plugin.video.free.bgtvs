@@ -1,5 +1,6 @@
 ﻿import sys, os, xbmc, xbmcgui, xbmcaddon, xbmcplugin, gzip, sqlite3, urllib, urllib2, re, json
 from datetime import datetime, timedelta
+from ga import ga
 
 def download_assets():
 	try:
@@ -33,7 +34,19 @@ def extract(path):
 	except:
 		raise
 
+def update(name, location, crash=None):
+	p = {}
+	p['an'] = addon.getAddonInfo('name')
+	p['av'] = addon.getAddonInfo('version')
+	p['ec'] = 'Addon actions'
+	p['ea'] = name
+	p['ev'] = '1'
+	p['ul'] = xbmc.getLanguage()
+	p['cd'] = location
+	ga('UA-79422131-7').update(p, crash)
+		
 def show_categories():
+	update('browse', 'Categories')
 	cats = []
 	try:
 		conn = sqlite3.connect(local_db)
@@ -80,7 +93,7 @@ def get_channels(id):
 		WHERE c.category_id %s %s %s
 		GROUP BY c.id, c.name 
 		ORDER BY c.name''' % (sign, id, disabled_query)
-		xbmc.log(q)
+		#xbmc.log(q)
 		cursor = conn.execute(q)
 		
 		for row in cursor:
@@ -92,15 +105,20 @@ def get_channels(id):
 
 def show_streams(id):
 	streams = get_streams(id)
-	dialog = xbmcgui.Dialog()
-	select = dialog.select('Изберете стрийм', [s.name for s in streams])
-	if select == -1: 
-		return False
-	else:
-		url = streams[select].stream_url
-		xbmc.log(url)
-		item = xbmcgui.ListItem(path=url)
-		xbmcplugin.setResolvedUrl(int(sys.argv[1]), succeeded=True, listitem=item)
+	select = 0
+	if len(streams) > 1:
+		dialog = xbmcgui.Dialog()
+		select = dialog.select('Изберете стрийм', [s.name for s in streams])
+		if select == -1: 
+			return False
+	url = streams[select].stream_url
+	xbmc.log('FreeBGTvs resolved url %s' % url)
+	#li = xbmcgui.ListItem('', iconImage = c.logo, thumbnailImage = c.logo)
+	item = xbmcgui.ListItem(path=url)
+	item.setInfo( type = "Video", infoLabels = { "Title" : ''} )
+	item.setProperty("IsPlayable", str(True))
+	#xbmc.Player().play(url, item)	
+	xbmcplugin.setResolvedUrl(int(sys.argv[1]), succeeded=True, listitem=item)
 	
 def get_streams(id):
 	streams = []
@@ -187,7 +205,7 @@ class Stream:
 		res = request(self.player_url, self.page_url)
 		#m = re.compile('video.+src[=\s"\']+(.+?)[\s"\']+', re.DOTALL).findall(res)
 		#if len(m) == 0:
-		m = re.compile('(http.*m3u.*?)[\'"]+').findall(res)
+		m = re.compile('(http.*m3u.*?)[\s\'"]+').findall(res)
 		self.stream_url = '' if len(m) == 0 else m[0]
 		#travelhd wrong stream name hack
 		if 'playerCommunity' in self.player_url:
@@ -245,6 +263,6 @@ try:
 			download_assets()
 except Exception, er:
 	xbmc.log(str(er), xbmc.LOGERROR)
-	xbmc.executebuiltin('Notification(%s,%s,10000,%s)' % ('БГ Камерите','Неуспешно сваляне на най-новия списък с камери',''))
+	xbmc.executebuiltin('Notification(%s,%s,10000,%s)' % (addon.getAddonInfo('name'),'Неуспешно сваляне на най-новия списък с камери',''))
 	assets = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../storage/tv.db.gz')
 	extract(assets)
