@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<settings>
-	<category label="Общи">
-		<setting id="show_disabled" type="bool" label="Показвай деактивирани канали" default="false"/>
-	</category>
-</settings>
