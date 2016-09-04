@@ -4,7 +4,6 @@ from ga import ga
 
 def download_assets():
 	try:
-		#remote_db = 'http://rawit.com/harrygg/%s/master/%s/resources/storage/tv.db.gz?raw=true' % (id, id)
 		remote_db = 'https://github.com/harrygg/%s/blob/master/resources/storage/tv.db.gz?raw=true' % id
 		xbmc.log('Downloading assets from url: %s' % remote_db)
 		save_to_file = local_db if '.gz' not in remote_db else local_db + ".gz"
