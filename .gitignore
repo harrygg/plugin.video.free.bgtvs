@@ -1,6 +1,2 @@
-build_output.txt
-channels.txt
 plugin.video.free.bgtvs/resources/storage/tv.db
-build.bat
-build.py
-commit.sh
+*.pyo

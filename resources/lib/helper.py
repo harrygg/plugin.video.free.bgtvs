@@ -4,7 +4,8 @@ from ga import ga
 
 def download_assets():
 	try:
-		remote_db = 'http://rawgit.com/harrygg/%s/master/%s/resources/storage/tv.db.gz?raw=true' % (id, id)
+		#remote_db = 'http://rawit.com/harrygg/%s/master/%s/resources/storage/tv.db.gz?raw=true' % (id, id)
+		remote_db = 'https://github.com/harrygg/%s/blob/master/resources/storage/tv.db.gz?raw=true' % id
 		xbmc.log('Downloading assets from url: %s' % remote_db)
 		save_to_file = local_db if '.gz' not in remote_db else local_db + ".gz"
 		f = urllib2.urlopen(remote_db)
@@ -28,6 +29,8 @@ def extract(path):
 		gz = gzip.GzipFile(path, 'rb')
 		s = gz.read()
 		gz.close()
+		if not os.path.exists(os.path.dirname(local_db)):
+			create_dir(local_db)
 		out = file(local_db, 'wb')
 		out.write(s)
 		out.close()
@@ -263,6 +266,6 @@ try:
 			download_assets()
 except Exception, er:
 	xbmc.log(str(er), xbmc.LOGERROR)
-	xbmc.executebuiltin('Notification(%s,%s,10000,%s)' % (addon.getAddonInfo('name'),'Неуспешно сваляне на най-новия списък с камери',''))
+	xbmc.executebuiltin('Notification(%s,%s,10000,%s)' % (addon.getAddonInfo('name'),'Неуспешно сваляне на най-новия списък с канали',''))
 	assets = os.path.join(os.path.dirname(os.path.realpath(__file__)), '../storage/tv.db.gz')
 	extract(assets)
