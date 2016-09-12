@@ -2,6 +2,12 @@
 import sys, xbmcplugin
 from resources.lib.helper import *
 
+__DEBUG__ = False
+if __DEBUG__:
+  sys.path.append(os.environ['PYSRC'])
+  import pydevd
+  pydevd.settrace('localhost', stdoutToServer=False, stderrToServer=False)
+
 reload(sys)  
 sys.setdefaultencoding('utf8')
 
