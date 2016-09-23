@@ -60,14 +60,14 @@ def get_channels(id):
 		conn = sqlite3.connect(db)
 		sign = '<>' if id == str(0) else '='
 		q = '''
-		SELECT c.id, c.disabled, c.name, cat.name AS category, c.logo, COUNT(s.id) AS streams, s.stream_url, s.page_url, s.player_url, c.epg_id, u.string
+		SELECT c.id, c.disabled, c.name, cat.name AS category, c.logo, COUNT(s.id) AS streams, s.stream_url, s.page_url, s.player_url, c.epg_id, u.string, c.ordering
 		FROM channels AS c 
 		JOIN streams AS s ON c.id = s.channel_id 
 		JOIN categories as cat ON c.category_id = cat.id
 		JOIN user_agents as u ON u.id = s.user_agent_id
 		WHERE c.category_id %s %s %s
 		GROUP BY c.id, c.name 
-		ORDER BY c.name''' % (sign, id, disabled_query)
+		ORDER BY c.ordering''' % (sign, id, disabled_query)
 		cursor = conn.execute(q)
 		#xbmc.log(q)
 		
@@ -143,7 +143,8 @@ show_disabled =  True if addon.getSetting('show_disabled') == "true" else False
 disabled_query = '''AND s.disabled = 0''' if show_disabled == False else ''
 cwd = xbmc.translatePath( addon.getAddonInfo('path') ).decode('utf-8')
 local_db = xbmc.translatePath(os.path.join( cwd, 'resources', 'tv.db' ))
-url = 'http://offshoregit.com/harrygg/assets/tv.db.gz'
+#url = 'http://offshoregit.com/harrygg/assets/tv.db.gz'
+url = 'http://github.com/harrygg/plugin.program.freebgtvs/raw/master/resources/tv.db'
 a = Assets(profile_dir, url, local_db, xbmc.log)
 db = a.file
 try:
