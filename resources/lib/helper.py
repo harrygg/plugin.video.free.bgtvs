@@ -75,7 +75,7 @@ def get_channels(id):
     GROUP BY c.id, c.name 
     ORDER BY c.ordering''' % (sign, id, no_radio_rule, disabled_query)
     cursor = conn.execute(q)
-    xbmc.log(q)
+    #xbmc.log(q)
     
     for row in cursor:
       c = Channel(row)

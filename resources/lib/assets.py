@@ -37,10 +37,17 @@ class Assets:
   def is_expired(self):
     try:
       from datetime import datetime, timedelta
+      #Check if the file in userdata folder is old
       if os.path.isfile(self.file):
         treshold = datetime.now() - timedelta(hours=self.interval)
         modified = datetime.fromtimestamp(os.path.getmtime(self.file))
+        #self.log("modified: " + str(modified))
         if modified < treshold: #file is more than a day old
+          return True
+        #Check if the file is older than the backup (in case of addon update)
+        backup_modified = datetime.fromtimestamp(os.path.getmtime(self.backup_file))
+        #self.log("backup_modified: " + str(backup_modified))
+        if modified < backup_modified:
           return True
         return False
       else: #file does not exist, perhaps first run
