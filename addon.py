@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-import sys, xbmcplugin
+import sys
+import xbmcplugin
 from resources.lib.helper import *
 
 __DEBUG__ = False

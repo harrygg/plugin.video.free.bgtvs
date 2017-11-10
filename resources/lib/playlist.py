@@ -1,5 +1,9 @@
 # -*- coding: utf8 -*-
-import os, sys, requests, re
+import os
+import re
+import sys
+import xbmc
+import requests
 
 reload(sys)  
 sys.setdefaultencoding('utf8')
@@ -10,14 +14,13 @@ class Playlist:
   raw_m3u = None
   append = True
   
-  def __init__(self, log, name = ''):
-    self.log = log
+  def __init__(self, name = ''):
     if name != '':
       self.name = name
   
   def save(self, path):
     file_path = os.path.join(path, self.name)
-    self.log("Запазване на плейлистата: %s " % file_path)
+    xbmc.log("Запазване на плейлистата: %s " % file_path, xbmc.LOGNOTICE)
     if os.path.exists(path):
       with open(file_path, 'w') as f:
         f.write(self.to_string().encode('utf-8', 'replace'))
@@ -67,8 +70,7 @@ class Channel:
     return output 
  
 class Stream:
-  def __init__(self, attr, log):
-    self.log = log
+  def __init__(self, attr):
     self.id = attr[0] 
     self.channel_id = attr[1] 
     self.url = attr[2]
@@ -87,13 +89,13 @@ class Stream:
     #	return self._livestream()
     headers = {'User-agent': self.user_agent, 'Referer':self.page_url}
     res = requests.get(self.player_url, headers=headers)
-    m = re.compile('(http.*m3u.*?)[\s\'"]+').findall(res.text)
+    m = re.compile('["\']+(.*\.m3u.*?)[\s\'"]+').findall(res.text)
     if len(m) == 0:
-        self.log(res.text)
-    self.log('Намерени %s съвпадения в %s' % (len(m), self.player_url))
+        xbmc.log(res.text, xbmc.LOGNOTICE)
+    else:
+      if not m[0].startswith("http:") and not m[0].startswith("https:"): #some links omit the http prefix
+        m[0] = "http:" + m[0]
+    xbmc.log('Намерени %s съвпадения в %s' % (len(m), self.player_url), xbmc.LOGNOTICE)
     stream = None if len(m) == 0 else m[0]
-    self.log('Извлечен видео поток %s' % stream)
-    #travelhd wrong stream name hack
-    if 'playerCommunity' in self.player_url:
-      stream.replace('/community/community', '/travel/community')
+    xbmc.log('Извлечен видео поток %s' % stream, xbmc.LOGNOTICE)
     return stream

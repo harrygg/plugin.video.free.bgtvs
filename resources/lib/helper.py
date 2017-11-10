@@ -1,19 +1,21 @@
-﻿import sys, os, xbmc, xbmcgui, xbmcaddon, xbmcplugin, gzip, sqlite3, urllib, urllib2, re, json, traceback
+﻿import os
+import re
+import sys
+import json
+import gzip
+import time
+import xbmc
+import urllib
+import urllib2
+import sqlite3
+import xbmcgui
+import traceback
+import xbmcaddon
+import xbmcplugin
 from datetime import datetime, timedelta
 from assets import Assets
 from playlist import *
 from ga import ga
-
-def update(name, location, crash=None):
-  p = {}
-  p['an'] = addon.getAddonInfo('name')
-  p['av'] = addon.getAddonInfo('version')
-  p['ec'] = 'Addon actions'
-  p['ea'] = name
-  p['ev'] = '1'
-  p['ul'] = xbmc.getLanguage()
-  p['cd'] = location
-  ga('UA-79422131-7').update(p, crash)
     
 def show_categories():
   update('browse', 'Categories')
@@ -93,7 +95,7 @@ def show_streams(id):
     if select == -1: 
       return False
   url = streams[select].url
-  xbmc.log('FreeBGTvs resolved url %s' % url)
+  xbmc.log('FreeBGTvs resolved url %s' % url, xbmc.LOGNOTICE)
   item = xbmcgui.ListItem(path=url)
   item.setInfo( type = "Video", infoLabels = { "Title" : ''} )
   item.setProperty("IsPlayable", str(True))
@@ -105,7 +107,7 @@ def get_streams(id):
     conn = sqlite3.connect(db)
     cursor = conn.execute('''SELECT s.*, u.string AS user_agent FROM streams AS s JOIN user_agents as u ON s.user_agent_id == u.id WHERE channel_id = %s %s''' %  (id, disabled_query))
     for row in cursor:
-      c = Stream(row, xbmc.log)
+      c = Stream(row)
       
       streams.append(c)
   except Exception, er:
@@ -138,6 +140,21 @@ def get_params():
         param[splitparams[0]] = splitparams[1]
   return param
 
+def update(name, location, crash=None):
+  lu = addon.getSetting('last_update')
+  day = time.strftime("%d")
+  if lu == "" or lu != day:
+    addon.setSetting('last_update', day)
+    p = {}
+    p['an'] = addon.getAddonInfo('name')
+    p['av'] = addon.getAddonInfo('version')
+    p['ec'] = 'Addon actions'
+    p['ea'] = name
+    p['ev'] = '1'
+    p['ul'] = xbmc.getLanguage()
+    p['cd'] = location
+    ga('UA-79422131-7').update(p, crash)
+  
 clist = []
 categories = []
 id = 'plugin.video.free.bgtvs'
@@ -145,11 +162,10 @@ addon = xbmcaddon.Addon(id=id)
 ua = 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25'
 profile_dir = xbmc.translatePath(addon.getAddonInfo('profile'))
 
-show_disabled =  True if addon.getSetting('show_disabled') == "true" else False
+show_disabled = True if addon.getSetting('show_disabled') == "true" else False
 disabled_query = '''AND s.disabled = 0''' if show_disabled == False else ''
 cwd = xbmc.translatePath( addon.getAddonInfo('path') ).decode('utf-8')
 local_db = xbmc.translatePath(os.path.join( cwd, 'resources', 'tv.db' ))
-#url = 'http://offshoregit.com/harrygg/assets/tv.db.gz'
 url = 'http://github.com/harrygg/plugin.program.freebgtvs/raw/master/resources/tv.db'
 a = Assets(profile_dir, url, local_db, xbmc.log)
 db = a.file
