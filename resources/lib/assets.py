@@ -11,7 +11,8 @@ import urllib2
 class Assets:
   interval = 24 #Hours Interval to check for new version of the asset
   
-  def __init__(self,  temp_dir, url, backup_file, log, auto_update = False, interval = 24):
+  def __init__(self, temp_dir, url, backup_file, auto_update=False, interval=24):
+    self.__log__("Assets(): %s" % temp_dir)
     self.interval = interval
     if os.path.isdir(temp_dir) is False:
       self.__create_dir__(temp_dir)
@@ -19,7 +20,6 @@ class Assets:
     if url == '':
       raise ValueError("Valid asset url must be provided!")
     else:
-      self.log = log
       self.url = url
       self.file_name = os.path.basename(url)
       self.file = os.path.join(temp_dir, self.file_name)
@@ -31,6 +31,13 @@ class Assets:
           #if asset was never downloaded and backup exists
           self.file = self.backup_file
 
+  def __log__(self, msg, level=2):
+    try:
+      log(msg, level)
+    except:
+      try: print msg
+      except: pass
+    
   def __create_dir__(self, dir):
     try: os.makedirs(dir)
     except OSError as exc: # Guard against race condition
@@ -39,15 +46,15 @@ class Assets:
   
   def update(self, forced_update=False):
     try:
-      self.log("Forced update: %s" % forced_update)
+      self.__log__("Forced update: %s" % forced_update)
       if self.is_expired() or forced_update:
         res = self.get_asset()
       if self.file.endswith('gz'):
         self.extract()
       return True
     except Exception as ex:
-      self.log(str(ex), 4)
-      self.log('Unable to download assets file!', 4)
+      self.__log__(str(ex), 4)
+      self.__log__('Unable to download assets file!', 4)
       return False
  
   def is_expired(self):
@@ -57,27 +64,27 @@ class Assets:
       if os.path.isfile(self.file):
         treshold = datetime.now() - timedelta(hours=self.interval)
         modified = datetime.fromtimestamp(os.path.getmtime(self.file))
-        #self.log("modified: " + str(modified))
+        #self.__log__("modified: " + str(modified))
         if modified < treshold: #file is more than a day old
           return True
         #Check if the file is older than the backup (in case of addon update)
         backup_modified = datetime.fromtimestamp(os.path.getmtime(self.backup_file))
-        #self.log("backup_modified: " + str(backup_modified))
+        #self.__log__("backup_modified: " + str(backup_modified))
         if modified < backup_modified:
           return True
         return False
       else: #file does not exist, perhaps first run
         return True
     except Exception, er:
-      self.log(str(er), 4)
+      self.__log__(str(er), 4)
       return True
 
   def get_asset(self):
-    self.log('Downloading assets from url: %s' % self.url)
+    self.__log__('Downloading assets from url: %s' % self.url)
     f = urllib2.urlopen(self.url)
     with open(self.file, "wb") as code:
       code.write(f.read())
-    self.log('Assets file downloaded')
+    self.__log__('Assets file downloaded')
 
   
   def extract(self):
