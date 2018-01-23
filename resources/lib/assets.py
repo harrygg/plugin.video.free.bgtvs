@@ -12,9 +12,11 @@ class Assets:
   interval = 24 #Hours Interval to check for new version of the asset
   
   def __init__(self, temp_dir, url, backup_file, auto_update=False, interval=24):
-    self.__log__("Assets(): %s" % temp_dir)
+    from helper import log
+    self.__log__ = log
+    log("Assets(): %s" % temp_dir)
     self.interval = interval
-    if os.path.isdir(temp_dir) is False:
+    if not os.path.isdir(temp_dir):
       self.__create_dir__(temp_dir)
     
     if url == '':
@@ -24,19 +26,12 @@ class Assets:
       self.file_name = os.path.basename(url)
       self.file = os.path.join(temp_dir, self.file_name)
       self.backup_file = backup_file
-        
+      
     if auto_update:
       if not self.update():
         if not os.path.isfile(self.file) and os.path.isfile(self.backup_file): 
           #if asset was never downloaded and backup exists
           self.file = self.backup_file
-
-  def __log__(self, msg, level=2):
-    try:
-      log(msg, level)
-    except:
-      try: print msg
-      except: pass
     
   def __create_dir__(self, dir):
     try: os.makedirs(dir)

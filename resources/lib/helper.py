@@ -18,16 +18,17 @@ if __DEBUG__:
   pydevd.settrace('localhost', stdoutToServer=False, stderrToServer=False)
 
 def log(msg, level=xbmc.LOGDEBUG):
-  if settings.debug and level == xbmc.LOGDEBUG:
-    level = xbmc.LOGNOTICE
     try:
+      if settings.debug and level == xbmc.LOGDEBUG:
+        level = xbmc.LOGNOTICE
       xbmc.log('%s | %s' % (__addon_id__, msg.encode('utf-8')), level)
     except Exception as e:
-      try: xbmc.log('Logging Failure: %s' % (e), level)
-      except: pass
+      try: 
+        xbmc.log('Logging Failure: %s' % (e), level)
+      except: 
+        pass
             
 def show_categories():
-  update('browse', 'Categories')
   cats = []
   try:
     conn = sqlite3.connect(__db__)
@@ -41,14 +42,16 @@ def show_categories():
     for row in cursor:
       li = xbmcgui.ListItem(row[1])
       url = "%s?id=%s&mode=show_channels" % (sys.argv[0], row[0])
-      xbmcplugin.addDirectoryItem(int(sys.argv[1]), url, li, True)
-
-    li = xbmcgui.ListItem('******** Обнови базата данни ********')
-    url = "%s?mode=update_tvdb" % sys.argv[0]
-    xbmcplugin.addDirectoryItem(int(sys.argv[1]), url, li)     
+      xbmcplugin.addDirectoryItem(int(sys.argv[1]), url, li, True)  
      
-  except Exception, er:
-    log(str(er), xbmc.LOGERROR)
+  except Exception as er:
+    log(er, xbmc.LOGERROR)
+    show_notification(str(er), True)
+  
+  li = xbmcgui.ListItem('******** Обнови базата данни ********')
+  url = "%s?mode=update_tvdb" % sys.argv[0]
+  xbmcplugin.addDirectoryItem(int(sys.argv[1]), url, li)   
+    
   return cats
 
 def show_channels(id):
@@ -70,7 +73,7 @@ def show_channels(id):
     xbmcplugin.addDirectoryItem(int(sys.argv[1]), u, li, False) 
 
 def get_channels(id):
-  xbmc.log("Getting channel with id: " + id)
+  log("Getting channel with id: %s" % id)
   channels = []
   try:
     conn = sqlite3.connect(__db__)
@@ -96,6 +99,7 @@ def get_channels(id):
       channels.append(c)
   except Exception, er:
     log('get_channels() %s: %s ' % (str(er), xbmc.LOGERROR))
+    show_notification(str(er), True)
   return channels
 
 def show_streams(id):
@@ -123,6 +127,7 @@ def get_streams(id):
       streams.append(c)
   except Exception, er:
     log(str(er), xbmc.LOGERROR)
+    show_notification(str(er), True)
   return streams  
 
 def play_channel(channel_id, stream_index = 0):
@@ -150,10 +155,10 @@ def get_params():
   return param
   
 def update(name, location, crash=None):
-  lu = __addon__.getSetting('last_update')
+  lu = settings.last_update
   day = time.strftime("%d")
   if lu == "" or lu != day:
-    __addon__.setSetting('last_update', day)
+    settings.last_update = day
     p = {}
     p['an'] = __addon__.getAddonInfo('name')
     p['av'] = __addon__.getAddonInfo('version')
@@ -167,36 +172,38 @@ def update(name, location, crash=None):
 def update_tvdb():
   progress_bar = xbmcgui.DialogProgressBG()
   progress_bar.create(heading="Downloading database.")
-  msg1 = "Грешка"
-  msg2 = "Базата данни НЕ бе обновена!".encode('utf-8')
+  msg = "Базата данни НЕ бе обновена!"
   try:
     log('Force-updating tvdb', 2)
-    a = Assets(__working_dir__, __url__, __backup_db__)
+    a = Assets(__working_dir__, __url__, log, __backup_db__)
     log('a')
     progress_bar.update(1, "Downloading database...")
-    if a.update(True):
-      msg1 = "Успех"
-      msg2 = "Базата данни бе обновена успешно!".encode('utf-8')
-
+    res = a.update(True)
+    if res:
+      msg = "Базата данни бе обновена успешно!"
     if settings.is_local_db:
-      msg2 += " Използвате локална база данни!".encode('utf-8')
+      msg += " Използвате локална база данни!"
 
   except Exception as ex:
     log(str(ex), 4)
-    
-  command = "Notification(%s,%s,%s)" % (msg1, msg2, 2000)
-  xbmc.executebuiltin(command)
+    show_error(str(ex))
+  
+  show_notification(msg, not res)
   
   if progress_bar:
     progress_bar.close()
 
+def show_notification(msg, is_error=False, time=3000):
+  title = "Грешка" if is_error else "Успех"
+  command = "Notification(%s,%s,%s)" % (title, str(msg).encode('utf-8'), time)
+  xbmc.executebuiltin(command)  
+    
 class Settings():
-
   def __getattr__(self, name):
     temp = __addon__.getSetting(name)
-    if temp in ['true', 'True']:
+    if temp.lower() == 'true':
       return True
-    if temp in ['false', 'False']:
+    if temp.lower() == 'false':
       return False
     if temp.isdigit():
       return int(temp)
@@ -206,7 +213,6 @@ class Settings():
     __addon__.setSetting(name, str(value))
 
 settings = Settings()
-
 __addon_id__ = 'plugin.video.free.bgtvs'
 __addon__ = xbmcaddon.Addon(id=__addon_id__)
 __working_dir__ = xbmc.translatePath( __addon__.getAddonInfo('profile') )
@@ -215,10 +221,16 @@ __cwd__ = xbmc.translatePath( __addon__.getAddonInfo('path') ).decode('utf-8')
 __backup_db__ = xbmc.translatePath(os.path.join( __cwd__, 'resources', 'tv.db' ))
 __url__ = 'http://github.com/harrygg/plugin.program.freebgtvs/raw/master/resources/tv.db'
 
+try: 
+  __url__ = os.environ["BGTVS_DB"] # DEBUG DB
+  log("Using DEBUG DB URL: %s" % __url__, xbmc.LOGNOTICE)
+except: pass
+
 ###
 if settings.is_local_db and settings.db_file_path != '' and os.path.isfile(settings.db_file_path):
   __db__ = settings.db_file_path
-  log("Using local DB file %s" % settings.db_file_path)
 else:
-  a = Assets(__working_dir__, __url__, __backup_db__, True)
+  a = Assets(__working_dir__, __url__, __backup_db__, log, True)
   __db__ = a.file
+log("Using DB file: %s" % __db__)
+update('browse', 'Categories')
