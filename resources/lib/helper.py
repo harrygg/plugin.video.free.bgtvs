@@ -1,27 +1,37 @@
 ﻿import os
-import re
 import sys
-import json
-import gzip
 import time
 import xbmc
-import urllib
-import urllib2
 import sqlite3
 import xbmcgui
 import traceback
 import xbmcaddon
 import xbmcplugin
-from datetime import datetime, timedelta
 from assets import Assets
 from playlist import *
 from ga import ga
-    
+
+__DEBUG__ = False
+if __DEBUG__:
+  sys.path.append(os.environ['PYSRC'])
+  import pydevd
+  pydevd.settrace('localhost', stdoutToServer=False, stderrToServer=False)
+
+def log(msg, level=xbmc.LOGDEBUG):
+    try:
+      if settings.debug and level == xbmc.LOGDEBUG:
+        level = xbmc.LOGNOTICE
+      xbmc.log('%s | %s' % (__addon_id__, msg.encode('utf-8')), level)
+    except Exception as e:
+      try: 
+        xbmc.log('Logging Failure: %s' % (e), level)
+      except: 
+        pass
+            
 def show_categories():
-  update('browse', 'Categories')
   cats = []
   try:
-    conn = sqlite3.connect(db)
+    conn = sqlite3.connect(__db__)
     cursor = conn.execute('''SELECT * FROM categories''')
     
     li = xbmcgui.ListItem('Всички')
@@ -32,10 +42,19 @@ def show_categories():
     for row in cursor:
       li = xbmcgui.ListItem(row[1])
       url = "%s?id=%s&mode=show_channels" % (sys.argv[0], row[0])
-      xbmcplugin.addDirectoryItem(int(sys.argv[1]), url, li, True)
-      
-  except Exception, er:
-    xbmc.log(str(er), xbmc.LOGERROR)
+      xbmcplugin.addDirectoryItem(int(sys.argv[1]), url, li, True)  
+     
+  except Exception as er:
+    log(er, xbmc.LOGERROR)
+    show_notification(str(er), True)
+  
+  if not settings.is_local_db:
+    li = xbmcgui.ListItem('******** Обнови базата данни ********')
+    url = "%s?mode=update_tvdb" % sys.argv[0]
+    xbmcplugin.addDirectoryItem(int(sys.argv[1]), url, li)   
+  
+  xbmcplugin.endOfDirectory(int(sys.argv[1]))
+  
   return cats
 
 def show_channels(id):
@@ -47,7 +66,7 @@ def show_channels(id):
     li = xbmcgui.ListItem(c.name, iconImage = c.logo, thumbnailImage = c.logo)
     li.setInfo( type = "Video", infoLabels = { "Title" : c.name } )
     li.setProperty("IsPlayable", str(playable))
-    #     self.playable = False if self.streams > 1 or self.player_url != '' else True
+    # self.playable = False if self.streams > 1 or self.player_url != '' else True
 
     if playable:
       u = c.playpath
@@ -57,14 +76,14 @@ def show_channels(id):
     xbmcplugin.addDirectoryItem(int(sys.argv[1]), u, li, False) 
 
 def get_channels(id):
-  xbmc.log("id: " + id)
+  log("Getting channel with id: %s" % id)
   channels = []
   try:
-    conn = sqlite3.connect(db)
+    conn = sqlite3.connect(__db__)
     sign = "="
     no_radio_rule = ""
     if id == str(0):
-      sign = '<>' 
+      sign = "<>"
       no_radio_rule = "AND c.category_id <> 7"
       
     q = '''
@@ -75,15 +94,15 @@ def get_channels(id):
     JOIN user_agents as u ON u.id = s.user_agent_id
     WHERE c.category_id %s %s %s %s
     GROUP BY c.id, c.name 
-    ORDER BY c.ordering''' % (sign, id, no_radio_rule, disabled_query)
+    ORDER BY c.ordering''' % (sign, id, no_radio_rule, __disabled_query__)
     cursor = conn.execute(q)
-    #xbmc.log(q)
     
     for row in cursor:
       c = Channel(row)
       channels.append(c)
   except Exception, er:
-    xbmc.log('get_channels() '  + str(sys.exc_info()[0]) + ': ' + str(sys.exc_info()[1]) + ''.join(traceback.format_stack()), xbmc.LOGERROR)
+    log('get_channels() %s: %s ' % (str(er), xbmc.LOGERROR))
+    show_notification(str(er), True)
   return channels
 
 def show_streams(id):
@@ -95,7 +114,7 @@ def show_streams(id):
     if select == -1: 
       return False
   url = streams[select].url
-  xbmc.log('FreeBGTvs resolved url %s' % url, xbmc.LOGNOTICE)
+  log('resolved url %s' % url)
   item = xbmcgui.ListItem(path=url)
   item.setInfo( type = "Video", infoLabels = { "Title" : ''} )
   item.setProperty("IsPlayable", str(True))
@@ -104,14 +123,14 @@ def show_streams(id):
 def get_streams(id):
   streams = []
   try:
-    conn = sqlite3.connect(db)
-    cursor = conn.execute('''SELECT s.*, u.string AS user_agent FROM streams AS s JOIN user_agents as u ON s.user_agent_id == u.id WHERE channel_id = %s %s''' %  (id, disabled_query))
+    conn = sqlite3.connect(__db__)
+    cursor = conn.execute('''SELECT s.*, u.string AS user_agent FROM streams AS s JOIN user_agents as u ON s.user_agent_id == u.id WHERE channel_id = %s %s''' %  (id, __disabled_query__))
     for row in cursor:
       c = Stream(row)
-      
       streams.append(c)
   except Exception, er:
-    xbmc.log(str(er), xbmc.LOGERROR)
+    log(str(er), xbmc.LOGERROR)
+    show_notification(str(er), True)
   return streams  
 
 def play_channel(channel_id, stream_index = 0):
@@ -122,9 +141,8 @@ def play_channel(channel_id, stream_index = 0):
   li.setProperty("IsPlayable", 'True')
   xbmcplugin.setResolvedUrl(handle=int(sys.argv[1]), succeeded=True, listitem=li)
   
-  
 def get_params():
-  param = []
+  param = {}
   paramstring = sys.argv[2]
   if len(paramstring) >= 2:
     params = sys.argv[2]
@@ -132,44 +150,89 @@ def get_params():
     if (params[len(params)-1] == '/'):
       params = params[0:len(params) - 2]
     pairsofparams = cleanedparams.split('&')
-    param = {}
     for i in range(len(pairsofparams)):
       splitparams = {}
       splitparams = pairsofparams[i].split('=')
       if (len(splitparams)) == 2:
         param[splitparams[0]] = splitparams[1]
   return param
-
+  
 def update(name, location, crash=None):
-  lu = addon.getSetting('last_update')
+  lu = settings.last_update
   day = time.strftime("%d")
   if lu == "" or lu != day:
-    addon.setSetting('last_update', day)
+    settings.last_update = day
     p = {}
-    p['an'] = addon.getAddonInfo('name')
-    p['av'] = addon.getAddonInfo('version')
+    p['an'] = __addon__.getAddonInfo('name')
+    p['av'] = __addon__.getAddonInfo('version')
     p['ec'] = 'Addon actions'
     p['ea'] = name
     p['ev'] = '1'
     p['ul'] = xbmc.getLanguage()
     p['cd'] = location
     ga('UA-79422131-7').update(p, crash)
-  
-clist = []
-categories = []
-id = 'plugin.video.free.bgtvs'
-addon = xbmcaddon.Addon(id=id)
-ua = 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25'
-profile_dir = xbmc.translatePath(addon.getAddonInfo('profile'))
 
-show_disabled = True if addon.getSetting('show_disabled') == "true" else False
-disabled_query = '''AND s.disabled = 0''' if show_disabled == False else ''
-cwd = xbmc.translatePath( addon.getAddonInfo('path') ).decode('utf-8')
-local_db = xbmc.translatePath(os.path.join( cwd, 'resources', 'tv.db' ))
-url = 'http://github.com/harrygg/plugin.program.freebgtvs/raw/master/resources/tv.db'
-a = Assets(profile_dir, url, local_db, xbmc.log)
-db = a.file
-try:
-  db = os.environ['BGTVS_DB']
-except Exception:
-  pass
+def update_tvdb():
+  progress_bar = xbmcgui.DialogProgressBG()
+  progress_bar.create(heading="Downloading database.")
+  msg = "Базата данни НЕ бе обновена!"
+  try:
+    log('Force-updating tvdb')
+    a = Assets(__working_dir__, __url__, __backup_db__)
+    progress_bar.update(1, "Downloading database...")
+    res = a.update(True)
+    if res:
+      msg = "Базата данни бе обновена успешно!"
+    if settings.is_local_db:
+      msg += " Използвате локална база данни!"
+
+  except Exception as ex:
+    log(str(ex), 4)
+    show_error(str(ex))
+  
+  show_notification(msg, not res)
+  
+  if progress_bar:
+    progress_bar.close()
+
+def show_notification(msg, is_error=False, time=3000):
+  title = "Грешка" if is_error else "Успех"
+  command = "Notification(%s,%s,%s)" % (title, str(msg).encode('utf-8'), time)
+  xbmc.executebuiltin(command)  
+    
+class Settings():
+  def __getattr__(self, name):
+    temp = __addon__.getSetting(name)
+    if temp.lower() == 'true':
+      return True
+    if temp.lower() == 'false':
+      return False
+    if temp.isdigit():
+      return int(temp)
+    return temp
+
+  def __setattr__(self, name, value):
+    __addon__.setSetting(name, str(value))
+
+settings = Settings()
+__addon_id__ = 'plugin.video.free.bgtvs'
+__addon__ = xbmcaddon.Addon(id=__addon_id__)
+__working_dir__ = xbmc.translatePath( __addon__.getAddonInfo('profile') )
+__disabled_query__ = '''AND s.disabled = 0''' if settings.show_disabled == False else ''
+__cwd__ = xbmc.translatePath( __addon__.getAddonInfo('path') ).decode('utf-8')
+__backup_db__ = xbmc.translatePath(os.path.join( __cwd__, 'resources', 'tv.db' ))
+__url__ = 'http://github.com/harrygg/plugin.video.free.bgtvs/raw/master/resources/tv.db'
+
+try: 
+  __url__ = os.environ["BGTVS_DB"] # DEBUG DB
+  log("Using DEBUG DB URL: %s" % __url__)
+except: pass
+
+###
+if settings.is_local_db and settings.db_file_path != '' and os.path.isfile(settings.db_file_path):
+  __db__ = settings.db_file_path
+else:
+  a = Assets(__working_dir__, __url__, __backup_db__, True)
+  __db__ = a.file
+log("Loading data from DB file: %s" % __db__, xbmc.LOGNOTICE)
+update('browse', 'Categories')
