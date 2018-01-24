@@ -48,9 +48,10 @@ def show_categories():
     log(er, xbmc.LOGERROR)
     show_notification(str(er), True)
   
-  li = xbmcgui.ListItem('******** Обнови базата данни ********')
-  url = "%s?mode=update_tvdb" % sys.argv[0]
-  xbmcplugin.addDirectoryItem(int(sys.argv[1]), url, li)   
+  if not settings.is_local_db:
+    li = xbmcgui.ListItem('******** Обнови базата данни ********')
+    url = "%s?mode=update_tvdb" % sys.argv[0]
+    xbmcplugin.addDirectoryItem(int(sys.argv[1]), url, li)   
     
   return cats
 
@@ -111,7 +112,7 @@ def show_streams(id):
     if select == -1: 
       return False
   url = streams[select].url
-  log('FreeBGTvs resolved url %s' % url)
+  log('resolved url %s' % url)
   item = xbmcgui.ListItem(path=url)
   item.setInfo( type = "Video", infoLabels = { "Title" : ''} )
   item.setProperty("IsPlayable", str(True))
@@ -174,9 +175,8 @@ def update_tvdb():
   progress_bar.create(heading="Downloading database.")
   msg = "Базата данни НЕ бе обновена!"
   try:
-    log('Force-updating tvdb', 2)
-    a = Assets(__working_dir__, __url__, log, __backup_db__)
-    log('a')
+    log('Force-updating tvdb')
+    a = Assets(__working_dir__, __url__, __backup_db__)
     progress_bar.update(1, "Downloading database...")
     res = a.update(True)
     if res:
@@ -219,18 +219,18 @@ __working_dir__ = xbmc.translatePath( __addon__.getAddonInfo('profile') )
 __disabled_query__ = '''AND s.disabled = 0''' if settings.show_disabled == False else ''
 __cwd__ = xbmc.translatePath( __addon__.getAddonInfo('path') ).decode('utf-8')
 __backup_db__ = xbmc.translatePath(os.path.join( __cwd__, 'resources', 'tv.db' ))
-__url__ = 'http://github.com/harrygg/plugin.program.freebgtvs/raw/master/resources/tv.db'
+__url__ = 'http://github.com/harrygg/plugin.video.free.bgtvs/raw/master/resources/tv.db'
 
 try: 
   __url__ = os.environ["BGTVS_DB"] # DEBUG DB
-  log("Using DEBUG DB URL: %s" % __url__, xbmc.LOGNOTICE)
+  log("Using DEBUG DB URL: %s" % __url__)
 except: pass
 
 ###
 if settings.is_local_db and settings.db_file_path != '' and os.path.isfile(settings.db_file_path):
   __db__ = settings.db_file_path
 else:
-  a = Assets(__working_dir__, __url__, __backup_db__, log, True)
+  a = Assets(__working_dir__, __url__, __backup_db__, True)
   __db__ = a.file
-log("Using DB file: %s" % __db__)
+log("Loading data from DB file: %s" % __db__, xbmc.LOGNOTICE)
 update('browse', 'Categories')

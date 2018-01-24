@@ -14,7 +14,7 @@ class Assets:
   def __init__(self, temp_dir, url, backup_file, auto_update=False, interval=24):
     from helper import log
     self.__log__ = log
-    log("Assets(): %s" % temp_dir)
+    log("Asset initialization: temp_dir=%s, url=%s, backup_file=%s, auto_update=%s" % (temp_dir, url, backup_file, auto_update))
     self.interval = interval
     if not os.path.isdir(temp_dir):
       self.__create_dir__(temp_dir)
@@ -43,7 +43,7 @@ class Assets:
     try:
       self.__log__("Forced update: %s" % forced_update)
       if self.is_expired() or forced_update:
-        res = self.get_asset()
+        self.get_asset()
       if self.file.endswith('gz'):
         self.extract()
       return True
@@ -75,17 +75,19 @@ class Assets:
       return True
 
   def get_asset(self):
-    self.__log__('Downloading assets from url: %s' % self.url)
-    f = urllib2.urlopen(self.url)
+    self.__log__('Downloading assets from url: %s' % self.url, 2)
+    f = urllib2.urlopen(self.url + "?t=1234567890")
     with open(self.file, "wb") as code:
       code.write(f.read())
-    self.__log__('Assets file downloaded')
+    self.__log__('Assets file downloaded and saved as %s' % self.file)
 
   
   def extract(self):
+    log("Extracting file %s" % self.file)
     gz = gzip.GzipFile(self.file, 'rb')
     s = gz.read()
     gz.close()
     self.file = self.file.replace('.gz', '')
     with file(self.file, 'wb') as out:
       out.write(s)
+    log("Extracted file saved to %s" % self.file)
