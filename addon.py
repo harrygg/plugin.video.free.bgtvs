@@ -4,8 +4,6 @@ import xbmcplugin
 from resources.lib.helper import *
 
 params = get_params()
-log('Running with params: {0}'.format(params))
-
 action = params.get("action")
 id = params.get("id")
 
