@@ -1,18 +1,21 @@
 # -*- coding: utf-8 -*-
+import sys
 import xbmcplugin
 from resources.lib.helper import *
 
 params = get_params()
-id = params.get("id")
-mode = params.get("mode")
+log('Running with params: {0}'.format(params))
 
-if mode == None: 
+action = params.get("action")
+id = params.get("id")
+
+if action == None: 
   show_categories()
-elif mode == 'show_channels':
+elif action == 'show_channels':
   show_channels(id)
-elif mode == 'show_streams':
+elif action == 'show_streams':
   show_streams(id)
-elif mode == 'update_tvdb':
+elif action == 'update_tvdb':
   update_tvdb()
 else:
   play_channel(id)

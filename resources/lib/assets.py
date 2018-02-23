@@ -3,99 +3,76 @@ import os
 import sys
 import gzip
 import urllib2
+from kodibgcommon.utils import log
 
 ### Basic class to download assets on a given time interval
 ### If download fails, and the old file doesn't exist
 ### Use a local file
 
 class Assets:
-  interval = 24 #Hours Interval to check for new version of the asset
+  file = None
+  temp_dir = None
   
-  def __init__(self, temp_dir, url, backup_file, auto_update=False, interval=24):
-    from helper import log
-    self.__log__ = log
-    log("Asset initialization: temp_dir=%s, url=%s, backup_file=%s, auto_update=%s" % (temp_dir, url, backup_file, auto_update))
-    self.interval = interval
+  def __init__(self, db_file, backup_file):
+    self.file = db_file
+    self.backup_file = backup_file
+    temp_dir = os.path.dirname(os.path.realpath(db_file))
     if not os.path.isdir(temp_dir):
-      self.__create_dir__(temp_dir)
-    
-    if url == '':
-      raise ValueError("Valid asset url must be provided!")
-    else:
-      self.url = url
-      self.file_name = os.path.basename(url)
-      self.file = os.path.join(temp_dir, self.file_name)
-      self.backup_file = backup_file
-      
-    if auto_update:
-      if not self.update():
-        if not os.path.isfile(self.file) and os.path.isfile(self.backup_file): 
-          #if asset was never downloaded and backup exists
-          self.file = self.backup_file
-    
-  def __create_dir__(self, dir):
-    try: os.makedirs(dir)
-    except OSError as exc: # Guard against race condition
-      if exc.errno != errno.EEXIST:
-        raise
+      xbmcvfs.mkdir(temp_dir)
   
-  def update(self, forced_update=False):
+  def update(self, url):
     try:
-      self.__log__("Forced DB update: %s" % forced_update)
-      if forced_update:
-        self.get_asset()
-      else:
-        expired = self.is_expired()
-        if expired:
-          self.__log__("The DB file is old and will be updated")
-          self.get_asset()
-        else:
-          self.__log__("The DB file is not old and will not be updated")
-          
-      if self.file.endswith('gz'):
-        self.extract()
+      log('Downloading assets from url: %s' % url)
+      self.download(url)
+      log('Assets file downloaded and saved as %s' % self.file)
       return True
     except Exception as ex:
-      self.__log__(str(ex), 4)
-      self.__log__('Unable to download assets file!', 4)
+      log(ex, 4)
+      log('Unable to update assets file!', 4)
       return False
  
-  def is_expired(self):
+  def is_old(self, interval=24):
+    '''
+      Checks whether the asset file is older than the time interval in hours
+      or that its older than the back_up file (in case of addon updates)
+    '''
     try:
       from datetime import datetime, timedelta
-      #Check if the file in userdata folder is old
       if os.path.isfile(self.file):
-        treshold = datetime.now() - timedelta(hours=self.interval)
+        treshold = datetime.now() - timedelta(hours=interval)
         modified = datetime.fromtimestamp(os.path.getmtime(self.file))
-        #self.__log__("modified: " + str(modified))
         if modified < treshold: #file is more than a day old
           return True
-        #Check if the file is older than the backup (in case of addon update)
         backup_modified = datetime.fromtimestamp(os.path.getmtime(self.backup_file))
-        #self.__log__("backup_modified: " + str(backup_modified))
         if modified < backup_modified:
           return True
         return False
       else: #file does not exist, perhaps first run
         return True
     except Exception, er:
-      self.__log__(str(er), 4)
+      log(str(er), 4)
       return True
 
-  def get_asset(self):
-    self.__log__('Downloading assets from url: %s' % self.url, 2)
-    f = urllib2.urlopen(self.url + "?t=1234567890")
-    with open(self.file, "wb") as code:
-      code.write(f.read())
-    self.__log__('Assets file downloaded and saved as %s' % self.file)
+  def download(self, url):
+    '''
+      Downloads a new asset from a given url
+      If the asset is compressed, the file will be extracted
+    '''
+    file_name = os.path.basename(url).split("?")[0]
+    is_compressed = file_name.endswith('gz')
+    if is_compressed:
+      downloaded_file = os.path.join(self.temp_dir, file_name)
+    else:
+      downloaded_file = self.file
+    res = urllib2.urlopen(url)
+    with open(downloaded_file, "wb") as code:
+      code.write(res.read())    
+    if is_compressed:
+      self.extract(downloaded_file)  
 
   
-  def extract(self):
-    log("Extracting file %s" % self.file)
-    gz = gzip.GzipFile(self.file, 'rb')
-    s = gz.read()
-    gz.close()
-    self.file = self.file.replace('.gz', '')
-    with file(self.file, 'wb') as out:
-      out.write(s)
+  def extract(self, compressed_file):
+    log("Extracting file %s" % compressed_file)
+    with gzip.GzipFile(self.file, 'rb') as gz, open(self.file, 'wb') as out_file:
+      out_file.write( gz.read() )
     log("Extracted file saved to %s" % self.file)
