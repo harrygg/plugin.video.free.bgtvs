@@ -73,6 +73,7 @@ class Assets:
   
   def extract(self, compressed_file):
     log("Extracting file %s" % compressed_file)
-    with gzip.GzipFile(self.file, 'rb') as gz, open(self.file, 'wb') as out_file:
-      out_file.write( gz.read() )
+    with gzip.GzipFile(self.file, 'rb') as gz:
+      with open(self.file, 'wb') as out_file:
+        out_file.write( gz.read() )
     log("Extracted file saved to %s" % self.file)
