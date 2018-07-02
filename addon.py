@@ -18,4 +18,5 @@ elif action == 'update_tvdb':
 else:
   play_channel(id)
 
+xbmcplugin.setContent(int(sys.argv[1]), 'movies')
 xbmcplugin.endOfDirectory(int(sys.argv[1]))
