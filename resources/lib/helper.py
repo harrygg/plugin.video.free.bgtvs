@@ -10,7 +10,7 @@ import xbmcplugin
 from assets import Assets
 from playlist import *
 from kodibgcommon.utils import *
-
+       
 if settings.use_local_db and settings.db_file_path != '' and os.path.isfile(settings.db_file_path):
   db_file = settings.db_file_path
 else:
@@ -79,7 +79,6 @@ def get_channels(id):
     if id == str(0):
       sign = "<>"
       no_radio_rule = "AND c.category_id <> 7"
-    
     disabled_query = '''AND s.disabled = 0''' if not settings.show_disabled else ''
 
     query = '''
@@ -96,9 +95,9 @@ def get_channels(id):
     for row in cursor:
       c = Channel(row)
       channels.append(c)
-      
-  except Exception, er:
-    log('get_channels() %s: %s ' % (str(er), xbmc.LOGERROR))
+    xbmc.log("Extracted %s channels" % len(channels), xbmc.LOGERROR)
+  except Exception as er:
+    log('Error in get_channels(): %s' % str(er), xbmc.LOGERROR)
     show_notification(str(er), True)
   return channels
 
@@ -128,7 +127,8 @@ def get_streams(id):
     
     for row in cursor:
       c = Stream(row)
-      streams.append(c)
+      if c:
+        streams.append(c)
   except Exception, er:
     log(str(er), xbmc.LOGERROR)
     show_notification(str(er), True)

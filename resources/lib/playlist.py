@@ -3,7 +3,11 @@ import os
 import re
 import sys
 import xbmc
+import xbmcaddon
+import json
+import time
 import requests
+from kodibgcommon.utils import *
 
 reload(sys)  
 sys.setdefaultencoding('utf8')
@@ -72,7 +76,9 @@ class Channel:
 class Stream:
   def __init__(self, attr):
     self.id = attr[0] 
-    self.channel_id = attr[1] 
+    xbmc.log("id=%s" % attr[0])
+    self.channel_id = attr[1]
+    xbmc.log("channel_id=%s" % attr[1])
     self.url = attr[2]
     self.page_url = attr[3]
     self.player_url = attr[4]
@@ -80,22 +86,39 @@ class Stream:
     self.comment = attr[6]
     self.user_agent = False if attr[9] == None else attr[9]
     if self.url == None:
+      xbmc.log("Resolving playpath url from %s" % self.player_url, 4)
       self.url = self.resolve()
     if self.url is not None and self.user_agent: 
       self.url += '|User-Agent=%s' % self.user_agent
+    if self.url is not None and self.page_url:
+      self.url += '&Referer=%s' % self.page_url
+    xbmc.log("Stream final playpath: %s" % self.url, xbmc.LOGERROR)
     
   def resolve(self):
-    #if '3583019' in self.player_url: #BiT
-    #	return self._livestream()
+    stream = None
+    s = requests.session()
     headers = {'User-agent': self.user_agent, 'Referer':self.page_url}
-    res = requests.get(self.player_url, headers=headers)
-    m = re.compile('(//.*\.m3u.*?)[\s\'"]+').findall(res.text)
-    if len(m) == 0:
-        xbmc.log(res.text, xbmc.LOGNOTICE)
+    
+    # If btv - custom dirty fix to force login
+    if self.channel_id == 2:
+      body = { "username": settings.btv_username, "password": settings.btv_password }
+      headers["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8"
+      r = s.post("https://btvplus.bg/lbin/social/login.php", headers=headers, data=body)
+      xbmc.log(r.text, xbmc.LOGNOTICE)
+      if r.json()["resp"] != "success":
+        xbmc.log("Unable to login to btv.bg", xbmc.LOGERROR)
+        return None
+
+    self.player_url = self.player_url.replace("{timestamp}", str(time.time() * 100))
+    xbmc.log(self.player_url, xbmc.LOGNOTICE)
+    r = s.get(self.player_url, headers=headers)
+    xbmc.log(r.text, 4)
+    m = re.compile('(http.*\.m3u.*?)[\s\'"\\\\]+').findall(r.text)
+    if len(m) > 0:
+      stream = m[0].replace('\/', '/')
     else:
-      if not m[0].startswith("http:") and not m[0].startswith("https:"): #some links omit the http prefix
-        m[0] = "https:" + m[0]
+      xbmc.log("No match for playlist url found", xbmc.LOGNOTICE)
+      
     xbmc.log('Намерени %s съвпадения в %s' % (len(m), self.player_url), xbmc.LOGNOTICE)
-    stream = None if len(m) == 0 else m[0]
     xbmc.log('Извлечен видео поток %s' % stream, xbmc.LOGNOTICE)
     return stream
