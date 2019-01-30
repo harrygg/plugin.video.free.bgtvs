@@ -57,17 +57,12 @@ class Channel:
 
   def __init__(self, attr):
     self.id = attr[0]
-    self.disabled = attr[1] == 1
-    self.name = attr[2]
-    self.category = attr[3]
-    self.logo = attr[4]
-    self.streams = attr[5]
-    self.playpath = '' if attr[6] == None else attr[6]
-    self.page_url = '' if attr[7] == None else attr[7]
-    self.player_url = '' if attr[8] == None else attr[8]
-    self.epg_id = '' if attr[9] == None else attr[9]
-    self.user_agent = False if attr[10] == None else attr[10]
-
+    self.name = attr[1]
+    self.logo = attr[2]
+    self.ordering = attr[3]
+    self.enabled = attr[4] == 1
+    #self.is_radio = 
+    
   def to_string(self):
     output = '#EXTINF:-1 radio="False" tvg-shift=0 group-title="%s" tvg-logo="%s" tvg-id="%s",%s\n' % (self.category, self.logo, self.epg_id, self.name)
     output += '%s\n' % self.playpath
@@ -76,16 +71,17 @@ class Channel:
 class Stream:
   def __init__(self, attr):
     self.id = attr[0] 
-    xbmc.log("id=%s" % attr[0])
+    xbmc.log("stream id=%s" % attr[0], xbmc.LOGNOTICE)
     self.channel_id = attr[1]
-    xbmc.log("channel_id=%s" % attr[1])
+    xbmc.log("channel_id=%s" % attr[1], xbmc.LOGNOTICE)
     self.url = attr[2]
+    xbmc.log("url=%s" % attr[2], xbmc.LOGNOTICE)
     self.page_url = attr[3]
     self.player_url = attr[4]
-    self.disabled = attr[5] == 1
+    self.enabled = attr[5] == 1
     self.comment = attr[6]
-    self.user_agent = False if attr[9] == None else attr[9]
-    if self.url == None:
+    self.user_agent = False if attr[7] == None else attr[7]
+    if self.url == None or self.url == "":
       xbmc.log("Resolving playpath url from %s" % self.player_url, 4)
       self.url = self.resolve()
     if self.url is not None and self.user_agent: 
@@ -112,13 +108,18 @@ class Stream:
     self.player_url = self.player_url.replace("{timestamp}", str(time.time() * 100))
     xbmc.log(self.player_url, xbmc.LOGNOTICE)
     r = s.get(self.player_url, headers=headers)
-    xbmc.log(r.text, 4)
-    m = re.compile('(http.*\.m3u.*?)[\s\'"\\\\]+').findall(r.text)
+    xbmc.log("body before replacing escape backslashes: " + r.text, xbmc.LOGNOTICE)
+    body = r.text.replace('\\/', '/').replace("\\\"", "\"")
+    xbmc.log("body after replacing escape backslashes: " + body, xbmc.LOGNOTICE)
+    m = re.compile('(//.*\.m3u.*?)[\s\'"]+').findall(body)
     if len(m) > 0:
-      stream = m[0].replace('\/', '/')
+      if self.player_url.startswith("https"):
+        stream = "https:" + m[0]
+      elif self.player_url.startswith("http"):
+        stream = "http:" + m[0]
+      xbmc.log('Намерени %s съвпадения в %s' % (len(m), self.player_url), xbmc.LOGNOTICE)
+      xbmc.log('Извлечен видео поток %s' % stream, xbmc.LOGNOTICE)
     else:
-      xbmc.log("No match for playlist url found", xbmc.LOGNOTICE)
+      xbmc.log("Не са намерени съвпадения за m3u", xbmc.LOGERROR)
       
-    xbmc.log('Намерени %s съвпадения в %s' % (len(m), self.player_url), xbmc.LOGNOTICE)
-    xbmc.log('Извлечен видео поток %s' % stream, xbmc.LOGNOTICE)
     return stream
