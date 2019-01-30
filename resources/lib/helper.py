@@ -174,7 +174,7 @@ def update_tvdb():
   try:
     log('Force-updating tvdb')
     # recreated the db_file in case db_file is overwritten by use_local_db
-    __db_file__ = os.path.join( get_resources_dir(), 'tv.db' )
+    __db_file__ = os.path.join( get_resources_dir(), 'tvs.sqlite3' )
     asset = Assets( __db_file__, backup_db_file )
     progress_bar.update(1, "Downloading database...")
     res = asset.update(settings.url_to_db)
