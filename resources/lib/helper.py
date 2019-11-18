@@ -191,7 +191,7 @@ def update_tvdb():
   
   if progress_bar:
     progress_bar.close()
-
+  
 def show_notification(msg, is_error=False, time=3000):
   title = "Грешка" if is_error else "Успех"
   command = "Notification(%s,%s,%s)" % (title, str(msg).encode('utf-8'), time)

@@ -102,22 +102,25 @@ class Stream:
       r = s.post("https://btvplus.bg/lbin/social/login.php", headers=headers, data=body)
       xbmc.log(r.text, xbmc.LOGNOTICE)
       if r.json()["resp"] != "success":
-        xbmc.log("Unable to login to btv.bg", xbmc.LOGERROR)
+        log("Проблем при вписването в сайта btv.bg", 4)
         return None
 
     self.player_url = self.player_url.replace("{timestamp}", str(time.time() * 100))
     xbmc.log(self.player_url, xbmc.LOGNOTICE)
     r = s.get(self.player_url, headers=headers)
-    xbmc.log("body before replacing escape backslashes: " + r.text, xbmc.LOGNOTICE)
+    # xbmc.log("body before replacing escape backslashes: " + r.text, xbmc.LOGNOTICE)
     body = r.text.replace('\\/', '/').replace("\\\"", "\"")
-    xbmc.log("body after replacing escape backslashes: " + body, xbmc.LOGNOTICE)
-    m = re.compile('(//.*\.m3u.*?)[\s\'"]+').findall(body)
+    # xbmc.log("body after replacing escape backslashes: " + body, xbmc.LOGNOTICE)
+
+    regex = '(//.*?\.m3u.*?)[\s\'"]{1}'
+    log ("Използван регулярен израз: %s" % regex)
+    m = re.compile(regex).findall(body)
     if len(m) > 0:
+      xbmc.log('Намерени %s съвпадения в %s' % (len(m), self.player_url), xbmc.LOGNOTICE)
       if self.player_url.startswith("https"):
         stream = "https:" + m[0]
       elif self.player_url.startswith("http"):
         stream = "http:" + m[0]
-      xbmc.log('Намерени %s съвпадения в %s' % (len(m), self.player_url), xbmc.LOGNOTICE)
       xbmc.log('Извлечен видео поток %s' % stream, xbmc.LOGNOTICE)
     else:
       xbmc.log("Не са намерени съвпадения за m3u", xbmc.LOGERROR)
