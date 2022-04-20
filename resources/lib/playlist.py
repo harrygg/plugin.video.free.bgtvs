@@ -90,7 +90,8 @@ class Stream:
     self.player_url = attr[4]
     self.enabled = attr[5] == 1
     self.comment = attr[6]
-    self.user_agent = False if attr[7] == None else attr[7]
+    self.user_agent = False if attr[7] is None else attr[7]
+    self.regex = False if attr[8] is None else attr[8]
     if self.url == None or self.url == "":
       log_info("Resolving playpath url from %s" % self.player_url)
       self.url = self.resolve()
@@ -106,14 +107,14 @@ class Stream:
     headers = {'User-agent': self.user_agent, 'Referer':self.page_url}
     
     # If btv - custom dirty fix to force login
-    if self.channel_id == 2:
-      body = { "username": settings.btv_username, "password": settings.btv_password }
-      headers["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8"
-      r = s.post("https://btvplus.bg/lbin/social/login.php", headers=headers, data=body)
-      log_info(r.text)
-      if r.json()["resp"] != "success":
-        log_error("Проблем при вписването в сайта btv.bg")
-        return None
+    # if self.channel_id == 2:
+    #   body = { "username": settings.btv_username, "password": settings.btv_password }
+    #   headers["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8"
+    #   r = s.post("https://btvplus.bg/lbin/social/login.php", headers=headers, data=body)
+    #   log_info(r.text)
+    #   if r.json()["resp"] != "success":
+    #     log_error("Проблем при вписването в сайта btv.bg")
+    #     return None
 
     self.player_url = self.player_url.replace("{timestamp}", str(time.time() * 100))
     log_info(self.player_url)
@@ -122,16 +123,19 @@ class Stream:
     body = r.text.replace('\\/', '/').replace("\\\"", "\"")
     # log_info("body after replacing escape backslashes: " + body)
 
-    regex = '(//.*?\.m3u.*?)[\s\'"]{1}'
-    log_info("Използван регулярен израз: %s" % regex)
-    m = re.compile(regex).findall(body)
-    if len(m) > 0:
-      log_info('Намерени %s съвпадения в %s' % (len(m), self.player_url))
-      if self.player_url.startswith("https"):
-        stream = "https:" + m[0]
-      elif self.player_url.startswith("http"):
-        stream = "http:" + m[0]
-      log_info('Извлечен видео поток %s' % stream)
+    regex = self.regex if self.regex else '(//.*?\.m3u.*?)[\s\'"]{1}'
+    log_info("Regex used: %s" % regex)
+    matches = re.compile(regex).findall(body)
+    if len(matches) > 0:
+      log_info('Found %s matches in %s' % (len(matches), self.player_url))
+      if not matches[0].startswith('http'):
+        if self.player_url.startswith("https"):
+          stream = "https:" + matches[0]
+        elif self.player_url.startswith("http"):
+          stream = "http:" + matches[0]
+      else:
+        stream = matches[0]
+        log_info('Извлечен видео поток %s' % stream)
     else:
       log_error("Не са намерени съвпадения за m3u")
       
