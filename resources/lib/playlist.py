@@ -1,16 +1,12 @@
 # -*- coding: utf8 -*-
 import os
 import re
-import sys
-import xbmc
-import xbmcaddon
-import json
 import time
 import requests
-from kodibgcommon.utils import *
+from kodibgcommon.settings import settings
+from kodibgcommon.logging import log_info, log_error
 
-reload(sys)  
-sys.setdefaultencoding('utf8')
+import importlib
 
 class Playlist:
   name = 'playlist.m3u'
@@ -23,19 +19,25 @@ class Playlist:
       self.name = name
   
   def save(self, path):
+    '''
+    '''
     file_path = os.path.join(path, self.name)
-    xbmc.log("Запазване на плейлистата: %s " % file_path, xbmc.LOGNOTICE)
+    log_info("Запазване на плейлистата: %s " % file_path)
     if os.path.exists(path):
       with open(file_path, 'w') as f:
         f.write(self.to_string().encode('utf-8', 'replace'))
   
   def concat(self, new_m3u, append = True, raw = True):
+    '''
+    '''
     if raw: #TODO implement parsing playlists
       self.append = append
       with open(new_m3u, 'r') as f:
         self.raw_m3u = f.read().replace('#EXTM3U', '')
   
   def to_string(self):
+    '''
+    '''
     output = ''
     for c in self.channels:
       output += c.to_string()
@@ -56,6 +58,8 @@ class Category:
 class Channel:
 
   def __init__(self, attr):
+    '''
+    '''
     self.id = attr[0]
     self.name = attr[1]
     self.logo = attr[2]
@@ -64,31 +68,37 @@ class Channel:
     #self.is_radio = 
     
   def to_string(self):
+    '''
+    '''
     output = '#EXTINF:-1 radio="False" tvg-shift=0 group-title="%s" tvg-logo="%s" tvg-id="%s",%s\n' % (self.category, self.logo, self.epg_id, self.name)
     output += '%s\n' % self.playpath
     return output 
  
 class Stream:
+  '''
+  '''
   def __init__(self, attr):
+    '''
+    '''
     self.id = attr[0] 
-    xbmc.log("stream id=%s" % attr[0], xbmc.LOGNOTICE)
+    log_info("stream id=%s" % attr[0])
     self.channel_id = attr[1]
-    xbmc.log("channel_id=%s" % attr[1], xbmc.LOGNOTICE)
+    log_info("channel_id=%s" % attr[1])
     self.url = attr[2]
-    xbmc.log("url=%s" % attr[2], xbmc.LOGNOTICE)
+    log_info("url=%s" % attr[2])
     self.page_url = attr[3]
     self.player_url = attr[4]
     self.enabled = attr[5] == 1
     self.comment = attr[6]
     self.user_agent = False if attr[7] == None else attr[7]
     if self.url == None or self.url == "":
-      xbmc.log("Resolving playpath url from %s" % self.player_url, 4)
+      log_info("Resolving playpath url from %s" % self.player_url)
       self.url = self.resolve()
     if self.url is not None and self.user_agent: 
       self.url += '|User-Agent=%s' % self.user_agent
     if self.url is not None and self.page_url:
       self.url += '&Referer=%s' % self.page_url
-    xbmc.log("Stream final playpath: %s" % self.url, xbmc.LOGERROR)
+    log_info("Stream final playpath: %s" % self.url)
     
   def resolve(self):
     stream = None
@@ -100,29 +110,29 @@ class Stream:
       body = { "username": settings.btv_username, "password": settings.btv_password }
       headers["Content-Type"] = "application/x-www-form-urlencoded; charset=UTF-8"
       r = s.post("https://btvplus.bg/lbin/social/login.php", headers=headers, data=body)
-      xbmc.log(r.text, xbmc.LOGNOTICE)
+      log_info(r.text)
       if r.json()["resp"] != "success":
-        log("Проблем при вписването в сайта btv.bg", 4)
+        log_error("Проблем при вписването в сайта btv.bg")
         return None
 
     self.player_url = self.player_url.replace("{timestamp}", str(time.time() * 100))
-    xbmc.log(self.player_url, xbmc.LOGNOTICE)
+    log_info(self.player_url)
     r = s.get(self.player_url, headers=headers)
-    # xbmc.log("body before replacing escape backslashes: " + r.text, xbmc.LOGNOTICE)
+    # log_info("body before replacing escape backslashes: " + r.text)
     body = r.text.replace('\\/', '/').replace("\\\"", "\"")
-    # xbmc.log("body after replacing escape backslashes: " + body, xbmc.LOGNOTICE)
+    # log_info("body after replacing escape backslashes: " + body)
 
     regex = '(//.*?\.m3u.*?)[\s\'"]{1}'
-    log ("Използван регулярен израз: %s" % regex)
+    log_info("Използван регулярен израз: %s" % regex)
     m = re.compile(regex).findall(body)
     if len(m) > 0:
-      xbmc.log('Намерени %s съвпадения в %s' % (len(m), self.player_url), xbmc.LOGNOTICE)
+      log_info('Намерени %s съвпадения в %s' % (len(m), self.player_url))
       if self.player_url.startswith("https"):
         stream = "https:" + m[0]
       elif self.player_url.startswith("http"):
         stream = "http:" + m[0]
-      xbmc.log('Извлечен видео поток %s' % stream, xbmc.LOGNOTICE)
+      log_info('Извлечен видео поток %s' % stream)
     else:
-      xbmc.log("Не са намерени съвпадения за m3u", xbmc.LOGERROR)
+      log_error("Не са намерени съвпадения за m3u")
       
     return stream

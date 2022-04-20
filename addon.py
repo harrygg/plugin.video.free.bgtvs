@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import sys
-import xbmcplugin
+from  xbmcplugin import setContent, endOfDirectory
 from resources.lib.helper import *
+from kodibgcommon.utils import get_params
 
 params = get_params()
 action = params.get("action")
@@ -18,5 +19,5 @@ elif action == 'update_tvdb':
 else:
   play_channel(id)
 
-xbmcplugin.setContent(int(sys.argv[1]), 'movies')
-xbmcplugin.endOfDirectory(int(sys.argv[1]))
+setContent(int(sys.argv[1]), 'movies')
+endOfDirectory(int(sys.argv[1]))

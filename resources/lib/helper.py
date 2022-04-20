@@ -4,12 +4,12 @@ import time
 import xbmc
 import sqlite3
 import xbmcgui
-import traceback
-import xbmcaddon
 import xbmcplugin
-from assets import Assets
-from playlist import *
-from kodibgcommon.utils import *
+from .assets import Assets
+from .playlist import *
+from kodibgcommon.settings import settings
+from kodibgcommon.utils import get_profile_dir, get_resources_dir, make_url, get_addon_name, get_addon_version
+from kodibgcommon.logging import log_info, log_error
        
 #append_pydev_remote_debugger
 if False:
@@ -32,7 +32,7 @@ def show_categories():
     asset = Assets(db_file, backup_db_file)
     if asset.is_old():
       asset.update(settings.url_to_db)
-  log("Loading data from DB file: %s" % db_file)
+  log_info("Loading data from DB file: %s" % db_file)
   
   try:
     conn = sqlite3.connect(db_file)
@@ -49,7 +49,7 @@ def show_categories():
       xbmcplugin.addDirectoryItem(int(sys.argv[1]), url, li, True)  
      
   except Exception as er:
-    log(er, xbmc.LOGERROR)
+    log_error(er)
     show_notification(str(er), True)
   
   if not settings.use_local_db:
@@ -66,7 +66,7 @@ def show_channels(id):
   for c in channels:
     if not c.enabled and not settings.show_only_enabled:
       c.name = '[COLOR brown]%s[/COLOR]' % c.name
-    li = xbmcgui.ListItem(c.name, iconImage = c.logo, thumbnailImage = c.logo)
+    li = xbmcgui.ListItem(c.name)
     li.setInfo( type = "Video", infoLabels = { "Title" : c.name } )
     li.setProperty("IsPlayable", str(False))
 
@@ -76,9 +76,10 @@ def show_channels(id):
     xbmcplugin.addDirectoryItem(int(sys.argv[1]), url, li, False) 
 
 def get_channels(category_id):
-  
+  '''
+  '''
   channels = []
-  log("Getting channel for category id: %s" % category_id)
+  log_info("Getting channel for category id: %s" % category_id)
   
   #try:
   conn = sqlite3.connect(db_file)
@@ -117,14 +118,15 @@ def show_streams(channel_id):
       return False
     
   url = streams[select].url
-  log('resolved url: %s' % url)
+  log_info('resolved url: %s' % url)
   item = xbmcgui.ListItem(path=url)
   item.setInfo( type = "Video", infoLabels = { "Title" : ''} )
   item.setProperty("IsPlayable", str(True))
   xbmcplugin.setResolvedUrl(int(sys.argv[1]), succeeded=True, listitem=item)
   
 def get_streams(channel_id):
-  
+  '''
+  '''
   streams = []
   
   conn = sqlite3.connect(db_file)
@@ -155,7 +157,7 @@ def update(name, location, crash=None):
   lu = settings.last_update
   day = time.strftime("%d")
   if lu == "" or lu != day:
-    import ga
+    from ga import ga
     settings.last_update = day
     p = {}
     p['an'] = get_addon_name()
@@ -165,14 +167,14 @@ def update(name, location, crash=None):
     p['ev'] = '1'
     p['ul'] = xbmc.getLanguage()
     p['cd'] = location
-    ga.ga('UA-79422131-7').update(p, crash)
+    ga('UA-79422131-7').update(p, crash)
 
 def update_tvdb():
   progress_bar = xbmcgui.DialogProgressBG()
   progress_bar.create(heading="Downloading database...")
   msg = "Базата данни НЕ бе обновена!"
   try:
-    log('Force-updating tvdb')
+    log_info('Force-updating tvdb')
     # recreated the db_file in case db_file is overwritten by use_local_db
     __db_file__ = os.path.join( get_resources_dir(), 'tvs.sqlite3' )
     asset = Assets( __db_file__, backup_db_file )
@@ -184,7 +186,7 @@ def update_tvdb():
       msg += " Използвате локална база данни!"
 
   except Exception as ex:
-    log(ex, 4)
+    log_error(ex)
     show_notification(ex, True)
   
   show_notification(msg, not res)
@@ -194,6 +196,6 @@ def update_tvdb():
   
 def show_notification(msg, is_error=False, time=3000):
   title = "Грешка" if is_error else "Успех"
-  command = "Notification(%s,%s,%s)" % (title, str(msg).encode('utf-8'), time)
+  command = "Notification(%s,%s,%s)" % (title, msg, time)
   xbmc.executebuiltin(command)  
 

@@ -1,9 +1,9 @@
 # -*- coding: utf8 -*-
 import os
-import sys
 import gzip
-import urllib2
-from kodibgcommon.utils import log
+import xbmcvfs
+import urllib.request, urllib.error, urllib.parse
+from kodibgcommon.logging import log_info, log_error
 
 ### Basic class to download assets on a given time interval
 ### If download fails, and the old file doesn't exist
@@ -22,13 +22,12 @@ class Assets:
   
   def update(self, url):
     try:
-      log('Downloading assets from url: %s' % url)
+      log_info('Downloading assets from url: %s' % url)
       self.download(url)
-      log('Assets file downloaded and saved as %s' % self.file)
+      log_info('Assets file downloaded and saved as %s' % self.file)
       return True
     except Exception as ex:
-      log(ex, 4)
-      log('Unable to update assets file!', 4)
+      log_error('Unable to update assets file! %s' % ex)
       return False
  
   def is_old(self, interval=24):
@@ -49,8 +48,8 @@ class Assets:
         return False
       else: #file does not exist, perhaps first run
         return True
-    except Exception, er:
-      log(str(er), 4)
+    except Exception as er:
+      log_error(er)
       return True
 
   def download(self, url):
@@ -64,7 +63,7 @@ class Assets:
       downloaded_file = os.path.join(self.temp_dir, file_name)
     else:
       downloaded_file = self.file
-    res = urllib2.urlopen(url)
+    res = urllib.request.urlopen(url)
     with open(downloaded_file, "wb") as code:
       code.write(res.read())    
     if is_compressed:
@@ -72,8 +71,8 @@ class Assets:
 
   
   def extract(self, compressed_file):
-    log("Extracting file %s" % compressed_file)
+    log_info("Extracting file %s" % compressed_file)
     with gzip.GzipFile(self.file, 'rb') as gz:
       with open(self.file, 'wb') as out_file:
         out_file.write( gz.read() )
-    log("Extracted file saved to %s" % self.file)
+    log_info("Extracted file saved to %s" % self.file)
