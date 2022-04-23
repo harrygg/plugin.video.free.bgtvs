@@ -30,7 +30,7 @@ class Playlist:
   def concat(self, new_m3u, append = True, raw = True):
     '''
     '''
-    if raw: #TODO implement parsing playlists
+    if raw:
       self.append = append
       with open(new_m3u, 'r') as f:
         self.raw_m3u = f.read().replace('#EXTM3U', '')

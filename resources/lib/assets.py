@@ -1,78 +1,74 @@
 # -*- coding: utf8 -*-
 import os
-import gzip
-import xbmcvfs
 import urllib.request, urllib.error, urllib.parse
-from kodibgcommon.logging import log_info, log_error
 
-### Basic class to download assets on a given time interval
-### If download fails, and the old file doesn't exist
-### Use a local file
-
-class Assets:
-  file = None
-  temp_dir = None
+class DbAsset:
+  '''
+  ''' 
+  def __init__(self, **kwargs):
+    self.file_path = kwargs.get('file_path')
+    self._file_name = kwargs.get('file_name', 'tvs.sqlite3')
+    self._temp_dir = kwargs.get('temp_dir')
+    if not self.file_path:
+      self.file_path = os.path.join(self._temp_dir, self._file_name)
+    self._url = kwargs.get('url')
+    self._log_delegate = kwargs.get('log_delegate')
+    # temp_dir = os.path.dirname(os.path.realpath(db_file))
+    # if not os.path.isdir(self.temp_dir):
+    #   xbmcvfs.mkdir(self.temp_dir)
   
-  def __init__(self, db_file, backup_file):
-    self.file = db_file
-    self.backup_file = backup_file
-    temp_dir = os.path.dirname(os.path.realpath(db_file))
-    if not os.path.isdir(temp_dir):
-      xbmcvfs.mkdir(temp_dir)
-  
-  def update(self, url):
-    try:
-      log_info('Downloading assets from url: %s' % url)
-      self.download(url)
-      log_info('Assets file downloaded and saved as %s' % self.file)
-      return True
-    except Exception as ex:
-      log_error('Unable to update assets file! %s' % ex)
-      return False
- 
-  def is_old(self, interval=24):
+  def is_expired(self, interval_hours=24):
     '''
       Checks whether the asset file is older than the time interval in hours
       or that its older than the back_up file (in case of addon updates)
     '''
     try:
       from datetime import datetime, timedelta
-      if os.path.isfile(self.file):
-        treshold = datetime.now() - timedelta(hours=interval)
-        modified = datetime.fromtimestamp(os.path.getmtime(self.file))
-        if modified < treshold: #file is more than a day old
-          return True
-        backup_modified = datetime.fromtimestamp(os.path.getmtime(self.backup_file))
-        if modified < backup_modified:
+      if os.path.isfile(self.file_path):
+        treshold = datetime.now() - timedelta(hours=interval_hours)
+        modified = datetime.fromtimestamp(os.path.getmtime(self.file_path))
+        if modified < treshold: 
           return True
         return False
-      else: #file does not exist, perhaps first run
+      else:
         return True
     except Exception as er:
-      log_error(er)
+      self.__log(er, 4)
       return True
 
-  def download(self, url):
+
+  def update(self):
+    '''
+    Updates the local DB file
+    '''
+    temp_file_path = self.file_path + '_new'
+    res = self.__download(self._url, temp_file_path)
+    if res:
+      try:
+        os.remove(self.file_path)
+        os.rename(temp_file_path, self.file_path)
+        return True
+      except Exception as ex:
+        self.__log('Unable to update assets file! %s' % ex, 4)
+    return False
+ 
+ 
+  def __download(self, url, local_file):
     '''
       Downloads a new asset from a given url
       If the asset is compressed, the file will be extracted
     '''
-    file_name = os.path.basename(url).split("?")[0]
-    is_compressed = file_name.endswith('gz')
-    if is_compressed:
-      downloaded_file = os.path.join(self.temp_dir, file_name)
-    else:
-      downloaded_file = self.file
-    res = urllib.request.urlopen(url)
-    with open(downloaded_file, "wb") as code:
-      code.write(res.read())    
-    if is_compressed:
-      self.extract(downloaded_file)  
+    try:
+      self.__log('Downloading assets from url: %s' % url)
+      res = urllib.request.urlopen(url)
+      with open(local_file, "wb") as code:
+        code.write(res.read())
+      self.__log('Assets file downloaded and saved as %s' % local_file)
+      return True
+    except Exception as ex:
+      self.__log(ex, 4)
+      return False
 
-  
-  def extract(self, compressed_file):
-    log_info("Extracting file %s" % compressed_file)
-    with gzip.GzipFile(self.file, 'rb') as gz:
-      with open(self.file, 'wb') as out_file:
-        out_file.write( gz.read() )
-    log_info("Extracted file saved to %s" % self.file)
+  def __log(self, msg, level=2):
+    if self._log_delegate:
+      self._log_delegate(msg, level)
