@@ -30,12 +30,12 @@ def show_categories():
   update('browse', 'Categories')
   if not settings.use_local_db:
     asset = DbAsset(
-      url=settings.url,
+      url=settings.url_to_db,
       log_delegate=log,
       file_path=db_file_path
     )
     if asset.is_expired():
-      asset.update(settings.url_to_db)
+      asset.update()
   log_info("Loading data from DB file: %s" % db_file_path)
   try:
     conn = sqlite3.connect(db_file_path)
