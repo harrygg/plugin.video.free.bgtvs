@@ -6,50 +6,6 @@ import requests
 from kodibgcommon.settings import settings
 from kodibgcommon.logging import log_info, log_error
 
-import importlib
-
-class Playlist:
-  name = 'playlist.m3u'
-  channels = []
-  raw_m3u = None
-  append = True
-  
-  def __init__(self, name = ''):
-    if name != '':
-      self.name = name
-  
-  def save(self, path):
-    '''
-    '''
-    file_path = os.path.join(path, self.name)
-    log_info("Запазване на плейлистата: %s " % file_path)
-    if os.path.exists(path):
-      with open(file_path, 'w') as f:
-        f.write(self.to_string().encode('utf-8', 'replace'))
-  
-  def concat(self, new_m3u, append = True, raw = True):
-    '''
-    '''
-    if raw:
-      self.append = append
-      with open(new_m3u, 'r') as f:
-        self.raw_m3u = f.read().replace('#EXTM3U', '')
-  
-  def to_string(self):
-    '''
-    '''
-    output = ''
-    for c in self.channels:
-      output += c.to_string()
-      
-    if self.raw_m3u != None:
-      if self.append:
-        output += self.raw_m3u
-      else:
-        output = self.raw_m3u + output
-    
-    return '#EXTM3U\n' + output
-
 class Category:
 	def __init__(self, id, title):
 		self.id = id
@@ -135,8 +91,8 @@ class Stream:
           stream = "http:" + matches[0]
       else:
         stream = matches[0]
-        log_info('Извлечен видео поток %s' % stream)
+        log_info('Extracted stream %s' % stream)
     else:
-      log_error("Не са намерени съвпадения за m3u")
+      log_error("No matches found for m3u extraction")
       
     return stream

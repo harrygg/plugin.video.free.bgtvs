@@ -45,7 +45,8 @@ class DbAsset:
     res = self.__download(self._url, temp_file_path)
     if res:
       try:
-        os.remove(self.file_path)
+        if os.path.isfile(self.file_path):
+          os.remove(self.file_path)
         os.rename(temp_file_path, self.file_path)
         return True
       except Exception as ex:
