@@ -114,7 +114,7 @@ def get_streams(channel_id):
   '''
   streams = []
   conn = sqlite3.connect(db_file_path)
-  query =  "SELECT s.id, s.channel_id, s.stream_url, s.page_url, s.player_url, s.enabled, s.comment, u.string AS user_agent, s.regex "
+  query =  "SELECT s.id, s.channel_id, s.stream_url, s.page_url, s.player_url, s.enabled, s.comment, u.string AS user_agent, s.regex, s.stream_referer "
   query += "FROM freetvandradio_stream AS s "
   query += "JOIN freetvandradio_user_agent as u ON s.user_agent_id==u.id "
   query += "WHERE channel_id=%s" % channel_id

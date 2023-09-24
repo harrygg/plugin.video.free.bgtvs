@@ -4,7 +4,7 @@ import re
 import time
 import requests
 from kodibgcommon.settings import settings
-from kodibgcommon.logging import log_info, log_error
+from kodibgcommon.logging import log_info, log_debug, log_error
 
 class Category:
 	def __init__(self, id, title):
@@ -48,13 +48,14 @@ class Stream:
     self.comment = attr[6]
     self.user_agent = False if attr[7] is None else attr[7]
     self.regex = False if attr[8] is None else attr[8]
+    self.referer = False if attr[9] is None else attr[9]
     if self.url == None or self.url == "":
       log_info("Resolving playpath url from %s" % self.player_url)
       self.url = self.resolve()
     if self.url is not None and self.user_agent: 
       self.url += '|User-Agent=%s' % self.user_agent
-    if self.url is not None and self.page_url:
-      self.url += '&Referer=%s' % self.page_url
+    if self.url is not None and self.referer:
+      self.url += '&Referer=%s' % self.referer
     log_info("Stream final playpath: %s" % self.url)
     
   def resolve(self):
@@ -94,5 +95,6 @@ class Stream:
         log_info('Extracted stream %s' % stream)
     else:
       log_error("No matches found for m3u extraction")
+      log_debug("Response body: \n" + body)
       
     return stream
